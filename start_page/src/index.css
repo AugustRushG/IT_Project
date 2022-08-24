@@ -35,47 +35,6 @@
 
 }
 
-.LogIn{
-  position: absolute;
-  left: 72.5%;
-  right: 19.03%;
-  top: 24.58%;
-  bottom: 33.05%;
-
-  background: #D9D9D9;
-  box-shadow: 0px 4px 4px rgba(0, 0, 0, 0.25);
-  border-radius: 20px;
-
-  font-family: 'Inter';
-  font-style: normal;
-  font-weight: 700;
-  font-size: 20px;
-  line-height: 24px;
-
-  color: #000000;
-
-
-}
-
-.SignUp{
-  position: absolute;
-  left: 84.51%;
-  right: 5.83%;
-  top: 24.58%;
-  bottom: 33.05%;
-
-  background: #D9D9D9;
-  box-shadow: 0px 4px 4px rgba(0, 0, 0, 0.25);
-  border-radius: 20px;
-  font-family: 'Inter';
-  font-style: normal;
-  font-weight: 700;
-  font-size: 20px;
-  line-height: 24px;
-
-  color: #000000;
-}
-
 .Footer{
   position: absolute;
   width: 100%;
@@ -88,7 +47,7 @@
   position: absolute;
   left: 657px;
   right: 657px;
-  top: 18px;
+  top: 8px;
   bottom: 17px;
   
   font-family: 'Inter';
@@ -102,81 +61,4 @@
   
 }
 
-.MainSection {
-  position: absolute;
-  width: 1201px;
-  height: 481px;
-  left: 119px;
-  top: 149px;
-  
-  background: #F5F5F5;
-  box-shadow: 0px 4px 4px rgba(0, 0, 0, 0.25);
-  border-radius: 20px;
-}
-
-.RegisterNow{
-  position: absolute;
-  width: 141px;
-  height: 53px;
-  left: 529px;
-  top: 310px;
-
-  background: #FFE24E;
-  border-radius: 20px;
-
-  font-family: 'Inter';
-  font-style: normal;
-  font-weight: 700;
-  font-size: 20px;
-  line-height: 24px;
-  text-align: center;
-
-  color: #000000;
-}
-
-.MainSection h1{
-  position: absolute;
-  left: 27.73%;
-  right: 27.64%;
-  top: 37.21%;
-  bottom: 52.81%;
-  
-
-  font-family: 'Inter';
-  font-style: normal;
-  font-weight: 800;
-  font-size: 40px;
-  line-height: 48px;
-  text-align: center;
-
-  color: #000000;
-
-}
-
-.MainSection p{
-  position: absolute;
-  width: 363px;
-  height: 36px;
-  left: 419px;
-  top: 230px;
-
-  font-family: 'Inter';
-  font-style: normal;
-  font-weight: 400;
-  font-size: 30px;
-  line-height: 36px;
-  text-align: center;
-
-  color: #000000;
-}
-
-.BottomSection{
-  position: absolute;
-  width: 100%;
-  height: 300px;
-  left: 0px;
-  top: 672px;
-
-  background: #FDF4C9;
-}
 
