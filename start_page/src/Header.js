@@ -9,12 +9,13 @@ const Header = () => {
   return (
     <header className='Header'>
         <h1>RecordIt</h1>
-        {location.pathname==='/' || location.pathname==='/LogIn' || location.pathname==='/Register'? (<>
-            <button className='LogIn'><Link to = '/LogIn'>LogIn</Link></button>
-            <button className='SignUp'><Link to = '/Register'>SignUp</Link></button>
-        </>):(<>
+        {location.pathname==='/dashBoard'? (<>
             <button className='Account'><Link to = '/LogIn'>Account</Link></button>
             <button className='LogOut'><Link to = '/'>LogOut</Link></button>
+        </>):(<>
+           
+            <button className='LogIn'><Link to = '/LogIn'>LogIn</Link></button>
+            <button className='SignUp'><Link to = '/Register'>SignUp</Link></button>
         </>)}
       
 

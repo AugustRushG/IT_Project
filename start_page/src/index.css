@@ -4,10 +4,6 @@
   box-sizing: border-box;
 }
 
-
-
-
-
 .App{
   box-sizing: border-box;
   position: relative;
@@ -24,8 +20,6 @@
   height: 118px;
   background: #FFE24E;
 }
-
-
 
 .LogIn{
   position: absolute;
@@ -91,6 +85,7 @@
   top: 100vh;
   background: #FFFFFF;
 }
+
 .Footer h1{
   position:absolute;
   left: 45.1%;
@@ -107,6 +102,13 @@
   
   color: #000000;
   
+}
+
+.Missing {
+  position: relative;
+  margin: auto;
+  text-align: center;
+  top: 50%;
 }
 
 

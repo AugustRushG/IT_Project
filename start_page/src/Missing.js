@@ -3,9 +3,12 @@ import { Link } from 'react-router-dom'
 
 const Missing = () => {
   return (
-    <main>
-       <h1> Missing</h1>
-       <Link to={'/'}>Back to Home</Link>
+    <main className='Missing'>
+       <h1> Ooops... This page is Missing</h1>
+       <h2>
+        <Link to={'/'}>Back to Home</Link>
+       </h2>
+       
     </main>
   )
 }
