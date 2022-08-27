@@ -5,13 +5,14 @@ import LogIn from "./logIn/LogIn";
 import Register from "./register/Register";
 import Missing from "./Missing";
 import {useState, useEffect} from 'react';
-import{Route, Routes, useNavigate,matchRoutes, useLocation } from 'react-router-dom'; 
+import {Route, Routes, useNavigate,matchRoutes, useLocation } from 'react-router-dom'; 
 import Dashboard from "./dashBoard/Dashboard";
 
 
 
 function App() {
-
+  
+  const[search,setSearch]=useState('');
  
 
   return (

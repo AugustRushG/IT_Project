@@ -5,5 +5,33 @@
     top: 100px;
     background: rgba(217, 217, 217, 0.42);
     mix-blend-mode: normal;
+}
 
+.SearchForm{
+    position: relative;
+    width: 37vw;
+    left: 60vw;
+    top: 5vh;
+}
+
+
+
+#search{
+    width: 80%;
+    min-height: 30px;
+    font-size: 1rem;
+    padding: 0.25rem;
+    border-radius: 0.25rem;
+    outline: none;
+}
+  
+.searchForm label {
+    position: relative;
+    left: -99999px;
+}
+
+.FaSearch{
+    position: relative;
+    top: 7px;
+    right: 10px;
 }
