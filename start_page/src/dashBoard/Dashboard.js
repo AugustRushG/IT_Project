@@ -1,8 +1,12 @@
 import React from 'react'
+import Information from './Information'
 
 const Dashboard = () => {
   return (
-    <div>Dashboard</div>
+    <div>Dashboard
+
+      <Information></Information>
+    </div>
   )
 }
 

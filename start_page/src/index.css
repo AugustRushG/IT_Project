@@ -2,6 +2,12 @@
   margin: 0;
   padding: 0;
   box-sizing: border-box;
+  
+}
+
+html{
+  height: 100%;
+  width: 100%;
 }
 
 .App{
@@ -9,8 +15,10 @@
   position: relative;
   width: 100%;
   height: 100vh;
+  max-height: 1080px;
+  max-width: 1920px;
   align-items: center;
-   
+ 
   background: #FFFFFF;
 }
 
@@ -62,6 +70,46 @@
   color: #000000;
 }
 
+.Account{
+  position: absolute;
+  left: 72.5%;
+  right: 19.03%;
+  top: 24.58%;
+  bottom: 33.05%;
+
+  background: #D9D9D9;
+  box-shadow: 0px 4px 4px rgba(0, 0, 0, 0.25);
+  border-radius: 20px;
+
+  font-family: 'Inter';
+  font-style: normal;
+  font-weight: 700;
+  font-size: 20px;
+  line-height: 24px;
+
+  color: #000000;
+
+}
+
+.LogOut{
+  position: absolute;
+  left: 84.51%;
+  right: 5.83%;
+  top: 24.58%;
+  bottom: 33.05%;
+
+  background: #D9D9D9;
+  box-shadow: 0px 4px 4px rgba(0, 0, 0, 0.25);
+  border-radius: 20px;
+  font-family: 'Inter';
+  font-style: normal;
+  font-weight: 700;
+  font-size: 20px;
+  line-height: 24px;
+
+  color: #000000;
+}
+
 .Header h1{
   position: absolute;
   left: 5.28%;
@@ -78,17 +126,17 @@
 }
 
 .Footer{
-  position: absolute;
+  position: relative;
   width: 100%;
-  height: 4%;
-  left: 0px;
-  top: 100vh;
+  height: 3vh;
+  top: 68vh;
   background: #FFFFFF;
+  
+  
 }
 
 .Footer h1{
-  position:absolute;
-  left: 45.1%;
+  position:relative;
   top: 20%;
   margin: auto;
  

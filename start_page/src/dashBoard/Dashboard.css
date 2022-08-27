@@ -1,0 +1,9 @@
+.Information{
+    position: relative;
+    width: 100%;
+    height: 17.8vh;
+    top: 100px;
+    background: rgba(217, 217, 217, 0.42);
+    mix-blend-mode: normal;
+
+}
