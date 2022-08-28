@@ -9,6 +9,10 @@ const USER_REGEX = /^[A-z][A-z0-9-_]{3,23}$/;
 const PWD_REGEX = /^(?=.*[a-z])(?=.*[A-Z])(?=.*[0-9])(?=.*[!@#$%]).{8,24}$/;
 
 const Register = () => {
+  function onlyLettersAndSpaces(str) {
+    return /^[A-Za-z\s]*$/.test(str);
+  }
+
   const userRef=useRef();
   const errRef=useRef();
 
@@ -23,6 +27,10 @@ const Register = () => {
   const [matchPwd, setMatchPwd] = useState('');
   const [validMatch, setValidMatch] = useState(false);
   const [matchFocus, setMatchFocus] = useState(false);
+
+  const [questionAnswer, setQuestionAnswer] = useState('');
+  const [validQA, setValidQA] = useState(false);
+  const [questionFocus, setQuestionFocus] = useState(false);
 
   const [errMsg, setErrMsg] = useState('');
   const [success, setSuccess] = useState(false);
@@ -49,6 +57,13 @@ const Register = () => {
 
   //useEffect on error message
   useEffect(()=>{setErrMsg('')},[user,pwd,matchPwd])
+
+  useEffect(()=>{
+    const result = onlyLettersAndSpaces(questionAnswer) && questionAnswer;
+    console.log("question result",result);
+    console.log(questionAnswer);
+    setValidQA(result);
+  },[questionAnswer])
 
   const handleSubmit = async(e)=>{
     e.preventDefault();
@@ -143,7 +158,32 @@ const Register = () => {
             Must match the first password input field.
           </p>
 
-        <button disabled={!validName || !validPwd || !validMatch ? true : false}>Sign Up</button>
+          <label htmlFor='question'>
+            Security Question: Whats the name of your primary school?
+            <FontAwesomeIcon icon={faCheck} className={validQA? "valid" : "hide"} />
+            <FontAwesomeIcon icon={faTimes} className={validQA || !questionAnswer? "hide" : "invalid"} />
+          </label>
+          <input 
+            type='text' 
+            id='question' 
+            ref={userRef} 
+            autoComplete='off' 
+            onChange={(e)=>setQuestionAnswer(e.target.value)}
+            required
+            aria-invalid={validQA? "false":"true"}
+            aria-describedby="uidnote"
+            onFocus={()=>setQuestionFocus(true)}
+            onBlur={()=>setQuestionFocus(false)}
+          ></input>
+          <p id='uidnote' className={userFocus && questionAnswer && !validQA? "instructions" : "offscreen"}>
+            <FontAwesomeIcon icon={faInfoCircle}/>
+            Can only contain characters and spaces<br/>
+          </p>
+
+
+
+
+          <button disabled={!validName || !validPwd || !validMatch ? true : false}>Sign Up</button>
 
 
         </form>
