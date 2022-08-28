@@ -7,7 +7,7 @@ const MainSection = () => {
         <h1>Welcome To RecordIt</h1>
         <p>Start saving money today </p>
         <button className='RegisterNow'>
-            <Link to='/SignUp'>Register Now</Link>
+            <Link to='/Register'>Register Now</Link>
         </button>
     </main>
   )

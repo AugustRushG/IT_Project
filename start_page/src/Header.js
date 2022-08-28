@@ -9,7 +9,7 @@ const Header = () => {
     //if in home,signUop,Register page, header link stays the same, if in other such as dashboard, change to other link
   return (
     <header className='Header'>
-        <h1>RecordIt</h1>
+        <h1><Link to='/'>RecordIt</Link></h1>
         {location.pathname==='/dashboard'? (<>
             <button className='Account'><Link to = '/LogIn'>Account</Link></button>
             <button className='LogOut'><Link to = '/'>LogOut</Link></button>
