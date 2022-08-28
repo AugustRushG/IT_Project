@@ -2,7 +2,8 @@ import React from 'react';
 import ReactDOM from 'react-dom/client';
 import './index.css';
 import './start_page/StartPage.css';
-import './dashBoard/Dashboard.css'
+import './dashBoard/Dashboard.css';
+import './register/Register.css';
 import App from './App';
 import { BrowserRouter as Router, Routes, Route } from 'react-router-dom';
 
