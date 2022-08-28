@@ -149,7 +149,7 @@ const Register = () => {
         </form>
 
         <p>
-          Already registered?<br />
+          Already registered?&nbsp;&nbsp;&nbsp;
           <span className="line">
             <a href="/LogIn">Sign In</a>
           </span>
