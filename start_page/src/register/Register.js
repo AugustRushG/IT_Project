@@ -7,6 +7,7 @@ import BottomSection from '../start_page/BottomSection';
 
 const USER_REGEX = /^[A-z][A-z0-9-_]{3,23}$/;
 const PWD_REGEX = /^(?=.*[a-z])(?=.*[A-Z])(?=.*[0-9])(?=.*[!@#$%]).{8,24}$/;
+const REGISTER_URL='/api/users/register'
 
 const Register = () => {
 
@@ -71,10 +72,31 @@ const Register = () => {
     e.preventDefault();
     
     try{
-      const response = await axios.post();
+      const response = await axios.post(REGISTER_URL, JSON.stringify({user,pwd,questionAnswer}),
+        {
+          headers:{'Content-Type':'application/json'},
+          withCredentials: true
+        }
+      );
+
+      console.log(response.data);
+      console.log(response.accessToken);
+      console.log(JSON.stringify(response));
+      setSuccess(true);
+      
     }
     catch(err){
+      if (!err?.response){
+        setErrMsg('No Server Response');
 
+      }else if(err.response?.status===409){
+        setErrMsg('Username Taken');
+      }
+      else{
+        setErrMsg('Registration Failed');
+      }
+
+      errRef.current.focus();
     }
 
   }
@@ -92,7 +114,7 @@ const Register = () => {
       <section>
         <p ref={errRef} className={errMsg? "errmsg":"offscreen"} aria-live="assertive">{errMsg}</p>
         <h1>Register</h1>
-        <form>
+        <form onSubmit={handleSubmit}>
           <label htmlFor='username'>
             Username:
             <FontAwesomeIcon icon={faCheck} className={validName ? "valid" : "hide"} />
