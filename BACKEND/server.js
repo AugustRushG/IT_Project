@@ -5,10 +5,18 @@ const bodyParser = require("body-parser")
 const passport = require("passport")
 
 // Import users.js
-const users = require("./routes/api/users")
+const usersRouter = require("./routes/api/users")
 
 // Set app up as an express app
 const app = express()
+
+const cors = require('cors');
+const corsOptions = {
+    credentials:true,
+    origin:'http://localhost:3000',
+    optionsSuccessStatus:200
+};
+app.use(cors(corsOptions));
 
 app.use(bodyParser.urlencoded({extended: false}));
 app.use(bodyParser.json());
@@ -24,11 +32,11 @@ require("./config/passport")(passport);
 //});
 
 //  use router
-app.use("/api/users", users);
+app.use("/api/users", usersRouter);
 
-const port = process.env.PORT || 3000;
+const port = process.env.PORT || 8080;
 app.listen(port, () => {
-    console.log('Demo app is listening on port 3000!')
+    console.log('Demo app is listening on port 8080!')
 });
 
 require(`./models`)
