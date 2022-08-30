@@ -9,8 +9,10 @@ const USER_REGEX = /^[A-z][A-z0-9-_]{3,23}$/;
 const PWD_REGEX = /^(?=.*[a-z])(?=.*[A-Z])(?=.*[0-9])(?=.*[!@#$%]).{8,24}$/;
 
 const Register = () => {
-  function onlyLettersAndSpaces(str) {
-    return /^[A-Za-z\s]*$/.test(str);
+
+  //function to test if str contains only letters
+  function onlyLetters(str) {
+    return /^[a-zA-Z]+$/.test(str);
   }
 
   const userRef=useRef();
@@ -59,7 +61,7 @@ const Register = () => {
   useEffect(()=>{setErrMsg('')},[user,pwd,matchPwd])
 
   useEffect(()=>{
-    const result = onlyLettersAndSpaces(questionAnswer) && questionAnswer;
+    const result = onlyLetters(questionAnswer) && questionAnswer;
     console.log("question result",result);
     console.log(questionAnswer);
     setValidQA(result);
@@ -67,6 +69,7 @@ const Register = () => {
 
   const handleSubmit = async(e)=>{
     e.preventDefault();
+    
     try{
       const response = await axios.post();
     }
@@ -159,7 +162,8 @@ const Register = () => {
           </p>
 
           <label htmlFor='question'>
-            Security Question: Whats the name of your primary school?
+            Security Question: <br/>
+            In which month is your mother's birthday?
             <FontAwesomeIcon icon={faCheck} className={validQA? "valid" : "hide"} />
             <FontAwesomeIcon icon={faTimes} className={validQA || !questionAnswer? "hide" : "invalid"} />
           </label>
@@ -175,15 +179,16 @@ const Register = () => {
             onFocus={()=>setQuestionFocus(true)}
             onBlur={()=>setQuestionFocus(false)}
           ></input>
-          <p id='uidnote' className={userFocus && questionAnswer && !validQA? "instructions" : "offscreen"}>
+          <p id='uidnote' className={questionFocus && questionAnswer && !validQA? "instructions" : "offscreen"}>
+            
             <FontAwesomeIcon icon={faInfoCircle}/>
-            Can only contain characters and spaces<br/>
+            Can only contain letters<br/>
           </p>
 
 
 
 
-          <button disabled={!validName || !validPwd || !validMatch ? true : false}>Sign Up</button>
+          <button disabled={!validName || !validPwd || !validMatch ||!validQA ? true : false}>Sign Up</button>
 
 
         </form>

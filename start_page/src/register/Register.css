@@ -1,6 +1,7 @@
 section {
     position: relative;
     width: 100%;
+    
     top: 24vh;
     margin: auto;
     max-width: 420px;
@@ -100,3 +101,7 @@ button {
     font-size: 22px;
     color: black;
 }
+
+a:hover{
+    color:darkblue;
+  }
