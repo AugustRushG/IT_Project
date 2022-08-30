@@ -5,6 +5,7 @@ const schema = new mongoose.Schema({
     password: { type: String, required: true },
     secret_one: { type: String, required: true },
     secret_two: { type: String, required: true },
+    date: { type: Date, default: Date.now},
 })
    
 const User = mongoose.model('users', schema)
