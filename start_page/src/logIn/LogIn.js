@@ -110,11 +110,19 @@ const LogIn = () => {
         </form>
 
         <p>
-          Hasn't register yet?<br />
+          Hasn't register yet?&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;
           <span className="line">
             <a href="/Register">Register Now</a>
           </span>
         </p>
+
+        <p>
+          Forgot your password?&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;
+          <span className="line">
+            <a href="/Authentication">Password Reset</a>
+          </span>
+        </p>
+
       </section>
     <BottomSection></BottomSection>      
     </>
