@@ -13,7 +13,7 @@ const Register = () => {
 
   //function to test if str contains only letters
   function onlyLetters(str) {
-    return /^[a-zA-Z]+$/.test(str);
+    return /^[A-Za-z\s]*$/.test(str);
   }
 
   const userRef=useRef();
@@ -87,7 +87,8 @@ const Register = () => {
       
     }
     catch(err){
-      if (!err?.response){
+      console.log(err.response)
+      if (!err?.response.response){
         setErrMsg('No Server Response');
 
       }else if(err.response?.status===409){
@@ -186,7 +187,7 @@ const Register = () => {
 
           <label htmlFor='question'>
             Security Question: <br/>
-            In which month is your mother's birthday?
+            What is the name of your primary school?
             <FontAwesomeIcon icon={faCheck} className={validQA? "valid" : "hide"} />
             <FontAwesomeIcon icon={faTimes} className={validQA || !questionAnswer? "hide" : "invalid"} />
           </label>
@@ -205,7 +206,7 @@ const Register = () => {
           <p id='uidnote' className={questionFocus && questionAnswer && !validQA? "instructions" : "offscreen"}>
             
             <FontAwesomeIcon icon={faInfoCircle}/>
-            Can only contain letters<br/>
+            Can only contain letters and space<br/>
           </p>
 
 
