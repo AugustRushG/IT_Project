@@ -1,7 +1,8 @@
-// Load envioronment variables
+// Loadenvioronment variables
 if (process.env.NODE_ENV !== 'production') {
     require('dotenv').config()
 }
+
 const mongoose = require('mongoose')
 
 // Connect to your mongo database using the MONGO_URL environment variable.
