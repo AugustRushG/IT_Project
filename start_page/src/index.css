@@ -20,12 +20,14 @@ body {
   box-sizing: border-box;
   position: relative;
   width: 100%;
-  height: 100vh;
+  height: 85vh;
   max-height: 1080px;
   max-width: 1920px;
   align-items: center;
  
   background: #FFE24E;
+
+  
 }
 
 .Header{
@@ -112,31 +114,6 @@ body {
 
 }
 
-.Footer{
-  position: absolute;
-  width: 100%;
-  height: 3vh;
-  top: 125vh;
-  background: #FFFFFF;
-  
-}
-
-.Footer h1{
-  position:relative;
-  top: 20%;
-  margin: auto;
- 
-  
-  font-family: 'Inter';
-  font-style: normal;
-  font-weight: 400;
-  font-size: 15px;
-  line-height: 18px;
-  text-align: center;
-  
-  color: #000000;
-  
-}
 
 .Missing {
   position: relative;

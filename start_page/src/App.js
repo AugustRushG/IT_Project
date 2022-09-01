@@ -1,4 +1,4 @@
-import Footer from "./Footer";
+
 import Header from "./Header";
 import StartPage from "./start_page/StartPage";
 import LogIn from "./logIn/LogIn";
@@ -36,7 +36,7 @@ function App() {
 
       </Routes>
 
-      <Footer></Footer>
+      
     </div>
   );
 }

@@ -77,16 +77,17 @@
   
 }
   
-  .BottomSection{
-    position: absolute;
-    width: 100%;
-    height: 40vh;
-    top: 85vh;
-    display: flex;
-    justify-content: space-evenly;
-    
+.BottomSection{
+  position: relative;
+  width: 100%;
+  height: 40vh;
+  top: 30vh;
+  display: flex;
+  justify-content: space-evenly;
   
-    background: #FDF4C9;
+  
+
+  background: #FDF4C9;
 }
 
 span{
@@ -122,6 +123,7 @@ span{
 }
 
 img{
+  position: relative;
   display: block;
   margin: auto;
   max-width: 100%;
@@ -133,6 +135,23 @@ br{
   margin: 10px 0;
  
 }
+
+.Footer{
+  position: relative;
+  width: 100%;
+  height: 3vh;
+  top: 30vh;
+  background: #FFFFFF;
+
+  font-family: 'Inter';
+  font-style: normal;
+  font-weight: 400;
+  font-size: 15px;
+  line-height: 18px;
+  text-align: center;
+  
+}
+
 
 
 
