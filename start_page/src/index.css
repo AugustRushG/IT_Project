@@ -25,31 +25,32 @@ body {
   max-width: 1920px;
   align-items: center;
  
-  background: #FFFFFF;
+  background: #FFE24E;
 }
 
 .Header{
   position: absolute;
   width: 100%;
-  height: 14vh;
-  background: #FFE24E;
+  height: 10vh;
+  background: #FFFFFF;
 }
 
 .LogIn,.Account{
   position: absolute;
-  left: 72.5%;
-  right: 19.03%;
-  top: 24.58%;
-  bottom: 33.05%;
+  
+  width: 5vw;
+  left: 75vw;
+  top: 2.5vh;
   margin: auto;
 
-  background: #D9D9D9;
+  
+  background: #FEA004;
   box-shadow: 0px 4px 4px rgba(0, 0, 0, 0.25);
   border-radius: 20px;
 
   font-family: 'Inter', sans-serif;
   font-weight: 700;
-  font-size: 20px;
+  font-size: 15px;
   line-height: 24px;
   text-align: center;
 
@@ -60,18 +61,37 @@ body {
 
 .SignUp,.LogOut{
   position: absolute;
-  left: 84.51%;
-  right: 5.83%;
-  top: 24.58%;
-  bottom: 33.05%;
+  width: 5vw;
+  left: 81vw;
+  top: 2.5vh;
   margin: auto;
 
   background: #D9D9D9;
   box-shadow: 0px 4px 4px rgba(0, 0, 0, 0.25);
   border-radius: 20px;
+
   font-family: 'Inter', sans-serif;
   font-weight: 700;
-  font-size: 20px;
+  font-size: 15px;
+  line-height: 24px;
+
+  color: #000000;
+}
+
+.About{
+  position: absolute;
+  width: 5vw;
+  left: 87vw;
+  top: 2.5vh;
+  margin: auto;
+
+  background: #D9D9D9;
+  box-shadow: 0px 4px 4px rgba(0, 0, 0, 0.25);
+  border-radius: 20px;
+
+  font-family: 'Inter', sans-serif;
+  font-weight: 700;
+  font-size: 15px;
   line-height: 24px;
 
   color: #000000;
@@ -81,7 +101,7 @@ body {
 .Header h1{
   position: absolute;
   left: 5.28%;
-  top: 22.27%;
+  top: 10%;
   
   font-family: 'Allerta Stencil', sans-serif;
   font-weight: 400;

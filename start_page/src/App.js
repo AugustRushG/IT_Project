@@ -8,6 +8,7 @@ import Authentication from "./authentication/Authentication";
 import ResetPassword from "./resetPassword/ResetPassword";
 import {Route, Routes } from 'react-router-dom'; 
 import Dashboard from "./dashBoard/Dashboard";
+import About from "./About";
 
 
 
@@ -27,6 +28,7 @@ function App() {
         <Route exact path='/Register' element={<Register/>}></Route>
         <Route exact path='/ResetPassword' element={<ResetPassword/>}></Route>
         <Route exact path='/Authentication' element={<Authentication/>}></Route>
+        <Route exact path='/About' element={<About/>}></Route>
         <Route path='*' element={<Missing />}></Route>
 
         {/*needs to be protected*/}
