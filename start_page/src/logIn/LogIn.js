@@ -1,27 +1,23 @@
-import { useRef, useState, useEffect, useContext } from 'react';
-import AuthContext from "../context/AuthProvider"
+import { useRef, useState, useEffect } from 'react';
 import axios from '../api/axios';
 
 import BottomSection from '../start_page/BottomSection';
 
-
-const USER_REGEX = /^[A-z][A-z0-9-_]{3,23}$/;
-const PWD_REGEX = /^(?=.*[a-z])(?=.*[A-Z])(?=.*[0-9])(?=.*[!@#$%]).{8,24}$/;
 
 const LOGIN_URL='/api/users/login'
 
 const LogIn = () => {
   console.log("log in page");
 
-  const {setAuth} = useContext(AuthContext);
+ 
   const userRef=useRef();
   const errRef=useRef();
 
   const [user, setUser] = useState('');
-  const [userFocus, setUserFocus] = useState(false);
+ 
 
   const [pwd, setPwd] = useState('');
-  const [pwdFocus, setPwdFocus] = useState(false);
+ 
 
 
   const [errMsg, setErrMsg] = useState('');
@@ -31,15 +27,12 @@ const LogIn = () => {
 
   //useEffect on username 
   useEffect(()=>{
-    const result = USER_REGEX.test(user);
-    console.log(result);
+
     console.log(user);
   },[user])
 
   //useEffect on password
   useEffect(()=>{
-    const result= PWD_REGEX.test(pwd);
-    console.log(result);
     console.log(pwd);
    
   },[pwd]);
@@ -121,8 +114,7 @@ const LogIn = () => {
             onChange={(e)=>setUser(e.target.value)}
             required
             aria-describedby="uidnote"
-            onFocus={()=>setUserFocus(true)}
-            onBlur={()=>setUserFocus(false)}
+          
             value={user}
           ></input>
          
@@ -137,8 +129,7 @@ const LogIn = () => {
             value={pwd}
             required
             aria-describedby="pwdnote"
-            onFocus={() => setPwdFocus(true)}
-            onBlur={() => setPwdFocus(false)}
+          
           />
           
 

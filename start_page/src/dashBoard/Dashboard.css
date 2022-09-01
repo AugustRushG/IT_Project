@@ -12,6 +12,10 @@
     width: 37vw;
     left: 60vw;
     top: 5vh;
+    display: block;
+    
+ 
+   
 }
 
 
@@ -22,16 +26,20 @@
     font-size: 1rem;
     padding: 0.25rem;
     border-radius: 0.25rem;
+    top: 7px;
+    right: 0px;
     outline: none;
 }
   
-.searchForm label {
+.searchForm>label {
     position: relative;
     left: -99999px;
+   
 }
 
 .FaSearch{
     position: relative;
     top: 7px;
     right: 10px;
+   
 }

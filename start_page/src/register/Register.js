@@ -87,8 +87,8 @@ const Register = () => {
       
     }
     catch(err){
-      console.log(err.response)
-      if (!err?.response.response){
+      console.log(err.response.status)
+      if (!err?.response){
         setErrMsg('No Server Response');
 
       }else if(err.response?.status===409){

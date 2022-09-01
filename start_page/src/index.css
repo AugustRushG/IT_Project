@@ -33,7 +33,7 @@ body {
   background: #FFE24E;
 }
 
-.LogIn{
+.LogIn,.Account{
   position: absolute;
   left: 72.5%;
   right: 19.03%;
@@ -57,7 +57,7 @@ body {
 
 }
 
-.SignUp{
+.SignUp,.LogOut{
   position: absolute;
   left: 84.51%;
   right: 5.83%;
