@@ -1,27 +1,28 @@
-import { useRef, useState, useEffect } from 'react';
-import { faCheck, faTimes, faInfoCircle } from '@fortawesome/free-solid-svg-icons';
-import { FontAwesomeIcon } from '@fortawesome/react-fontawesome';
+import { useRef, useState, useEffect, useContext } from 'react';
+import AuthContext from "../context/AuthProvider"
 import axios from '../api/axios';
+
 import BottomSection from '../start_page/BottomSection';
+
+
 const USER_REGEX = /^[A-z][A-z0-9-_]{3,23}$/;
 const PWD_REGEX = /^(?=.*[a-z])(?=.*[A-Z])(?=.*[0-9])(?=.*[!@#$%]).{8,24}$/;
 
+const LOGIN_URL='/api/users/login'
+
 const LogIn = () => {
   console.log("log in page");
+
+  const {setAuth} = useContext(AuthContext);
   const userRef=useRef();
   const errRef=useRef();
 
   const [user, setUser] = useState('');
-  const [validName, setValidName] = useState(false);
   const [userFocus, setUserFocus] = useState(false);
 
   const [pwd, setPwd] = useState('');
-  const [validPwd, setValidPwd] = useState(false);
   const [pwdFocus, setPwdFocus] = useState(false);
 
-  const [matchPwd, setMatchPwd] = useState('');
-  const [validMatch, setValidMatch] = useState(false);
-  const [matchFocus, setMatchFocus] = useState(false);
 
   const [errMsg, setErrMsg] = useState('');
   const [success, setSuccess] = useState(false);
@@ -33,7 +34,6 @@ const LogIn = () => {
     const result = USER_REGEX.test(user);
     console.log(result);
     console.log(user);
-    setValidName(result);
   },[user])
 
   //useEffect on password
@@ -41,24 +41,77 @@ const LogIn = () => {
     const result= PWD_REGEX.test(pwd);
     console.log(result);
     console.log(pwd);
-    setValidPwd(result);
-    const match = pwd === matchPwd;
-    setValidMatch(match);
-  },[pwd,matchPwd]);
+   
+  },[pwd]);
 
-  //useEffect on error message
-  useEffect(()=>{setErrMsg('')},[user,pwd,matchPwd])
+  //useEffect on error message clean out error message when user or pwd changes 
+  useEffect(()=>{setErrMsg('')},[user,pwd])
+
+  const handleSubmit = async(e)=>{
+    e.preventDefault();
+
+    try{
+      const response = await axios.post(LOGIN_URL,JSON.stringify({user,pwd}),
+      {headers:{'Content-Type': 'application/json'},withCredentials: true});
+
+      console.log(JSON.stringify(response?.data))
+      const accessToken = response?.data?.token;
+      //const roles = response?.data?.roles;
+      const correct= response?.data?.success;
+     
+      if (correct===true){
+       
+      
+        
+        setUser('');
+        setPwd('');
+        setSuccess(true);
+        
+        console.log("success is "+success);
+      }
+    
+    }
+    catch(err){
+      if (!err?.response){
+       
+        setErrMsg('No Serve Response');
+      }
+      else if (err.response?.status===400){
+        setErrMsg('Password is wrong')
+      }
+      else if (err.response?.status===401){
+        setErrMsg('Unauthorized');
+      }
+      else if (err.response?.status===404){
+        setErrMsg('Username Not Found')
+      }
+      else{
+        setErrMsg('LogIn Failed');
+      }
+
+      errRef.current.focus();
+    }
+    
+  }
   return (
     <>
+      {success?(
+        <section>
+        <h1>You are logged in!</h1>
+        <br />
+        <p>
+            <a href="/dashboard">Go to dashboard</a>
+        </p>
+    </section>
+      ):(
 
       <section>
         <p ref={errRef} className={errMsg? "errmsg":"offscreen"} aria-live="assertive">{errMsg}</p>
         <h1>LogIn</h1>
-        <form>
+        <form onSubmit={handleSubmit}>
           <label htmlFor='username'>
-            Username:
-            <FontAwesomeIcon icon={faCheck} className={validName ? "valid" : "hide"} />
-            <FontAwesomeIcon icon={faTimes} className={validName || !user ? "hide" : "invalid"} />
+              Username:
+            
           </label>
           <input 
             type='text' 
@@ -67,22 +120,15 @@ const LogIn = () => {
             autoComplete='off' 
             onChange={(e)=>setUser(e.target.value)}
             required
-            aria-invalid={validName? "false":"true"}
             aria-describedby="uidnote"
             onFocus={()=>setUserFocus(true)}
             onBlur={()=>setUserFocus(false)}
+            value={user}
           ></input>
-          <p id='uidnote' className={userFocus && user && !validName? "instructions" : "offscreen"}>
-            <FontAwesomeIcon icon={faInfoCircle}/>
-            4 to 24 characters.<br/>
-            Must begin with a letter. <br/>
-            Letters, numbers, underscores, hyphens allowed.
-          </p>
+         
 
-          <label htmlFor="password">
-            Password:
-            <FontAwesomeIcon icon={faCheck} className={validPwd ? "valid" : "hide"} />
-            <FontAwesomeIcon icon={faTimes} className={validPwd || !pwd ? "hide" : "invalid"} />
+         <label htmlFor='password'>
+             Password  
           </label>
           <input
             type="password"
@@ -90,21 +136,15 @@ const LogIn = () => {
             onChange={(e) => setPwd(e.target.value)}
             value={pwd}
             required
-            aria-invalid={validPwd ? "false" : "true"}
             aria-describedby="pwdnote"
             onFocus={() => setPwdFocus(true)}
             onBlur={() => setPwdFocus(false)}
           />
-          <p id="pwdnote" className={pwdFocus && !validPwd ? "instructions" : "offscreen"}>
-            <FontAwesomeIcon icon={faInfoCircle} />
-            8 to 24 characters.<br />
-            Must include uppercase and lowercase letters, a number and a special character.<br />
-            Allowed special characters: ! @ # %
-          </p>
+          
 
           
 
-        <button disabled={!validName || !validPwd || !validMatch ? true : false}>Sign In</button>
+        <button disabled={!user || !pwd ? true : false}>Sign In</button>
 
 
         </form>
@@ -124,6 +164,7 @@ const LogIn = () => {
         </p>
 
       </section>
+      )}
     <BottomSection></BottomSection>      
     </>
   )

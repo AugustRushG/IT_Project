@@ -57,9 +57,10 @@ router.post("/register", (req, res) => {
 // @access public
 
 router.post("/login", (req,res) => {
-    const username = req.body.username;
-    const password = req.body.password;
+    const username = req.body.user;
+    const password = req.body.pwd;
     //search the db
+   
     User.findOne({username}).then(user => {
         if(!user){
             return res.status(404).json({username:"user not exist!"});
