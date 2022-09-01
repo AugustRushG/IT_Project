@@ -14,19 +14,17 @@
   
   .RegisterNow{
     position: relative;
-    width: 17vh;
+    width: 10vw;
     height: 5vh;
-    top: 30vh;
-    left: 43%;
-    margin: auto;
+    top: 25vh;
+    margin-left: 12vw;
   
     background: #FFE24E;
     border-radius: 20px;
   
-    font-family: 'Inter';
-    font-style: normal;
+    font-family: 'Inter', sans-serif;
     font-weight: 700;
-    font-size: 20px;
+    font-size: 100%;
     line-height: 24px;
     text-align: center;
   
@@ -35,16 +33,19 @@
   
   .MainSection h1{
     position: relative;
-    top: 20vh;
-    margin: auto;
+    top: 15vh;
+    margin-left: 10%;
+    width: 20vw;
+
     
   
-    font-family: 'Inter';
-    font-style: normal;
+   
+    font-family: 'Allerta Stencil', sans-serif;
     font-weight: 800;
     font-size: 3em;
-    line-height: 48px;
+    line-height: 50px;
     text-align: center;
+    
   
     color: #000000;
   
@@ -52,8 +53,9 @@
   
   .MainSection p{
     position: relative;
-    top:25vh;
-    margin: auto;
+    top:22vh;
+    margin-left: 5%;
+    width: 30vw;
   
     font-family: 'Inter';
     font-style: normal;
@@ -63,6 +65,16 @@
     text-align: center;
   
     color: #000000;
+}
+
+.MainSection > img{
+  position:absolute;
+  display: block;
+  width: 30%;
+  height: 35vh;
+  margin-left: 55%;
+  bottom: 10vh;
+  
 }
   
   .BottomSection{
@@ -79,7 +91,7 @@
 
 span{
     position: relative;
-    top: 3vh;
+    top: 2vh;
     height: 5vh;
 
     font-family: 'Inter';
@@ -102,7 +114,7 @@ span{
   font-style: normal;
   font-weight: 400;
   font-size: 0.8em;
-  line-height: 1em;
+  line-height: 1.2em;
   width: 10em;
   text-align: center;
 
