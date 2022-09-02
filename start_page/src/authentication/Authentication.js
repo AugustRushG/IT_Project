@@ -5,6 +5,7 @@ import { FontAwesomeIcon } from '@fortawesome/react-fontawesome';
 import axios from '../api/axios';
 import BottomSection from '../start_page/BottomSection';
 const USER_REGEX = /^[A-z][A-z0-9-_]{3,23}$/;
+const AUTH_URL='/api/users/authentication';
 
 
 
@@ -51,9 +52,25 @@ const Authentication = () => {
   const handleSubmit = async(e)=>{
     e.preventDefault();
     try{
-      const response = await axios.post();
+      const response = await axios.post(AUTH_URL,JSON.stringify({user,questionAnswer}),
+      {headers:{'Content-Type': 'application/json'}, withCredentials: true});
+
+      console.log(JSON.stringify(response.status));
+      console.log(JSON.stringify(response?.data))
+
     }
     catch(err){
+      if (!err?.response){
+        setErrMsg('No Server Response');
+      }
+      else if (err.response?.status===400){
+        setErrMsg('Answer is wrong')
+      }
+      else{
+        setErrMsg('Authentication Failed');
+      }
+
+      errRef.current.focus();
 
     }
 

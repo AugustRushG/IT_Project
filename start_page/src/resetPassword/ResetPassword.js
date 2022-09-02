@@ -7,6 +7,7 @@ import BottomSection from '../start_page/BottomSection';
 
 const USER_REGEX = /^[A-z][A-z0-9-_]{3,23}$/;
 const PWD_REGEX = /^(?=.*[a-z])(?=.*[A-Z])(?=.*[0-9])(?=.*[!@#$%]).{8,24}$/;
+const RESET_URL='/api/users/resetpassword';
 
 const ResetPassword = () => {
   function onlyLettersAndSpaces(str) {
@@ -60,10 +61,23 @@ const ResetPassword = () => {
   const handleSubmit = async(e)=>{
     e.preventDefault();
     try{
-      const response = await axios.post();
-    }
-    catch(err){
+      const response = await axios.post(RESET_URL,JSON.stringify({user,pwd}),
+      {headers:{'Content-Type': 'application/json'},withCredentials: true});
 
+      console.log(response.data);
+      console.log(response.accessToken);
+      console.log(JSON.stringify(response));
+      setSuccess(true);
+    }
+
+    catch(err){
+      if (!err?.response){
+        setErrMsg('No Server Response');
+      }
+      else{
+        setErrMsg('Reset Password Failed');
+      }
+      errRef.current.focus();
     }
 
   }
