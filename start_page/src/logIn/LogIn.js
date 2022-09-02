@@ -52,9 +52,8 @@ const LogIn = () => {
       console.log(JSON.stringify(response?.data))
 
       const accessToken = response?.data?.token;
-
+      
       setAuth({user,pwd,accessToken});
-
       console.log("here");
       setUser('');
       setPwd('');
