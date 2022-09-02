@@ -1,12 +1,13 @@
 import React from 'react'
 import Information from './Information'
+import RecordDisplay from './RecordDisplay'
 
 const Dashboard = () => {
   return (
-    <div>Dashboard
-
+    <>
       <Information></Information>
-    </div>
+      <RecordDisplay></RecordDisplay>
+    </>
   )
 }
 
