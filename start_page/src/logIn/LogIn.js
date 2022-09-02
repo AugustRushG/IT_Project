@@ -16,8 +16,9 @@ const LogIn = () => {
   const errRef=useRef();
 
   const navigate=useNavigate();
-  const location=useLocation();
-  const from=location.state?.from?.pathname||'/';
+
+  //const location=useLocation();
+  //const from=location.state?.from?.pathname||'/';
 
   const [user, setUser] = useState('');
   const [pwd, setPwd] = useState('');
@@ -52,7 +53,7 @@ const LogIn = () => {
       console.log(JSON.stringify(response?.data))
 
       const accessToken = response?.data?.token;
-      
+
       setAuth({user,pwd,accessToken});
       console.log("here");
       setUser('');
@@ -118,9 +119,7 @@ const LogIn = () => {
           aria-describedby="pwdnote"
         
         />
-        
-
-        
+            
 
       <button disabled={!user || !pwd ? true : false}>Sign In</button>
 
