@@ -67,6 +67,7 @@ router.post("/register", (req, res) => {
 // @access public
 
 router.post("/login",passport.authenticate("jwt", {session:false}), (req,res) => {
+    
     const username = req.body.user;
     const password = req.body.pwd;
     //search the db

@@ -9,6 +9,7 @@ import ResetPassword from "./resetPassword/ResetPassword";
 import {Route, Routes } from 'react-router-dom'; 
 import Dashboard from "./dashBoard/Dashboard";
 import About from "./About";
+import RequireAuth from "./RequireAuth";
 
 
 
@@ -32,7 +33,10 @@ function App() {
         <Route path='*' element={<Missing />}></Route>
 
         {/*needs to be protected*/}
-        <Route exact path='/dashboard' element={<Dashboard/>}></Route>
+        <Route element={<RequireAuth/>}>
+          <Route exact path='/dashboard' element={<Dashboard/>}></Route>
+        </Route>
+       
 
       </Routes>
 

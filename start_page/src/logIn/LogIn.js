@@ -1,5 +1,7 @@
 import { useRef, useState, useEffect } from 'react';
+import {Link, useNavigate, useLocation } from 'react-router-dom' 
 import axios from '../api/axios';
+import useAuth from '../hooks/useAuth';
 
 import BottomSection from '../start_page/BottomSection';
 
@@ -7,11 +9,15 @@ import BottomSection from '../start_page/BottomSection';
 const LOGIN_URL='/api/users/login'
 
 const LogIn = () => {
-  console.log("log in page");
-
  
+  //global componenet Auth
+  const {setAuth}=useAuth();
   const userRef=useRef();
   const errRef=useRef();
+
+  const navigate=useNavigate();
+  const location=useLocation();
+  const from=location.state?.from?.pathname||'/';
 
   const [user, setUser] = useState('');
  
@@ -48,17 +54,17 @@ const LogIn = () => {
       {headers:{'Content-Type': 'application/json'},withCredentials: true});
 
       console.log(JSON.stringify(response?.data))
+
       const accessToken = response?.data?.token;
-      //const roles = response?.data?.roles;
       const correct= response?.data?.success;
      
       if (correct===true){
-       
-      
         
+        setAuth({user,pwd,accessToken})
         setUser('');
         setPwd('');
         setSuccess(true);
+        
         
         console.log("success is "+success);
       }
