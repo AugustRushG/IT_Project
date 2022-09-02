@@ -3,24 +3,34 @@ const express = require("express")
 const router = express.Router()
 const bcrypt = require("bcrypt")
 const jwt = require('jsonwebtoken')
-const keys = require("../../config/keys")
+const keys = require("../config/keys")
 const passport = require("passport")
+const isAuthenticated = require("../middleware")
+const User = require("../models/user")
 
-const User = require("../../models/user")
+/*
+const isAuthenticated = (req, res, next) => {
+    if (!req.isAuthenticated()) {
+        res.status(404).json({msg:"Unauthorized: Invalid token"})
+    }
+    return next()
+}
+*/
 
-// $route GET api/users/test
-// @desc return res json data
-// @access public
-router.get("/test", (req, res) => {
-    res.json({msg:"login works"})
-})
+var currCon = false;
+
+const checkAvai = () => {
+    if (currCon == true) {
+        return next()
+    } else {
+        res.status(404).json({msg:"Not Authorized"})
+    }
+}
 
 // $route POST api/users/register
 // @desc return res json data
 // @access public
 router.post("/register", (req, res) => {
-    // console.log(req.body);
-
     //if username already in the database
     User.findOne({username:req.body.user}).then((user) => {
 
@@ -56,7 +66,7 @@ router.post("/register", (req, res) => {
 // @desc return token jwt passport
 // @access public
 
-router.post("/login", (req,res) => {
+router.post("/login",passport.authenticate("jwt", {session:false}), (req,res) => {
     const username = req.body.user;
     const password = req.body.pwd;
     //search the db
@@ -89,14 +99,62 @@ router.post("/login", (req,res) => {
 })
 
 
-// $route GET api/users/current
+// $route GET api/users/checkToken
 // @desc return current user
 // @access private
-router.get("/current",passport.authenticate("jwt", {session:false}), (req,res) => {
-    res.json({
-        id:req.user.id,
-        username:req.user.username
-    });
+router.get("/checkToken",isAuthenticated, (req,res) => {
+    res.sendStatus(200);
+})
+
+
+// $route GET api/users/authorizeeUser
+router.get("/authorizeUser", (req,res) => {
+    const username = req.body.user;
+    const answer = req.body.questionAnswer;
+
+    User.findOne({username}).then(user => {
+        if(!user){
+            return res.status(404).json({username:"user not exist!"});
+        }
+
+        if(user.secret_one != answer){
+            return res.status(404).json({secret_one:"Incorrect Answer!"});
+        }else{
+            currCon = true;
+            res.send("success");
+            //res.json({msg:"success"});
+        }
+    })
+})
+
+// $route GET api/users/resetpwd
+router.post("/resetpwd", checkAvai, (req,res) => {
+    const password = req.body.pwd;
+    User.findOne({username}).then(user => {
+        if(!user){
+            return res.status(404).json({username:"user not exist!"});
+        }
+        currCon = false;
+        bcrypt.genSalt(10, function(err, salt) {
+                
+            bcrypt.hash(password, salt, (err, hash) => {
+                
+                if(err) throw err;
+
+                user.password = hash;
+
+                user.save().then(user => res.json(user)).catch(err => console.log(err));
+            });
+        });
+    })
+})
+
+// $route GET api/users/logout
+// @desc return current user
+// @access private
+router.post("/logout", isAuthenticated, (req,res) => {
+    req.logout();
 })
 
 module.exports = router;
+

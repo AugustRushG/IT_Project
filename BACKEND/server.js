@@ -3,9 +3,11 @@ const express = require('express')
 
 const bodyParser = require("body-parser")
 const passport = require("passport")
+const isAuthenticated = require('./middleware')
 
 // Import users.js
-const usersRouter = require("./routes/api/users")
+const usersRouter = require("./routes/usersRouter")
+const recordRouter = require("./routes/recordRouter")
 
 // Set app up as an express app
 const app = express()
@@ -26,19 +28,13 @@ app.use(passport.initialize());
 
 require("./config/passport")(passport);
 
-
-//app.get('/', (req, res) => {
-//    res.send('Our demo app is working!')
-//});
-
 //  use router
 app.use("/api/users", usersRouter);
+app.use("/api/records",isAuthenticated, recordRouter);
 
 const port = process.env.PORT || 8080;
 app.listen(port, () => {
     console.log('Demo app is listening on port 8080!')
 });
-
-
 
 require(`./models`)

@@ -7,5 +7,5 @@ const schema = new mongoose.Schema({
     date: { type: Date, default: Date.now},
 })
    
-const User = mongoose.model('users', schema)
-module.exports = User
+const users = mongoose.model('users', schema)
+module.exports = users
