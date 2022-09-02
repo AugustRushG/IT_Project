@@ -5,7 +5,7 @@ const bcrypt = require("bcrypt")
 const jwt = require('jsonwebtoken')
 const keys = require("../config/keys")
 const passport = require("passport")
-const isAuthenticated = require("../middleware")
+//const isAuthenticated = require("../middleware")
 const User = require("../models/user")
 
 /*
@@ -66,8 +66,12 @@ router.post("/register", (req, res) => {
 // @desc return token jwt passport
 // @access public
 
+<<<<<<< HEAD
 router.post("/login",passport.authenticate("jwt", {session:false}), (req,res) => {
     
+=======
+router.post("/login", (req,res) => {
+>>>>>>> 46db9d952937c3ecbf0a3763e0bdc17d1180348d
     const username = req.body.user;
     const password = req.body.pwd;
     //search the db
@@ -101,9 +105,8 @@ router.post("/login",passport.authenticate("jwt", {session:false}), (req,res) =>
 
 
 // $route GET api/users/checkToken
-// @desc return current user
 // @access private
-router.get("/checkToken",isAuthenticated, (req,res) => {
+router.get("/checkToken",passport.authenticate("jwt", {session:false}), (req,res) => {
     res.sendStatus(200);
 })
 
@@ -153,7 +156,7 @@ router.post("/resetpwd", checkAvai, (req,res) => {
 // $route GET api/users/logout
 // @desc return current user
 // @access private
-router.post("/logout", isAuthenticated, (req,res) => {
+router.post("/logout", passport.authenticate("jwt", {session:false}), (req,res) => {
     req.logout();
 })
 
