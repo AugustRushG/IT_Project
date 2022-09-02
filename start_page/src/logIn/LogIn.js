@@ -53,12 +53,12 @@ const LogIn = () => {
       console.log(JSON.stringify(response?.data))
 
       const accessToken = response?.data?.token;
-
+      const id = 3;
       setAuth({user,pwd,accessToken});
       console.log("here");
       setUser('');
       setPwd('');
-      navigate('/dashboard',{replace:true});
+      navigate(`/dashboard/${id}`,{replace:true});
     }
 
     catch(err){

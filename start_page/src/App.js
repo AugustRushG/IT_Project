@@ -34,7 +34,7 @@ function App() {
 
         {/*needs to be protected*/}
         <Route element={<RequireAuth/>}>
-          <Route exact path='/dashboard' element={<Dashboard/>}></Route>
+          <Route exact path='/dashboard/:id' element={<Dashboard/>}></Route>
         </Route>
        
 
