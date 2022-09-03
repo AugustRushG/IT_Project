@@ -3,7 +3,9 @@ import React from 'react'
 const About = () => {
   return (
     <section>
-        About RecordIt
+        <h1>
+          What is RecordIt?
+        </h1>
     </section>
   )
 }
