@@ -3,39 +3,32 @@ import{Link, useNavigate,useLocation} from 'react-router-dom';
 import { faCheck, faTimes, faInfoCircle } from '@fortawesome/free-solid-svg-icons';
 import { FontAwesomeIcon } from '@fortawesome/react-fontawesome';
 import axios from '../api/axios';
+import useAuth from '../hooks/useAuth';
 import BottomSection from '../start_page/BottomSection';
-const USER_REGEX = /^[A-z][A-z0-9-_]{3,23}$/;
-const AUTH_URL='/api/users/authentication';
+
+const LOGIN_URL='/api/users/login'
+const TOKEN_URL='api/users/checkToken';
 
 
 
 const Authentication = () => {
-  function onlyLettersAndSpaces(str) {
-    return /^[A-Za-z\s]*$/.test(str);
-  }
-  console.log("reset password page");
+
+
   const userRef=useRef();
   const errRef=useRef();
+  const {setAuth}=useAuth();
+  const navigate=useNavigate();
 
   const [user, setUser] = useState('');
-  const [validName, setValidName] = useState(false);
-  const [userFocus, setUserFocus] = useState(false);
-
   const [questionAnswer, setQuestionAnswer] = useState('');
-  const [validQA, setValidQA] = useState(false);
-  const [questionFocus, setQuestionFocus] = useState(false);
-
   const [errMsg, setErrMsg] = useState('');
-  const [success, setSuccess] = useState(false);
+
 
   useEffect(()=>{userRef.current.focus();},[])
 
   //useEffect on username 
   useEffect(()=>{
-    const result = USER_REGEX.test(user);
-    console.log(result);
     console.log(user);
-    setValidName(result);
   },[user])
 
 
@@ -43,20 +36,28 @@ const Authentication = () => {
 
 
   useEffect(()=>{
-    const result = onlyLettersAndSpaces(questionAnswer) && questionAnswer;
-    console.log("question result",result);
     console.log(questionAnswer);
-    setValidQA(result);
   },[questionAnswer])
+
+  useEffect(()=>{setErrMsg('')},[user,questionAnswer])
 
   const handleSubmit = async(e)=>{
     e.preventDefault();
     try{
-      const response = await axios.post(AUTH_URL,JSON.stringify({user,questionAnswer}),
+      const response = await axios.post(LOGIN_URL,JSON.stringify({user,questionAnswer}),
       {headers:{'Content-Type': 'application/json'}, withCredentials: true});
 
       console.log(JSON.stringify(response.status));
       console.log(JSON.stringify(response?.data))
+      
+      const accessToken = response?.data?.token;
+      const id = 3;
+      setAuth({user,questionAnswer,accessToken});
+      console.log("here");
+      setUser('');
+      setQuestionAnswer('');
+      navigate(`/ResetPassword/${id}`,{replace:true});
+      
 
     }
     catch(err){
@@ -81,11 +82,10 @@ const Authentication = () => {
       <section>
         <p ref={errRef} className={errMsg? "errmsg":"offscreen"} aria-live="assertive">{errMsg}</p>
         <h1>Authentication</h1>
-        <form>
+        <form onSubmit={handleSubmit}>
           <label htmlFor='username'>
             Username:
-            <FontAwesomeIcon icon={faCheck} className={validName ? "valid" : "hide"} />
-            <FontAwesomeIcon icon={faTimes} className={validName || !user ? "hide" : "invalid"} />
+
           </label>
           <input 
             type='text' 
@@ -94,43 +94,29 @@ const Authentication = () => {
             autoComplete='off' 
             onChange={(e)=>setUser(e.target.value)}
             required
-            aria-invalid={validName? "false":"true"}
             aria-describedby="uidnote"
-            onFocus={()=>setUserFocus(true)}
-            onBlur={()=>setUserFocus(false)}
+            
+            value={user}
           ></input>
-          <p id='uidnote' className={userFocus && user && !validName? "instructions" : "offscreen"}>
-            <FontAwesomeIcon icon={faInfoCircle}/>
-            4 to 24 characters.<br/>
-            Must begin with a letter. <br/>
-            Letters, numbers, underscores, hyphens allowed.
-          </p>
+
 
           <label htmlFor='question'>
             Security Question: Whats the name of your primary school?
-            <FontAwesomeIcon icon={faCheck} className={validQA? "valid" : "hide"} />
-            <FontAwesomeIcon icon={faTimes} className={validQA || !questionAnswer? "hide" : "invalid"} />
           </label>
           <input 
             type='text' 
-            id='question' 
-            ref={userRef} 
-            autoComplete='off' 
+            id='secret_one' 
             onChange={(e)=>setQuestionAnswer(e.target.value)}
+            value={questionAnswer}
             required
-            aria-invalid={validQA? "false":"true"}
-            aria-describedby="uidnote"
-            onFocus={()=>setQuestionFocus(true)}
-            onBlur={()=>setQuestionFocus(false)}
-          ></input>
-          <p id='uidnote' className={userFocus && questionAnswer && !validQA? "instructions" : "offscreen"}>
-            <FontAwesomeIcon icon={faInfoCircle}/>
-            Can only contain characters and spaces<br/>
-          </p>
+            aria-describedby="questionAnswernote"
+
+          />
+
 
           
 
-        <button disabled={validName || validQA ? true : false}><Link to = '/ResetPassword'>ResetPassword</Link></button>
+        <button disabled={!user || !questionAnswer ? true : false}>ResetPassword</button>
 
 
 
