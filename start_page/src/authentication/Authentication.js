@@ -6,13 +6,10 @@ import axios from '../api/axios';
 import useAuth from '../hooks/useAuth';
 import BottomSection from '../start_page/BottomSection';
 
-const LOGIN_URL='/api/users/login'
+const AUTH_URL='/api/users/authorizeUser'
 const TOKEN_URL='api/users/checkToken';
 
-
-
 const Authentication = () => {
-
 
   const userRef=useRef();
   const errRef=useRef();
@@ -32,9 +29,6 @@ const Authentication = () => {
   },[user])
 
 
-
-
-
   useEffect(()=>{
     console.log(questionAnswer);
   },[questionAnswer])
@@ -43,20 +37,20 @@ const Authentication = () => {
 
   const handleSubmit = async(e)=>{
     e.preventDefault();
+
     try{
-      const response = await axios.post(LOGIN_URL,JSON.stringify({user,questionAnswer}),
+      const response = await axios.post(AUTH_URL,JSON.stringify({user,questionAnswer}),
       {headers:{'Content-Type': 'application/json'}, withCredentials: true});
 
       console.log(JSON.stringify(response.status));
       console.log(JSON.stringify(response?.data))
       
       const accessToken = response?.data?.token;
-      const id = 3;
       setAuth({user,questionAnswer,accessToken});
       console.log("here");
       setUser('');
       setQuestionAnswer('');
-      navigate(`/ResetPassword/${id}`,{replace:true});
+      navigate(`/ResetPassword/`,{replace:true});
       
 
     }
@@ -64,7 +58,7 @@ const Authentication = () => {
       if (!err?.response){
         setErrMsg('No Server Response');
       }
-      else if (err.response?.status===400){
+      else if (err.response?.status===404){
         setErrMsg('Answer is wrong')
       }
       else{
@@ -106,7 +100,7 @@ const Authentication = () => {
           <input 
             type='text' 
             id='secret_one' 
-            onChange={(e)=>setQuestionAnswer(e.target.value)}
+            onChange={(e) => setQuestionAnswer(e.target.value)}
             value={questionAnswer}
             required
             aria-describedby="questionAnswernote"
