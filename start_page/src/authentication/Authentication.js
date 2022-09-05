@@ -7,7 +7,6 @@ import useAuth from '../hooks/useAuth';
 import BottomSection from '../start_page/BottomSection';
 
 const LOGIN_URL='/api/users/login'
-const TOKEN_URL='api/users/checkToken';
 
 
 
@@ -113,15 +112,9 @@ const Authentication = () => {
 
           />
 
-
           
 
-<<<<<<< HEAD
-          <button disabled={!validName || !validQA ? true : false}><Link to = '/ResetPassword'>ResetPassword</Link></button>
-=======
         <button disabled={!user || !questionAnswer ? true : false}>ResetPassword</button>
->>>>>>> 17599a91549be0b0effc2eeb9bf272a18347a877
-
 
 
         </form>
