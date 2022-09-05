@@ -1,13 +1,11 @@
 import { useRef, useState, useEffect } from 'react';
-import {Link, useNavigate, useLocation } from 'react-router-dom' 
+import { useNavigate } from 'react-router-dom' 
 import axios from '../api/axios';
 import useAuth from '../hooks/useAuth';
 import BottomSection from '../start_page/BottomSection';
 
 
 const LOGIN_URL='/api/users/login'
-const TOKEN_URL='api/users/checkToken';
-
 const LogIn = () => {
  
   //global componenet Auth
@@ -53,12 +51,11 @@ const LogIn = () => {
       console.log(JSON.stringify(response?.data))
 
       const accessToken = response?.data?.token;
-      const id = 3;
       setAuth({user,pwd,accessToken});
       console.log("here");
       setUser('');
       setPwd('');
-      navigate(`/dashboard/${id}`,{replace:true});
+      navigate(`/dashboard/${user}`,{replace:true});
     }
 
     catch(err){

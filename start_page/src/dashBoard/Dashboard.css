@@ -43,9 +43,11 @@
 .RecordDisplay{
     position:relative;
     top: 10vh;
+    width: 47vw;
     margin-left: 0%;
     height: 80vh;
-    min-width: 47vw;
     
+    background-color:  #D9D9D9;
     border: 2px solid red;
+    border-radius: 5px;
 }

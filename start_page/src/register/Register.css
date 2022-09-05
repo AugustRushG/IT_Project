@@ -2,6 +2,7 @@ section {
     position: relative;
     width: 100%;
     
+    
     top: 24vh;
     margin: auto;
     max-width: 420px;
@@ -20,6 +21,8 @@ form {
     flex-grow: 1;
     padding-bottom: 1rem;
 }
+
+
 
 
 

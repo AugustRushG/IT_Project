@@ -1,5 +1,5 @@
 import React from 'react'
-import{Link, useNavigate,useLocation} from 'react-router-dom'; 
+import{Link,useLocation} from 'react-router-dom'; 
 
 const Header = () => {
     //get current location
@@ -10,14 +10,14 @@ const Header = () => {
   return (
     <header className='Header'>
         <h1><Link to='/'>RecordIt</Link></h1>
-        {location.pathname==='/dashboard'? (<>
-            <button className='Account'><Link to = '/LogIn'>Account</Link></button>
-            <button className='LogOut'><Link to = '/'>LogOut</Link></button>
+        {location.pathname.includes('/dashboard')? (<>
+            <Link to = '/LogIn'><button type = "button" className='Account'>Account</button></Link>
+            <Link to = '/'> <button type = "button" className='LogOut'>LogOut</button></Link>
         </>):(<>
-            <button className='LogIn'><Link to = '/LogIn'>LogIn</Link></button>
-            <button className='SignUp'><Link to = '/Register'>SignUp</Link></button>
+            <Link to = '/LogIn'> <button type = "button" className='LogIn'>LogIn</button></Link>
+            <Link to = '/Register'> <button type = "button" className='SignUp'>SignUp</button></Link>
         </>)}
-        <button className='About'><Link to ='/About'>About</Link></button>
+       <Link to ='/About'> <button type = "button" className='About'>About</button></Link>
       
 
     </header>
