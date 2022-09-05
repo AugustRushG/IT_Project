@@ -130,7 +130,7 @@ const Authentication = () => {
 
           
 
-        <button disabled={validName || validQA ? true : false}><Link to = '/ResetPassword'>ResetPassword</Link></button>
+          <button disabled={!validName || !validQA ? true : false}><Link to = '/ResetPassword'>ResetPassword</Link></button>
 
 
 
