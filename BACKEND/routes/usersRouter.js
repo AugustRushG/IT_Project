@@ -107,7 +107,7 @@ router.get("/checkToken",passport.authenticate("jwt", {session:false}), (req,res
 
 
 // $route GET api/users/authorizeeUser
-router.post("/authorizeUser", (req,res) => {
+router.get("/authorizeUser", (req,res) => {
     const username = req.body.user;
     const answer = req.body.questionAnswer;
 
