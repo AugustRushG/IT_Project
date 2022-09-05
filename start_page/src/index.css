@@ -21,13 +21,13 @@ body {
   box-sizing: border-box;
   position: relative;
   width: 100%;
-  height: 85vh;
+  height: 100vh;
   max-height: 1080px;
   max-width: 1920px;
   align-items: center;
  
   background: #FFE24E;
-
+ 
   
 }
 
@@ -54,9 +54,10 @@ body {
 
   font-family: 'Inter', sans-serif;
   font-weight: 700;
-  font-size: 15px;
-  line-height: 24px;
+  font-size: 100%;
+  line-height: 2.8vh;
   text-align: center;
+  
 
   color: #000000;
 
@@ -76,8 +77,9 @@ body {
 
   font-family: 'Inter', sans-serif;
   font-weight: 700;
-  font-size: 15px;
-  line-height: 24px;
+  font-size: 100%;
+  line-height: 2.8vh;
+  text-align: center;
 
   color: #000000;
 }
@@ -95,8 +97,8 @@ body {
 
   font-family: 'Inter', sans-serif;
   font-weight: 700;
-  font-size: 15px;
-  line-height: 24px;
+  font-size: 100%;
+  line-height: 2.8vh;
 
   color: #000000;
 }
@@ -133,6 +135,17 @@ a{
 a:hover{
   color:darkblue;
 }
+
+button:hover{
+  background-color: #FFE24E;
+}
+
+button:active {
+  background-color: #3e8e41;
+  box-shadow: 0 5px #666;
+  transform: translateY(4px);
+}
+
 
 
 
