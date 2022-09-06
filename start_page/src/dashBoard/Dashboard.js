@@ -15,18 +15,47 @@ const Dashboard = () => {
 
   const [records, setRecord]=useState([{
     id: 1,
-    date:  "July 01, 2021 11:17:36 AM",
+    date:  "July 01, 2021",
     classificaiton: "rent",
     money: 5000,
     userid: userName
   },
   {
     id: 2,
-    date:  "July 02, 2021 11:17:36 AM",
+    date:  "July 02, 2021",
     classificaiton: "transport",
     money: 2000,
     userid: userName
-  }])
+  },
+  {
+    id: 3,
+    date:  "July 02, 2021",
+    classificaiton: "shopping",
+    money: 2000,
+    userid: userName
+  },
+  {
+    id:4,
+    date:  "July 02, 2021",
+    classificaiton: "medical",
+    money: 2000,
+    userid: userName
+  },
+  {
+    id: 5,
+    date:  "July 02, 2021",
+    classificaiton: "transport",
+    money: 2000,
+    userid: userName
+  },
+  {
+    id: 6,
+    date:  "July 02, 2021",
+    classificaiton: "transport",
+    money: 2000,
+    userid: userName
+  },
+  ])
  
 
 

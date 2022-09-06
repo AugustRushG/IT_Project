@@ -9,10 +9,13 @@ const MainSection = () => {
         <h1>Welcome To RecordIt</h1>
         <p>Start saving money today </p>
         
-        <button className='RegisterNow'>
-            <Link to='/Register'>Register Now</Link>
-        </button>
+        
+          <Link to='/Register'>
+            <button className='RegisterNow'>Register Now</button>
+          </Link>
+      
         <img src='magnet.png' alt='img'/>
+        
         
       </main>
       

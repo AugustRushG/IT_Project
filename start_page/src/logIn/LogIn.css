@@ -9,7 +9,8 @@ section {
     flex-direction: column;
     justify-content: flex-start;
     padding: 1rem;
-    background-color: #FDF4C9 
+    background-color: #FDF4C9 ;
+    
 }
 
 form {

@@ -4,7 +4,8 @@ import Feed from './Feed'
 const RecordDisplay = ({records}) => {
   return (
     <main className='RecordDisplay'>
-      RecordDisplay
+      <h3>Category Date Expenditure Notes</h3>
+        
       {records.length?(
         <Feed records={records}></Feed>
       ):
