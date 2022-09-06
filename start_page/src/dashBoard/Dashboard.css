@@ -4,16 +4,17 @@
     height: 12.8vh;
     top: 10vh;
     mix-blend-mode: normal;
-    border: 2px solid red;
+   
 }
 
 .SearchForm{
     position: relative;
     width: 35vw;
     left: 63vw;
-    top: 0%;
+    top: 0vh;
     display: block;
-    border: 2px solid red;
+   
+    
 }
 
 
@@ -50,8 +51,8 @@
     min-height: 77vh;
     
     background-color: #FDF4C9;
-    border: 2px solid orange;
-    border-radius: 5px;
+    
+    border-radius: 20px;
 }
 
 .RecordDisplay > h3{
@@ -61,7 +62,7 @@
 }
 
 .Record{
-    border: 2px solid red;
+    
     height: 6vh;
    
 }
@@ -85,6 +86,13 @@
     float:left;
 
     
+}
+
+.TimeDisplay{
+    position: relative;
+    left: 5vw;
+    top: 3vh;
+    font-family: 'Allerta Stencil', sans-serif;
 }
 
 
