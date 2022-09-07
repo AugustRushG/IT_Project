@@ -52,7 +52,7 @@ const LogIn = () => {
 
       const accessToken = response?.data?.token;
       setAuth({user,pwd,accessToken});
-      console.log("here");
+      
       setUser('');
       setPwd('');
       navigate(`/dashboard/${user}`,{replace:true});
@@ -70,6 +70,9 @@ const LogIn = () => {
       }
       else if (err.response?.status===404){
         setErrMsg('Username Not Found')
+      }
+      else if (err.response?.status===220){
+        setErrMsg('Server is not responding')
       }
       else{
         setErrMsg('LogIn Failed');

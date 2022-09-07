@@ -9,7 +9,7 @@ import shopping from './categoryIcons/online-shopping.png';
 const Record = ({record}) => {
 
   const chooseIcon=(classificaiton)=>{
-    console.log("function "+classificaiton);
+    
       switch (classificaiton){
         case 'rent':
           return rent;
@@ -26,18 +26,18 @@ const Record = ({record}) => {
 
 
   
-  console.log(chooseIcon(record.classificaiton));
+  
   return (
     
     <div className='Record'>
         <Link to={`/record/${record.id}`}> 
-          <p><img src={chooseIcon(record.classificaiton)} alt='img'/> 
-          &nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;
-          &nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;
-          {record.date} 
-          &nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;
-         
-          ${record.money}</p>
+          <p>
+            <img src={chooseIcon(record.classificaiton)} alt='img'/> 
+            <p className='RecordDetails'>
+              {record.date}  ${record.money}
+            </p>
+                    
+          </p>
         </Link>
     </div>
   )
