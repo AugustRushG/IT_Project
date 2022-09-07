@@ -9,7 +9,7 @@ import shopping from './categoryIcons/online-shopping.png';
 const Record = ({record}) => {
 
   const chooseIcon=(classificaiton)=>{
-    console.log("function "+classificaiton);
+    
       switch (classificaiton){
         case 'rent':
           return rent;
@@ -26,7 +26,7 @@ const Record = ({record}) => {
 
 
   
-  console.log(chooseIcon(record.classificaiton));
+  
   return (
     
     <div className='Record'>
