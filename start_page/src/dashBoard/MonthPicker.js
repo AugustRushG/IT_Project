@@ -2,7 +2,7 @@ import { faL } from '@fortawesome/free-solid-svg-icons';
 import React, { useEffect } from 'react'
 import { useState } from 'react';
 import {BiDownArrow, BiUpArrow} from 'react-icons/bi'
-import Picker from 'react-simple-month-picker';
+import Picker from './mPicker';
 
 
 
@@ -23,17 +23,11 @@ const MonthPicker = ({setDate}) => {
     }
 
  
-
-   
-    
-   
-
-  
     return (
       <>
         {showPicker?
             <>
-            <BiUpArrow onClick={handleClick}/><Picker onChange={(date)=>{setDate(date);console.log("change date"+date);}}/>
+            <BiUpArrow onClick={handleClick}/><Picker id='Picker' onChange={(date)=>{setDate(date);console.log("change date"+date);handleClick()}}/>
             </>
             :
             <BiDownArrow onClick={handleClick}></BiDownArrow>

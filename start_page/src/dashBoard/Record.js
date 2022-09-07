@@ -36,8 +36,7 @@ const Record = ({record}) => {
             <p className='RecordDetails'>
               {record.date}  ${record.money}
             </p>
-            
-           
+                    
           </p>
         </Link>
     </div>

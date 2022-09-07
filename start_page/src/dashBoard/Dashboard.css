@@ -43,7 +43,7 @@
 
 .RecordDisplay{
     position:absolute;
-    top: 50vh;
+    top: 23vh;
     left: 3vw;
     width: 47vw;
     margin-left: 0%;
@@ -57,6 +57,7 @@
 }
 
 .RecordDisplay > h3{
+    top: 2vh;
     width:max-content;
     position: relative;
     left: 5%;
@@ -64,23 +65,16 @@
 }
 
 .Record{
-   
+    position: relative;
+    top: 3vh;
     height: 6vh;
-   
-   
 }
 
 .Record p{
     height: auto;
-    
-    bottom: 2.4vh;
+    bottom: 3.4vh;
     margin: 0 auto;
     padding: 10px;
-   
-   
-
-    
-    
     font-size: 0.9rem;
 }
 
@@ -95,8 +89,8 @@
 }
 
 .RecordDetails{
-  
-    bottom: 0.2vh;
+    margin: auto;
+    bottom: 1.2vh;
     width: max-content;
     left: 8vw;
    
@@ -108,11 +102,13 @@
     left: 5vw;
     top: 3vh;
     font-family: 'Allerta Stencil', sans-serif;
+    
+    z-index: 10;
 }
 
 
-#MonthPicker{
-    border: solid 5px red;
+#Picker>.section_mp{
+    border: solid 5px black;
     z-index: 10;
 }
 
