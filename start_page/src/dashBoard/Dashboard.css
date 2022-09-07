@@ -68,31 +68,31 @@
     position: relative;
     top: 3vh;
     height: 6vh;
+    border: solid 2px red;
 }
 
-.Record p{
-    height: auto;
-    bottom: 3.4vh;
-    margin: 0 auto;
-    padding: 10px;
-    font-size: 0.9rem;
-}
+
 
 .Record img{
-   
+    top: 1vh;
     width:5%;
-    height:5%;
-    bottom: 8px;
+    height:70%;
     left: 5%;
     float:left;
 
 }
 
 .RecordDetails{
-    margin: auto;
-    bottom: 1.2vh;
-    width: max-content;
-    left: 8vw;
+    position: relative;
+    left: 9vw;
+    width: 38vw;
+    top: 1vh;
+
+    height: 4vh;
+    font-size: 1rem;
+    font-family: 'Inter', sans-serif;
+    font-weight: 200;
+    border: solid 1px blue;
    
 }
 
@@ -107,10 +107,6 @@
 }
 
 
-#Picker>.section_mp{
-    border: solid 5px black;
-    z-index: 10;
-}
 
 
 
