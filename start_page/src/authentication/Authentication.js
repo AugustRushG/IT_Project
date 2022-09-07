@@ -7,13 +7,11 @@ import useAuth from '../hooks/useAuth';
 import BottomSection from '../start_page/BottomSection';
 
 const AUTH_URL='/api/users/authorizeUser'
-const TOKEN_URL='api/users/checkToken';
 
 const Authentication = () => {
 
   const userRef=useRef();
   const errRef=useRef();
-  const {setAuth}=useAuth();
   const navigate=useNavigate();
 
   const [user, setUser] = useState('');
