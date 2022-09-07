@@ -17,15 +17,7 @@ const isAuthenticated = (req, res, next) => {
 }
 */
 
-var currCon = false;
-
-const checkAvai = () => {
-    if (currCon == true) {
-        return next()
-    } else {
-        res.status(404).json({msg:"Not Authorized"})
-    }
-}
+var currUser;
 
 // $route POST api/users/register
 // @desc return res json data
@@ -110,17 +102,14 @@ router.get("/checkToken",passport.authenticate("jwt", {session:false}), (req,res
 router.post("/authorizeUser", (req,res) => {
     const username = req.body.user;
     const answer = req.body.questionAnswer;
-    console.log(answer);
-
     User.findOne({username}).then(user => {
         if(!user){
             return res.status(400).json({username:"user not exist!"});
         }
-
+        currUser = user;
         if(user.secret_one != answer){
             return res.status(404).json({secret_one:"Incorrect Answer!"});
         }else{
-            currCon = true;
             res.send("success");
             //res.json({msg:"success"});
         }
@@ -128,25 +117,23 @@ router.post("/authorizeUser", (req,res) => {
 })
 
 // $route GET api/users/resetpwd
-router.post("/resetpwd", checkAvai, (req,res) => {
+router.post("/resetpwd",(req,res) => {
     const password = req.body.pwd;
-    User.findOne({username}).then(user => {
-        if(!user){
-            return res.status(404).json({username:"user not exist!"});
-        }
-        currCon = false;
-        bcrypt.genSalt(10, function(err, salt) {
+    if(!currUser){
+        return res.status(404).json({username:"user not exist!"});
+    }
+    currCon = false;
+    bcrypt.genSalt(10, function(err, salt) {
                 
-            bcrypt.hash(password, salt, (err, hash) => {
+        bcrypt.hash(password, salt, (err, hash) => {
                 
-                if(err) throw err;
+            if(err) throw err;
 
-                user.password = hash;
+            currUser.password = hash;
 
-                user.save().then(user => res.json(user)).catch(err => console.log(err));
-            });
+            currUser.save().then(currUser => res.json(currUser)).catch(err => console.log(err));
         });
-    })
+    });
 })
 
 // $route GET api/users/logout
