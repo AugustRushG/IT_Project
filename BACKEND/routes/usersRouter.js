@@ -106,14 +106,15 @@ router.get("/checkToken",passport.authenticate("jwt", {session:false}), (req,res
 })
 
 
-// $route GET api/users/authorizeeUser
-router.get("/authorizeUser", (req,res) => {
+// $route GET api/users/authorizeUser
+router.post("/authorizeUser", (req,res) => {
     const username = req.body.user;
     const answer = req.body.questionAnswer;
+    console.log(answer);
 
     User.findOne({username}).then(user => {
         if(!user){
-            return res.status(404).json({username:"user not exist!"});
+            return res.status(400).json({username:"user not exist!"});
         }
 
         if(user.secret_one != answer){
