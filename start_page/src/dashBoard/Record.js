@@ -34,7 +34,7 @@ const Record = ({record}) => {
           <img src={chooseIcon(record.classificaiton)} alt='img'/> 
           <p className='RecordDetails'>  
             <span className='Date'>{record.date} </span> 
-            <span className='Money'>${record.money}</span>
+            <span className='Expenditure'>${record.money}</span>
                            
           </p>
         </Link>

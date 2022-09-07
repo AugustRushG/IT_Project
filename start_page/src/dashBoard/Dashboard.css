@@ -68,7 +68,7 @@
     position: relative;
     top: 3vh;
     height: 6vh;
-    border: solid 2px red;
+   
 }
 
 
@@ -86,13 +86,8 @@
     position: relative;
     left: 9vw;
     width: 38vw;
-    top: 1vh;
-
-    height: 4vh;
-    font-size: 1rem;
+    height: 6vh;
     font-family: 'Inter', sans-serif;
-    font-weight: 200;
-    border: solid 1px blue;
    
 }
 
@@ -106,9 +101,26 @@
 }
 
 .Date{
-    position: relative;
-    border: solid 2px gray;
+    position: absolute;
+    height: fit-content;
+    bottom: 10vh;
+    width: 10vw;
+   
+    font-size: 1rem;
+    text-align: center;
 }
+
+.Expenditure{
+  
+ 
+    position: absolute;
+    left: 14vw;
+    text-align: center;
+    height: fit-content;
+    font-size: 1rem;
+    
+}
+
 
 
 
