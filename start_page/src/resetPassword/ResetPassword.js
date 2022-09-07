@@ -7,7 +7,7 @@ import BottomSection from '../start_page/BottomSection';
 
 const USER_REGEX = /^[A-z][A-z0-9-_]{3,23}$/;
 const PWD_REGEX = /^(?=.*[a-z])(?=.*[A-Z])(?=.*[0-9])(?=.*[!@#$%]).{8,24}$/;
-const RESET_URL='/api/users//resetpwd';
+const RESET_URL='/api/users/resetpwd';
 
 const ResetPassword = () => {
   function onlyLettersAndSpaces(str) {
@@ -95,7 +95,7 @@ const ResetPassword = () => {
       <section>
         <p ref={errRef} className={errMsg? "errmsg":"offscreen"} aria-live="assertive">{errMsg}</p>
         <h1>Reset Your Password</h1>
-        <form>
+        <form onSubmit={handleSubmit}>
           <label htmlFor='username'>
             Username:
             <FontAwesomeIcon icon={faCheck} className={validName ? "valid" : "hide"} />
