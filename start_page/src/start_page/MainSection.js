@@ -10,12 +10,11 @@ const MainSection = () => {
         <p>Start saving money today </p>
         
         
-          <Link to='/Register'>
-            <button className='RegisterNow'>Register Now</button>
-          </Link>
+        <Link to='/Register'  className='RegisterNow'>
+          <button>Register Now</button>
+        </Link>
       
         <img src='magnet.png' alt='img'/>
-        
         
       </main>
       

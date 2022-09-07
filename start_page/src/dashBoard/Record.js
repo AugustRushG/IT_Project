@@ -33,7 +33,9 @@ const Record = ({record}) => {
         <Link to={`/record/${record.id}`}> 
           <img src={chooseIcon(record.classificaiton)} alt='img'/> 
           <p className='RecordDetails'>  
-            {record.date}  ${record.money}                 
+            <span className='Date'>{record.date} </span> 
+            <span className='Money'>${record.money}</span>
+                           
           </p>
         </Link>
     </div>

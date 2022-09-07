@@ -102,8 +102,12 @@
     left: 5vw;
     top: 3vh;
     font-family: 'Allerta Stencil', sans-serif;
-    
     z-index: 10;
+}
+
+.Date{
+    position: relative;
+    border: solid 2px gray;
 }
 
 
