@@ -43,7 +43,8 @@
 
 .RecordDisplay{
     position:relative;
-    top: 10vh;
+    top: 4.5vh;
+    left: 3vw;
     width: 47vw;
     margin-left: 0%;
     height: auto;
@@ -58,7 +59,7 @@
 .RecordDisplay > h3{
     position: relative;
     left: 5%;
-    word-spacing: 5rem;
+    word-spacing: 5vw;
 }
 
 .Record{
@@ -85,7 +86,11 @@
     left: 5%;
     float:left;
 
+}
+
+.RecordDetails{
     
+    left: 8vw;
 }
 
 .TimeDisplay{
