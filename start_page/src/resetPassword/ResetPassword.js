@@ -61,7 +61,7 @@ const ResetPassword = () => {
   const handleSubmit = async(e)=>{
     e.preventDefault();
     try{
-      const response = await axios.post(RESET_URL,JSON.stringify({user,pwd}),
+      const response = await axios.patch(RESET_URL,JSON.stringify({user,pwd}),
       {headers:{'Content-Type': 'application/json'},withCredentials: true});
 
       console.log(response.data);

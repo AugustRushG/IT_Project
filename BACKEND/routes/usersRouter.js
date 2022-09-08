@@ -98,10 +98,11 @@ router.get("/checkToken",passport.authenticate("jwt", {session:false}), (req,res
 })
 
 
-// $route GET api/users/authorizeUser
+// $route POST api/users/authorizeUser
 router.post("/authorizeUser", (req,res) => {
     const username = req.body.user;
     const answer = req.body.questionAnswer;
+    console.log(answer);
     User.findOne({username}).then(user => {
         if(!user){
             return res.status(400).json({username:"user not exist!"});
@@ -116,8 +117,8 @@ router.post("/authorizeUser", (req,res) => {
     })
 })
 
-// $route GET api/users/resetpwd
-router.post("/resetpwd",(req,res) => {
+// $route Patch api/users/resetpwd
+router.patch("/resetpwd",(req,res) => {
     const password = req.body.pwd;
     if(!currUser){
         return res.status(404).json({username:"user not exist!"});
