@@ -92,7 +92,7 @@
 
 .TimeDisplay{
     width: 12vw;
-    position: relative;
+    position: absolute;
     left: 5vw;
     top: 3vh;
     font-family: 'Allerta Stencil', sans-serif;
@@ -111,7 +111,6 @@
 }
 
 .Expenditure{
-  
  
     position: absolute;
     left: 13vw;
@@ -119,6 +118,27 @@
     height: fit-content;
     font-size: 1rem;
     
+}
+
+.IncomeDisplay{
+    position: absolute;
+    left: 20vw;
+    text-align: center;
+    width: fit-content;
+    height: 6vh;
+    top: 3vh;
+    font-family: 'Allerta Stencil', sans-serif;
+   
+}
+
+.ExpenditureDisplay{
+    position: absolute;
+    left: 33vw;
+    text-align: center;
+    width: fit-content;
+    height: 6vh;
+    top: 3vh;
+    font-family: 'Allerta Stencil', sans-serif;
 }
 
 
