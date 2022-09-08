@@ -11,9 +11,8 @@
     position: absolute;
     width: 35vw;
     left: 63vw;
-    top: 12vh;
+    top: 14vh;
     display: block;
-   
     
 }
 
@@ -60,7 +59,7 @@
     top: 2vh;
     width:max-content;
     position: relative;
-    left: 5%;
+    left: 2vw;
     word-spacing: 5vw;
 }
 
@@ -105,6 +104,7 @@
     height: fit-content;
     bottom: 10vh;
     width: 10vw;
+    right: 28vw;
    
     font-size: 1rem;
     text-align: center;
@@ -114,7 +114,7 @@
   
  
     position: absolute;
-    left: 14vw;
+    left: 13vw;
     text-align: center;
     height: fit-content;
     font-size: 1rem;
