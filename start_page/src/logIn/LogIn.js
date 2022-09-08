@@ -106,7 +106,6 @@ const LogIn = () => {
           value={user}
         ></input>
         
-
         <label htmlFor='password'>
             Password  
         </label>
@@ -119,9 +118,8 @@ const LogIn = () => {
           aria-describedby="pwdnote"
         
         />
-            
 
-      <button disabled={!user || !pwd ? true : false}>Sign In</button>
+        <button disabled={!user || !pwd ? true : false}>Sign In</button>
 
 
       </form>
