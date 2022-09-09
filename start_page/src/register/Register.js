@@ -7,7 +7,6 @@ import Popup from 'reactjs-popup';
 
 import 'reactjs-popup/dist/index.css';
 import { Link } from 'react-router-dom';
-import { set } from 'mongoose';
 
 
 const USER_REGEX = /^[A-z][A-z0-9-_]{3,23}$/;
