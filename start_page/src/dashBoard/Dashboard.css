@@ -140,6 +140,11 @@
     top: 3vh;
     font-family: 'Allerta Stencil', sans-serif;
 }
+#arrow{
+    position: absolute;
+    top: 4vh;
+  
+}
 
 
 

@@ -13,8 +13,11 @@ const Dashboard = () => {
   const [search, setSearch]=useState('');
   const [searchResult, setSearchResult]=useState([]);
 
+
   const [expenditure, setExpenditure]=useState('');
 
+  //set and get date
+  const [date,setDate]=useState(new Date());
   const [records, setRecord]=useState([{
     id: 1,
     date:  "July 01, 2021",
@@ -54,7 +57,7 @@ const Dashboard = () => {
     id: 6,
     date:  "July 02, 2021",
     classificaiton: "transport",
-    money: 2000,
+    money: 4000,
     userid: userName
   },
   ])
@@ -63,8 +66,8 @@ const Dashboard = () => {
 
   return (
     <>
-      <Information search={search} setSearch={setSearch}></Information>
-      <RecordDisplay records={records}></RecordDisplay>
+      <Information search={search} setSearch={setSearch} date={date} setDate={setDate} expenditure={expenditure}></Information>
+      <RecordDisplay records={records} setExpenditure={setExpenditure} date={date}></RecordDisplay>
     </>
   )
 }

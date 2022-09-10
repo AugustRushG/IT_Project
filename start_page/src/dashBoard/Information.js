@@ -1,17 +1,16 @@
 import React from 'react'
 import {FaSearch} from 'react-icons/fa'
 import MonthPicker from './MonthPicker';
-import { useState } from 'react';
 
 
-const Information = ({search,setSearch}) => {
+const Information = ({search,setSearch,date,setDate,expenditure}) => {
   // to display month in string 
   const monthNames = ["January", "February", "March", "April", "May", "June",
   "July", "August", "September", "October", "November", "December"
   ];
 
   // get current date
-  const [date,setDate]=useState(new Date());
+ 
   //console.log("date now is "+date.getFullYear()+','+date.getMonth())
 
   return (
@@ -26,7 +25,7 @@ const Information = ({search,setSearch}) => {
           Income: <br/>$200
         </h2>      
         <h2 className='ExpenditureDisplay'>
-          Expenditure: <br/>$0
+          Expenditure: <br/>${expenditure}
         </h2>
       </div>
       <form className='SearchForm' onSubmit={(e)=>e.preventDefault}>
