@@ -3,7 +3,7 @@ import {FaSearch} from 'react-icons/fa'
 import MonthPicker from './MonthPicker';
 
 
-const Information = ({search,setSearch,date,setDate,expenditure}) => {
+const Information = ({search,setSearch,date,setDate,expenditure,income}) => {
   // to display month in string 
   const monthNames = ["January", "February", "March", "April", "May", "June",
   "July", "August", "September", "October", "November", "December"
@@ -22,7 +22,7 @@ const Information = ({search,setSearch,date,setDate,expenditure}) => {
           <MonthPicker setDate={setDate} />
         </h2>
         <h2 className='IncomeDisplay'>
-          Income: <br/>$200
+          Income: <br/>${income}
         </h2>      
         <h2 className='ExpenditureDisplay'>
           Expenditure: <br/>${expenditure}

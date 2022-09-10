@@ -25,10 +25,10 @@ const MonthPicker = ({setDate}) => {
       <>
         {showPicker?
             <>
-            <BiUpArrow onClick={handleClick} id='arrow'/><Picker id='Picker' onChange={(date)=>{setDate(date);console.log("change date"+date);handleClick()}}/>
+            <BiUpArrow onClick={handleClick} id='arrow' size={25}/><Picker id='Picker' onChange={(date)=>{setDate(date);console.log("change date"+date);handleClick()}}/>
             </>
             :
-            <BiDownArrow onClick={handleClick} id='arrow'></BiDownArrow>
+            <BiDownArrow onClick={handleClick} id='arrow'  size={25}></BiDownArrow>
         }
        
       </>

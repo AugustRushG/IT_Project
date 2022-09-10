@@ -7,6 +7,10 @@ import shopping from './categoryIcons/online-shopping.png';
 
 
 const Record = ({record}) => {
+  const monthNames = ["January", "February", "March", "April", "May", "June",
+  "July", "August", "September", "October", "November", "December"
+  ];
+
 
   const chooseIcon=(classificaiton)=>{
     
@@ -24,6 +28,11 @@ const Record = ({record}) => {
       }
   }
 
+  const translateDate=(date)=>{
+    var dateSep= date.split(' ');
+    return `${dateSep[1]}/${[parseInt(dateSep[0])+1]}/${dateSep[2]}`;
+  }
+
 
   
   
@@ -33,7 +42,7 @@ const Record = ({record}) => {
         <Link to={`/record/${record.id}`}> 
           <img src={chooseIcon(record.classificaiton)} alt='img'/> 
           <p className='RecordDetails'>  
-            <span className='Date'>{record.date} </span> 
+            <span className='Date'>{translateDate(record.date)} </span> 
             <span className='Expenditure'>${record.money}</span>
                            
           </p>
