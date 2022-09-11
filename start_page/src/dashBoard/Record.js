@@ -4,10 +4,12 @@ import rent from './categoryIcons/rent.png';
 import medical from './categoryIcons/first-aid-kit.png';
 import transport from './categoryIcons/transportation.png';
 import shopping from './categoryIcons/online-shopping.png';
+import useAuth from '../hooks/useAuth'
 
 
 const Record = ({record}) => {
-  
+  const {auth} =useAuth();
+  const userName=auth.user;
   const chooseIcon=(classificaiton)=>{
     
       switch (classificaiton){
@@ -35,7 +37,7 @@ const Record = ({record}) => {
   return (
     
     <div className='Record'>
-        <Link to={`/record/${record.id}`}> 
+        <Link to={`/record/${userName}/${record.id}`}> 
           <img src={chooseIcon(record.classificaiton)} alt='img'/> 
           <p className='RecordDetails'>  
             <span className='Date'>{translateDate(record.date)} </span> 

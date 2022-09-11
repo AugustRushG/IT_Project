@@ -6,7 +6,7 @@ const Missing = () => {
     <main className='Missing'>
        <h1> Ooops... This page is Missing</h1>
        <h2>
-        <Link to={'/'}>Back to Home</Link>
+        <Link to={'/'}><button>Back To Home</button></Link>
        </h2>
        
     </main>
