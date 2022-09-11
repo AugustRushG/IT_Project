@@ -53,30 +53,51 @@
     background-color: #FDF4C9;
     
     border-radius: 20px;
+   
 }
 
-.RecordDisplay > h3{
-    top: 2vh;
-    width:max-content;
-    position: relative;
-    left: 2vw;
-    word-spacing: 5vw;
+.RecordDisplay > span{
+    font-family: 'Allerta Stencil', sans-serif;
+   
+    height: fit-content;
+   
+}
+
+#Category{
+    position:absolute;
+    left: 1vw;
+}
+
+#Date{
+    position:absolute;
+    left: 11vw;
+}
+
+#Money{
+    position: absolute;
+    left: 20vw;
+}
+
+#Notes{
+    position:absolute;
+    left: 33vw;
 }
 
 .Record{
     position: relative;
-    top: 3vh;
-    height: 6vh;
+    top: 5vh;
+    height: 5vh;
    
+    
 }
 
 
 
 .Record img{
-    top: 1vh;
-    width:5%;
-    height:70%;
-    left: 5%;
+    top: 0.5vh;
+    width:2vw;
+    height:3.5vh;
+    left: 2vw;
     float:left;
 
 }
@@ -85,8 +106,9 @@
     position: relative;
     left: 9vw;
     width: 38vw;
-    height: 6vh;
+    height: 5vh;
     font-family: 'Inter', sans-serif;
+   
    
 }
 
@@ -101,23 +123,34 @@
 
 .Date{
     position: absolute;
+    left: 1.5vw;
+    top: 1vh;
+    width: fit-content;
     height: fit-content;
-    bottom: 10vh;
-    width: 10vw;
-    right: 28vw;
+    font-size: 0.9rem;
    
-    font-size: 1rem;
-    text-align: center;
+   
 }
 
 .Expenditure{
  
     position: absolute;
-    left: 13vw;
+    top: 1vh;
+    left: 12vw;
     text-align: center;
     height: fit-content;
-    font-size: 1rem;
+    font-size: 0.9rem;
+   
     
+}
+
+.Notes{
+    position: absolute;
+    left: 20vw;
+    text-align: center;
+    height: fit-content;
+    font-size: 0.9rem;
+    top: 1vh;
 }
 
 .IncomeDisplay{
@@ -140,10 +173,22 @@
     top: 3vh;
     font-family: 'Allerta Stencil', sans-serif;
 }
+
+
 #arrow{
     position: absolute;
     top: 3.5vh;
     
+}
+
+#displayNone{
+    top: 20vh;
+    position: relative;
+    margin: auto;
+   
+    text-align: center;
+    font-family: 'Allerta Stencil', sans-serif;
+    font-size: 2rem;
 }
 
 

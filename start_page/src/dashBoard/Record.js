@@ -44,6 +44,7 @@ const Record = ({record}) => {
           <p className='RecordDetails'>  
             <span className='Date'>{translateDate(record.date)} </span> 
             <span className='Expenditure'>${record.money}</span>
+            <span className='Notes'>{record.notes}</span>
                            
           </p>
         </Link>
