@@ -44,7 +44,8 @@ const Record = ({record}) => {
           <p className='RecordDetails'>  
             <span className='Date'>{translateDate(record.date)} </span> 
             <span className='Expenditure'>${record.money}</span>
-            <span className='Notes'>{record.notes}</span>
+            {/*if the length of notes less than 10 show all, if not show 10 and ...*/}
+            <span className='Notes'>{(record.notes)?.length<=25?record.notes:`${(record.notes)?.slice(0,25)}...`}</span>
                            
           </p>
         </Link>
