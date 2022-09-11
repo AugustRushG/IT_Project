@@ -5,9 +5,11 @@ const addData = async (req, res, next) => {
     try {
         const user = await Users.find({username:req.params.userName})
         const newRecord = new Record({userID: user._id});
-        newRecord.money = req.body.expend;
-        newRecord.classification = req.body.class;
-        newRecord.description = req.body.des;
+        newRecord.idx = req.body.id;
+        newRecord.date = req.body.date;
+        newRecord.money = req.body.money;
+        newRecord.classification = req.body.classification;
+        newRecord.description = req.body.notes;
         newRecord.save();
         return res.json({msg:"success"});
     } catch (err) {
@@ -34,14 +36,14 @@ const editData = async (req, res, next) => {
         if (records === null) {
             return res.status(404).json({msg:"No records!"});
         }
-        if (req.body.cexpend != null){
-            records.money = req.body.cexpend;
+        if (req.body.money != null){
+            records.money = req.body.money;
         }
-        if(req.body.cclass != null){
-            records.classification = req.body.cclass;
+        if(req.body.classification != null){
+            records.classification = req.body.classification;
         }
-        if(req.body.cdes != null){
-            records.description = records.classification;
+        if(req.body.notes != null){
+            records.description = req.body.notes ;
         }
         records.save();
         return res.json({data: records})
