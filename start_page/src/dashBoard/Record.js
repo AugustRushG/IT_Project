@@ -7,11 +7,7 @@ import shopping from './categoryIcons/online-shopping.png';
 
 
 const Record = ({record}) => {
-  const monthNames = ["January", "February", "March", "April", "May", "June",
-  "July", "August", "September", "October", "November", "December"
-  ];
-
-
+  
   const chooseIcon=(classificaiton)=>{
     
       switch (classificaiton){
