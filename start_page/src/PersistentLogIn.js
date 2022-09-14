@@ -15,6 +15,8 @@ const PersistentLogIn = () => {
 
     // get token from storage
     const accessToken=JSON.parse(localStorage.getItem('accessToken'))
+    const user=JSON.parse(localStorage.getItem('user'));
+    const pwd=JSON.parse(localStorage.getItem('pwd'))
 
 
     useEffect(()=>{
@@ -25,6 +27,9 @@ const PersistentLogIn = () => {
                 const response = await axios.get(CHECKURL,JSON.stringify(accessToken),
                 {headers:{'Content-Type': 'application/json'},withCredentials: true});
                 console.log(JSON.stringify(response));
+                // if success set useAuth
+                auth({user,pwd,accessToken});
+
             }catch(err){
                 console.error(err);
             }
