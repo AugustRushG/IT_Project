@@ -5,17 +5,7 @@ const bcrypt = require("bcrypt")
 const jwt = require('jsonwebtoken')
 const keys = require("../config/keys")
 const passport = require("passport")
-//const isAuthenticated = require("../middleware")
 const User = require("../models/user")
-
-/*
-const isAuthenticated = (req, res, next) => {
-    if (!req.isAuthenticated()) {
-        res.status(404).json({msg:"Unauthorized: Invalid token"})
-    }
-    return next()
-}
-*/
 
 var currUser;
 

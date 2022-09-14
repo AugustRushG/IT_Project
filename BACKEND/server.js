@@ -3,7 +3,6 @@ const express = require('express')
 
 const bodyParser = require("body-parser")
 const passport = require("passport")
-const isAuthenticated = require('./middleware')
 
 // Import users.js
 const usersRouter = require("./routes/usersRouter")
@@ -30,7 +29,7 @@ require("./config/passport")(passport);
 
 //  use router
 app.use("/api/users", usersRouter);
-app.use("/api/records",isAuthenticated, recordRouter);
+app.use("/api/records", passport.authenticate("jwt", {session:false}), recordRouter);
 
 const port = process.env.PORT || 8080;
 app.listen(port, () => {
