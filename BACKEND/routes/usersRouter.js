@@ -84,6 +84,8 @@ router.post("/login", (req,res) => {
 // $route GET api/users/checkToken
 // @access private
 router.get("/checkToken",passport.authenticate("jwt", {session:false}), (req,res) => {
+    console.log("checking token backend");
+    console.log(JSON.stringify(req));
     res.sendStatus(200);
 })
 

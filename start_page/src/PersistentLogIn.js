@@ -40,7 +40,7 @@ const PersistentLogIn = () => {
         }
 
         //if auth still have accesstoken, no need to verify, else verify the token. 
-        //auth.accessToken?setIsLoggedIn(true):verifyAccessToken()
+        auth.accessToken?setIsLoggedIn(true):verifyAccessToken()
 
     },[])
   return (
