@@ -9,7 +9,13 @@ const usersRouter = require("./routes/usersRouter")
 const recordRouter = require("./routes/recordRouter")
 
 // Set app up as an express app
-const app = express()
+const app = express();
+
+require("./config/passport")(passport);
+
+// passport initialization
+app.use(passport.initialize());
+
 
 const cors = require('cors');
 const corsOptions = {
@@ -21,11 +27,6 @@ app.use(cors(corsOptions));
 
 app.use(bodyParser.urlencoded({extended: false}));
 app.use(bodyParser.json());
-
-// passport initialization
-app.use(passport.initialize());
-
-require("./config/passport")(passport);
 
 //  use router
 app.use("/api/users", usersRouter);

@@ -6,7 +6,6 @@ const jwt = require('jsonwebtoken')
 const keys = require("../config/keys")
 const passport = require("passport")
 const User = require("../models/user")
-
 var currUser;
 
 // $route POST api/users/register
@@ -83,7 +82,8 @@ router.post("/login", (req,res) => {
 
 // $route GET api/users/checkToken
 // @access private
-router.get("/checkToken",passport.authenticate("jwt", {session:false}), (req,res) => {
+router.get("/checkToken", passport.authenticate('jwt', {session:false}),(req,res) => {
+    console.log(req);
     res.sendStatus(200);
 })
 
@@ -130,7 +130,7 @@ router.patch("/resetpwd",(req,res) => {
 // $route GET api/users/logout
 // @desc return current user
 // @access private
-router.post("/logout", passport.authenticate("jwt", {session:false}), (req,res) => {
+router.post("/logout", passport.authenticate('jwt', {session:false}), (req,res) => {
     req.logout();
 })
 
