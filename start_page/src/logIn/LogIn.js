@@ -27,14 +27,10 @@ const LogIn = () => {
 
   //useEffect on username 
   useEffect(()=>{
-
-    console.log(user);
   },[user])
 
   //useEffect on password
   useEffect(()=>{
-    console.log(pwd);
-   
   },[pwd]);
 
   //useEffect on error message clean out error message when user or pwd changes 
@@ -51,8 +47,16 @@ const LogIn = () => {
       console.log(JSON.stringify(response?.data))
 
       const accessToken = response?.data?.token;
-      
+
+      //put it into auth
       setAuth({user,pwd,accessToken});
+
+      //store in local storage
+      localStorage.setItem('accessToken',JSON.stringify(accessToken));
+      localStorage.setItem('user',JSON.stringify(user));
+      localStorage.setItem('pwd',JSON.stringify(pwd));
+
+
       setUser('');
       setPwd('');
       navigate(`/dashboard/${user}`,{replace:true});

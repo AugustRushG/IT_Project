@@ -11,10 +11,9 @@ const RecordDisplay = ({records,setExpenditure,date,setIncome,searchResult}) => 
       <span id='Notes'>Notes</span>
         
       {records.length?(
-        <Feed records={records} setExpenditure={setExpenditure} date={date} setIncome={setIncome} searchResult={searchResult}></Feed>
+        <Feed setExpenditure={setExpenditure} date={date} setIncome={setIncome} searchResult={searchResult}></Feed>
       ):
       <p style={{marginTop:"2rem"}}>
-        
         No Records been recorded yet.
       </p>
       }

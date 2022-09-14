@@ -10,6 +10,7 @@ import {Route, Routes } from 'react-router-dom';
 import Dashboard from "./dashBoard/Dashboard";
 import About from "./About";
 import RequireAuth from "./RequireAuth";
+import PersistentLogIn from "./PersistentLogIn";
 
 
 
@@ -33,9 +34,12 @@ function App() {
         <Route path='*' element={<Missing />}></Route>
 
         {/*needs to be protected*/}
-        <Route element={<RequireAuth/>}>
-          <Route exact path='/dashboard/:username' element={<Dashboard/>}></Route>
+        <Route element={<PersistentLogIn/>}>
+          <Route element={<RequireAuth/>}>
+            <Route exact path='/dashboard/:username' element={<Dashboard/>}></Route>
+          </Route>
         </Route>
+    
        
 
       </Routes>

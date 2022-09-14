@@ -3,10 +3,8 @@ import Information from './Information'
 import RecordDisplay from './RecordDisplay'
 import useAuth from '../hooks/useAuth'
 import { useState } from 'react'
-import useRefreshToken from '../hooks/useRefreashToken'
 
 const Dashboard = () => {
-  const refresh=useRefreshToken();
   
   //get username
   const {auth} =useAuth();
@@ -83,7 +81,6 @@ const Dashboard = () => {
     <>
       <Information search={search} setSearch={setSearch} date={date} setDate={setDate} expenditure={expenditure} income={income}></Information>
       <RecordDisplay records={records} setExpenditure={setExpenditure} date={date} setIncome={setIncome} searchResult={searchResult} ></RecordDisplay>
-      <button onClick={()=>refresh()}>refreash</button>
     </>
   )
 }
