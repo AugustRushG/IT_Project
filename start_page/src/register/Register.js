@@ -4,11 +4,19 @@ import { FontAwesomeIcon } from '@fortawesome/react-fontawesome';
 import axios from '../api/axios';
 import BottomSection from '../start_page/BottomSection';
 import Popup from 'reactjs-popup';
-
 import 'reactjs-popup/dist/index.css';
 import { Link } from 'react-router-dom';
 
+/**
+ * Module Name: Register.js
+ * Date of Creation: 23/08/2022
+ * Creator: Hao Xu
+ * Summary: Register page for the web application. After Register complete, pop up window leads the user to login page.
+ * Variable Accessed: 
+ */
 
+
+// function to check the input of username, password
 const USER_REGEX = /^[A-z][A-z0-9-_]{3,23}$/;
 const PWD_REGEX = /^(?=.*[a-z])(?=.*[A-Z])(?=.*[0-9])(?=.*[!@#$%]).{8,24}$/;
 const REGISTER_URL='/api/users/register'
@@ -47,16 +55,12 @@ const Register = () => {
   //useEffect on username 
   useEffect(()=>{
     const result = USER_REGEX.test(user);
-    console.log(result);
-    console.log(user);
     setValidName(result);
   },[user])
 
   //useEffect on password
   useEffect(()=>{
     const result= PWD_REGEX.test(pwd);
-    console.log(result);
-    console.log(pwd);
     setValidPwd(result);
     const match = pwd === matchPwd;
     setValidMatch(match);
@@ -67,11 +71,11 @@ const Register = () => {
 
   useEffect(()=>{
     const result = onlyLetters(questionAnswer) && questionAnswer;
-    console.log("question result",result);
-    console.log(questionAnswer);
     setValidQA(result);
   },[questionAnswer])
 
+
+  //function to clean the useState.
   const cleanUp=()=>{
     setPwd('');
     setUser('');
@@ -79,6 +83,7 @@ const Register = () => {
     setMatchPwd('');
   }
 
+  //function to handle the submit. When event happens, connect to the server and post username and password.
   const handleSubmit = async(e)=>{
     e.preventDefault();
     

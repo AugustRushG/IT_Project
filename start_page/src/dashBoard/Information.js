@@ -2,6 +2,13 @@ import React from 'react'
 import {FaSearch} from 'react-icons/fa'
 import MonthPicker from './MonthPicker';
 
+/**
+ * Module Name: Information.js
+ * Date of Creation: 27/08/2022
+ * Creator: Hao Xu
+ * Summary: A module that contains all necessary inforamtion that needs to display to the user.
+ * Variable Accessed: 
+ */
 
 const Information = ({search,setSearch,date,setDate,expenditure,income}) => {
   // to display month in string 

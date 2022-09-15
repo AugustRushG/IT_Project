@@ -1,3 +1,11 @@
+/**
+ * Module Name: Register.css
+ * Date of Creation: 23/08/2022
+ * Creator: Hao Xu
+ * Summary: Css sheet for Register page
+ * Variable Accessed: 
+ */
+
 section {
     position: relative;
     width: 100%;
@@ -21,9 +29,6 @@ form {
     flex-grow: 1;
     padding-bottom: 1rem;
 }
-
-
-
 
 
 input[type="text"],

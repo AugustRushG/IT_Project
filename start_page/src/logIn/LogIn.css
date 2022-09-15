@@ -1,3 +1,11 @@
+/**
+ * Module Name:LogIn.css
+ * Date of Creation: 25/08/2022
+ * Creator: Hao Xu
+ * Summary: Css sheet for LogIn page
+ * Variable Accessed: 
+ */
+
 section {
     position: relative;
     width: 100%;
@@ -10,8 +18,9 @@ section {
     justify-content: flex-start;
     padding: 1rem;
     background-color: #FDF4C9 ;
-    
+
 }
+
 
 form {
     display: flex;

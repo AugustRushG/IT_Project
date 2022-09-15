@@ -4,14 +4,20 @@ import RecordDisplay from './RecordDisplay'
 import useAuth from '../hooks/useAuth'
 import { useState } from 'react'
 
+/**
+ * Module Name: Dashboard.js
+ * Date of Creation: 27/08/2022
+ * Creator: Hao Xu
+ * Summary: Dashboard page for user, most of the functionality is here
+ * Variable Accessed: 
+ */
+
 const Dashboard = () => {
   
   //get username
   const {auth} =useAuth();
  
   const userName=auth.user;
-
-
   
 
   const [search, setSearch]=useState('');
@@ -56,26 +62,100 @@ const Dashboard = () => {
   },
   {
     id: 5,
-    date:  "6 02 2022",
+    date:  "8 02 2022",
     classificaiton: "transport",
     money: 2000,
     userid: userName
   },
   {
     id: 6,
-    date:  "6 02 2022",
+    date:  "8 02 2022",
     classificaiton: "transport",
     money: 4000,
     userid: userName
   },
+  {
+    id: 7,
+    date:  "8 02 2022",
+    classificaiton: "transport",
+    money: -2000,
+    notes: "myki charge",
+    userid: userName
+  },
+  {
+    id: 8,
+    date:  "8 02 2022",
+    classificaiton: "transport",
+    money: -2000,
+    notes: "myki charge",
+    userid: userName
+  },
+  {
+    id: 9,
+    date:  "8 02 2022",
+    classificaiton: "transport",
+    money: -2000,
+    notes: "myki charge",
+    userid: userName
+  },
+  {
+    id: 10,
+    date:  "8 02 2022",
+    classificaiton: "transport",
+    money: -2000,
+    notes: "myki charge",
+    userid: userName
+  },
+  {
+    id: 11,
+    date:  "8 02 2022",
+    classificaiton: "transport",
+    money: -2000,
+    notes: "myki charge",
+    userid: userName
+  },
+  {
+    id: 12,
+    date:  "8 02 2022",
+    classificaiton: "transport",
+    money: -2000,
+    notes: "myki charge",
+    userid: userName
+  },
+  {
+    id: 13,
+    date:  "8 02 2022",
+    classificaiton: "transport",
+    money: -2000,
+    notes: "myki charge",
+    userid: userName
+  },
+  {
+    id: 14,
+    date:  "8 02 2022",
+    classificaiton: "transport",
+    money: -2000,
+    notes: "myki charge",
+    userid: userName
+  },
+  {
+    id: 15,
+    date:  "8 02 2022",
+    classificaiton: "transport",
+    money: -2000,
+    notes: "myki charge",
+    userid: userName
+  }
+
   ])
 
+  //filter the records according to the searchResult
   useEffect(()=>{
     const filteredResults=records.filter((record)=>
     ((record.notes)?.toLowerCase())?.includes(search?.toLowerCase())
     ||((record.classificaiton)?.toLowerCase())?.includes(search?.toLowerCase()));
 
-    setSearchResult(filteredResults.reverse());
+    setSearchResult(filteredResults);
   },[records,search])
  
 

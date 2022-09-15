@@ -1,6 +1,14 @@
 import React from 'react'
 import { Link } from 'react-router-dom'
 
+/**
+ * Module Name: Missing.js
+ * Date of Creation: 25/08/2022
+ * Creator: Hao Xu
+ * Summary: A missing page for the web application. If path leads to no exising, will be direct to this page.
+ * Variable Accessed: 
+ */
+
 const Missing = () => {
   return (
     <main className='Missing'>

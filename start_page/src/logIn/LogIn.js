@@ -4,6 +4,13 @@ import axios from '../api/axios';
 import useAuth from '../hooks/useAuth';
 import BottomSection from '../start_page/BottomSection';
 
+/**
+ * Module Name: LogIn.js
+ * Date of Creation:  25/08/2022
+ * Creator: Hao Xu
+ * Summary: LogIn page for the web application
+ * Variable Accessed: useAuth, useRef
+ */
 
 const LOGIN_URL='/api/users/login'
 const LogIn = () => {
@@ -15,26 +22,11 @@ const LogIn = () => {
 
   const navigate=useNavigate();
 
-  //const location=useLocation();
-  //const from=location.state?.from?.pathname||'/';
-
   const [user, setUser] = useState('');
   const [pwd, setPwd] = useState('');
   const [errMsg, setErrMsg] = useState('');
- 
 
-  useEffect(()=>{userRef.current.focus();},[])
-
-  //useEffect on username 
-  useEffect(()=>{
-
-  
-  },[user])
-
-  //useEffect on password
-  useEffect(()=>{
-   
-  },[pwd]);
+  useEffect(()=>{userRef.current.focus();},[]);
 
   //useEffect on error message clean out error message when user or pwd changes 
   useEffect(()=>{setErrMsg('')},[user,pwd])
@@ -91,7 +83,7 @@ const LogIn = () => {
     
     <section>
       <p ref={errRef} className={errMsg? "errmsg":"offscreen"} aria-live="assertive">{errMsg}</p>
-      <h1>LogIn</h1>
+      <h1 >LogIn</h1>
       <form onSubmit={handleSubmit}>
         <label htmlFor='username'>
             Username:

@@ -1,4 +1,3 @@
-
 import Header from "./Header";
 import StartPage from "./start_page/StartPage";
 import LogIn from "./logIn/LogIn";
@@ -12,11 +11,20 @@ import About from "./About";
 import RequireAuth from "./RequireAuth";
 import PersistentLogIn from "./PersistentLogIn";
 
+/**
+ * Module Name: App.js
+ * Date of Creation: 20/08/2022
+ * Creator: Hao Xu
+ * Summary: Module created when react project created. Will display every module thats inside the module according to path.
+ * If want to add new page, just follow the same format.
+ * Some module are protected from users thats not logged in.
+ * Variable Accessed: 
+ */
+
 
 
 function App() {
   
- 
 
   return (
     <div className="App">
@@ -40,7 +48,6 @@ function App() {
           </Route>
         </Route>
     
-       
 
       </Routes>
 

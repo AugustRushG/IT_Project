@@ -2,6 +2,13 @@ import React, { Component } from 'react';
 import './month-picker.css';
 import './picker-styles.css';
 
+/**
+ * Module Name:mPicker.js 
+ * Date of Creation: //
+ * Creator://
+ * Summary: a internet library been downloaded to help our web application
+ * Variable Accessed: 
+ */
 
 export default class Picker extends Component {
 

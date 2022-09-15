@@ -1,5 +1,15 @@
 import React from 'react'
 
+
+/**
+ * Module Name: BottomSection.js
+ * Date of Creation: 22/08/2022
+ * Creator: Hao Xu  
+ * Summary: BottomSection of the startPage
+ * Variable Accessed: 
+ */
+
+
 const BottomSection = () => {
   return (
     <main className='BottomSection'>
@@ -14,8 +24,6 @@ const BottomSection = () => {
           </span>
         </span>
       </>
-      
-        
         <span className='bottomh' id='middleOne'><img src="/money-bag.png" alt="img" /><br/>
         Day to day bookkeeping
           <span id='small'>

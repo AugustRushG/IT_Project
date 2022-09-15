@@ -1,3 +1,12 @@
+/**
+ * Module Name: index.css
+ * Date of Creation: 20/08/2022
+ * Creator: Hao Xu
+ * Summary: css sheet for the index, controls common css styles of elements thats shared between classes.
+ * Variable Accessed: 
+ */
+
+
 * {
   margin: 0;
   padding: 0;
@@ -22,7 +31,7 @@ body {
   position: relative;
   width: 100%;
   height: 100vh;
-  max-height: 1080px;
+  min-height: 1080px;
   max-width: 1920px;
   align-items: center;
  

@@ -1,6 +1,13 @@
 import React, { useEffect } from 'react';
 import Record from './Record';
 
+/**
+ * Module Name: Feed.js 
+ * Date of Creation: 06/09/2022
+ * Creator: Hao Xu
+ * Summary: Function that helps to feed the records
+ * Variable Accessed: 
+ */
 
 const Feed = ({ setExpenditure,date,setIncome,searchResult}) => {
 

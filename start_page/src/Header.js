@@ -2,6 +2,14 @@ import React from 'react'
 import{Link,useNavigate,useLocation} from 'react-router-dom'; 
 import useLogOut from './hooks/useLogOut';
 
+/**
+ * Module Name: Header.js 
+ * Date of Creation: 22/08/2022
+ * Creator: Hao Xu
+ * Summary: The header component of the website, contains four buttons. Button changes according to different path.
+ * Variable Accessed: useLocation, useLogOut, useNavigate.
+ */
+
 const Header = () => {
     //get current location
     const location=useLocation();
@@ -17,9 +25,6 @@ const Header = () => {
       navigate('/')
     }
 
- 
-
-   
 
     //if in home,signUop,Register page, header link stays the same, if in other such as dashboard, change to other link
   return (

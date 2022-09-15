@@ -1,3 +1,11 @@
+/**
+ * Module Name: Dashboard.css
+ * Date of Creation: 27/08/2022
+ * Creator: Hao Xu
+ * Summary: css for dashboard page
+ * Variable Accessed: 
+ */
+
 .Information{
     position: relative;
     width: 100%;
@@ -46,13 +54,14 @@
     left: 3vw;
     width: 47vw;
     margin-left: 0%;
-    height: auto;
+    height: fit-content;
 
-    min-height: 77vh;
+    min-height: 80vh;
     
     background-color: #FDF4C9;
-    
+
     border-radius: 20px;
+  
    
 }
 
@@ -87,6 +96,7 @@
     position: relative;
     top: 5vh;
     height: 5vh;
+   
    
     
 }

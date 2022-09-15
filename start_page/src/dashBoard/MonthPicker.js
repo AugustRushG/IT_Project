@@ -5,7 +5,13 @@ import Picker from './mPicker';
 
 
 
-
+/**
+ * Module Name: MonthPicker.js
+ * Date of Creation: 08/09/2022
+ * Creator: Hao Xu
+ * Summary: MonthPicker component so that user can pick specific month.
+ * Variable Accessed: 
+ */
 
 const MonthPicker = ({setDate}) => {
 

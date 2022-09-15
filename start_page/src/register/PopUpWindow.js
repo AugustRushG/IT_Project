@@ -2,6 +2,14 @@ import React from 'react';
 import Popup from 'reactjs-popup';
 
 
+/**
+ * Module Name: PopUp.js
+ * Date of Creation: 08/09/2022
+ * Creator: Hao Xu  
+ * Summary: Pop up page that appears when user finishes register
+ * Variable Accessed: 
+ */
+
 const PopUpWindow = () => {
   return (
     <Popup className='PopUp'

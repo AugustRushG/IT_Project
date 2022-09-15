@@ -1,6 +1,13 @@
-import React from 'react';
 import useAuth from './useAuth';
 import axios from '../api/axios';
+
+/**
+ * Module Name: useRefresh.js
+ * Date of Creation: 15/09/2022
+ * Creator: Hao Xu
+ * Summary: A custome userHook to check the access token of user is still valid. If so, set auth username and accesstoken.
+ * Variable Accessed: 
+ */
 
 const CHECKURL='/api/users/checkToken'
 
