@@ -1,6 +1,5 @@
-# Getting Started with Create React App
-
-This project was bootstrapped with [Create React App](https://github.com/facebook/create-react-app).
+# RecordIt Project 
+An website Application for users to record their expenditure and income based on different categories and helps users to save money to achieve certain goals.
 
 ## Available Scripts
 
