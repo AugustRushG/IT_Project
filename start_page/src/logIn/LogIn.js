@@ -27,10 +27,13 @@ const LogIn = () => {
 
   //useEffect on username 
   useEffect(()=>{
+
+  
   },[user])
 
   //useEffect on password
   useEffect(()=>{
+   
   },[pwd]);
 
   //useEffect on error message clean out error message when user or pwd changes 
@@ -42,21 +45,17 @@ const LogIn = () => {
     try{
       const response = await axios.post(LOGIN_URL,JSON.stringify({user,pwd}),
       {headers:{'Content-Type': 'application/json'},withCredentials: true});
-      
-      console.log(JSON.stringify(response.status))
-      console.log(JSON.stringify(response?.data))
 
+  
+      
+     
       const accessToken = response?.data?.token;
 
-      //put it into auth
-      setAuth({user,pwd,accessToken});
-
-      //store in local storage
-      localStorage.setItem('accessToken',JSON.stringify(accessToken));
       localStorage.setItem('user',JSON.stringify(user));
       localStorage.setItem('pwd',JSON.stringify(pwd));
-
-
+      localStorage.setItem('accessToken',JSON.stringify(accessToken));
+      
+      setAuth({user,pwd,accessToken});
       setUser('');
       setPwd('');
       navigate(`/dashboard/${user}`,{replace:true});

@@ -8,7 +8,10 @@ const Dashboard = () => {
   
   //get username
   const {auth} =useAuth();
+ 
   const userName=auth.user;
+
+
   
 
   const [search, setSearch]=useState('');

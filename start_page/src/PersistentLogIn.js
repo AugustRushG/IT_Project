@@ -1,53 +1,65 @@
 import { Outlet } from "react-router-dom";
 import { useState,useEffect } from "react";
 import useAuth from "./hooks/useAuth";
-import axios from "./api/axios";
 import React from 'react'
+import useRefresh from "./hooks/useRefresh";
 
-const CHECKURL='api/users/checkToken'
+
+
 
 const PersistentLogIn = () => {
 
-    const [isLoggedIn,setIsLoggedIn]=useState(true);
+    const refresh = useRefresh();
+
+    console.log('persistentlogin');
+
+    const [isLoading,setIsLoading]=useState(true);
 
     //get auth
     const {auth} = useAuth();
 
-    // get token from storage
-    const accessToken=JSON.parse(localStorage.getItem('accessToken'))
-    const user=JSON.parse(localStorage.getItem('user'));
-    const pwd=JSON.parse(localStorage.getItem('pwd'))
+    
+    //console.log(setAuth);
+    //console.log(auth.accessToken);
+    //console.log(accessToken);
 
+    
+   
+
+   
 
     useEffect(()=>{
         const verifyAccessToken=async()=>{
-            console.log(`checking ${accessToken}`);
-            
-            try{
-                const response = await axios.get(CHECKURL,JSON.stringify(accessToken),
-                {headers:{'Content-Type': 'application/json'},withCredentials: true});
-                console.log(JSON.stringify(response));
-                // if success set useAuth
-                auth({user,pwd,accessToken});
 
+            console.log('verifyiing');
+            try{
+                // go in to refresh
+                await refresh();
+              
             }catch(err){
                 console.error(err);
             }
+
             finally{
-                setIsLoggedIn(false);
+                setIsLoading(false);
             }
-
         }
+        //if auth doesnt have accesstoken, verify, else set false. 
+        !auth.accessToken?verifyAccessToken():setIsLoading(false);
+    },[]);
 
-        //if auth still have accesstoken, no need to verify, else verify the token. 
-        auth.accessToken?setIsLoggedIn(true):verifyAccessToken()
+    useEffect(() => {
+        console.log(`isLoading: ${isLoading}`)
+        console.log(`aT: ${JSON.stringify(auth?.accessToken)}`)
+    }, [isLoading])
 
-    },[])
+
   return (
    
     <>
      {/*if is loggedin return outlet else is loading*/}
-    {isLoggedIn?<Outlet/>:<p>Is Loading</p>}
+   
+    {isLoading? <p>Loading...</p>: <Outlet />}
     </>
   )
 }

@@ -1,10 +1,15 @@
 import React from 'react'
 import{Link,useLocation} from 'react-router-dom'; 
+import useAuth from './hooks/useAuth';
 
 const Header = () => {
     //get current location
     const location=useLocation();
     console.log("current is "+location.pathname);
+
+ 
+
+   
 
     //if in home,signUop,Register page, header link stays the same, if in other such as dashboard, change to other link
   return (
