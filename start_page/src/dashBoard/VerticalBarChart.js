@@ -32,23 +32,23 @@ ChartJS.register(
           },
           title: {
             display: true,
-            text: 'Chart.js Bar Chart',
+            text: 'Compare',
           },
         },
     };
     
-    const labels = ['January', 'February', 'March', 'April', 'May', 'June', 'July'];
+    const labels = ['Jan', 'Feb', 'Mar', 'Apr', 'May', 'Jun', 'Jul','Aug','Sep','Oct','Nov','Dec'];
 
     const data={
         labels,
         datasets: [
           {
-            label: 'Dataset 1',
+            label: 'Expenditure',
             data: labels.map(() => faker.datatype.number({ min: 0, max: 1000 })),
             backgroundColor: 'rgba(255, 99, 132, 0.5)',
           },
           {
-            label: 'Dataset 2',
+            label: 'Income',
             data: labels.map(() => faker.datatype.number({ min: 0, max: 1000 })),
             backgroundColor: 'rgba(53, 162, 235, 0.5)',
           },
