@@ -1,6 +1,7 @@
 import React from 'react'
 import {FaSearch} from 'react-icons/fa'
 import MonthPicker from './MonthPicker';
+import {translateMoney} from './Record'
 
 /**
  * Module Name: Information.js
@@ -32,7 +33,7 @@ const Information = ({search,setSearch,date,setDate,expenditure,income}) => {
           Income: <br/>${income}
         </h2>      
         <h2 className='ExpenditureDisplay'>
-          Expenditure: <br/>${expenditure}
+          Expenditure: <br/>{translateMoney(expenditure)}
         </h2>
       </div>
       <form className='SearchForm' onSubmit={(e)=>e.preventDefault}>

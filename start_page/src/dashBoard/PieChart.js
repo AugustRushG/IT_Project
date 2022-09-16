@@ -1,8 +1,16 @@
 import React from 'react';
 import { Chart as ChartJS, ArcElement, Tooltip, Legend } from 'chart.js';
 import { Pie } from 'react-chartjs-2';
-
 ChartJS.register(ArcElement, Tooltip, Legend);
+
+
+/**
+ * Module Name: PieChart.js
+ * Date of Creation: 15/09/2022
+ * Creator: Hao Xu
+ * Summary: A module takes in data and displays a pie chart graph according to the data.
+ * Variable Accessed: 
+ */
 
 const PieChart = () => {
 

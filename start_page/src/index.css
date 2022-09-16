@@ -31,13 +31,10 @@ body {
   position: relative;
   width: 100%;
   height: 100vh;
-  min-height: 1080px;
   max-width: 1920px;
   align-items: center;
  
   background: #FFE24E;
-  
- 
   
 }
 

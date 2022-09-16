@@ -19,6 +19,14 @@ ChartJS.register(
     Legend
   );
 
+/**
+ * Module Name: VerticalBarChart.js
+ * Date of Creation: 15/09/2022
+ * Creator: Hao Xu
+ * Summary: A module takes in data and display a verticalbar chart according to the data.
+ * Variable Accessed: 
+ */
+
 
   
   

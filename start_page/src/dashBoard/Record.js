@@ -14,6 +14,21 @@ import useAuth from '../hooks/useAuth'
  * Variable Accessed: useAuth.
  */
 
+ export const translateMoney=(money)=>{
+  var aboAmount;
+  var isNegative=false;
+  if (money<0){
+    aboAmount=money*-1;
+    isNegative=true;
+  }
+  
+  if (isNegative){
+    return `-$${aboAmount}`;
+  }
+  return `$${money}`
+}
+
+
 
 const Record = ({record}) => {
   const {auth} =useAuth();
@@ -43,8 +58,7 @@ const Record = ({record}) => {
     return `${dateSep[1]}/${[parseInt(dateSep[0])+1]}/${dateSep[2]}`;
   }
 
-
-  
+ 
   
   return (
     
@@ -53,7 +67,7 @@ const Record = ({record}) => {
           <img src={chooseIcon(record.classificaiton)} alt='img'/> 
           <p className='RecordDetails'>  
             <span className='Date'>{translateDate(record.date)} </span> 
-            <span className='Expenditure'>${record.money}</span>
+            <span className='Expenditure'>{translateMoney(record.money)}</span>
             {/*if the length of notes less than 10 show all, if not show 10 and ...*/}
             <span className='Notes'>{(record.notes)?.length<=25?record.notes:`${(record.notes)?.slice(0,25)}...`}</span>
                            

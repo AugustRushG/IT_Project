@@ -1,6 +1,6 @@
 import React, { Component } from 'react';
-import './month-picker.css';
-import './picker-styles.css';
+import './dashboardcss/month-picker.css';
+import './dashboardcss/picker-styles.css';
 
 /**
  * Module Name:mPicker.js 

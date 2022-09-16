@@ -35,7 +35,7 @@ const Dashboard = () => {
     id: 1,
     date:  "8 08 2022",
     classificaiton: "rent",
-    money: +5000,
+    money: +2000,
     notes: "rent monthly",
     userid: userName
     },
@@ -43,7 +43,7 @@ const Dashboard = () => {
       id: 2,
       date:  "6 02 2021",
       classificaiton: "transport",
-      money: -2000,
+      money: -20,
       notes: "myki charge",
       userid: userName
     },
@@ -51,7 +51,7 @@ const Dashboard = () => {
       id: 3,
       date:  "8 02 2022",
       classificaiton: "shopping",
-      money: -2000,
+      money: -20,
       notes: "bought a new ps5",
       userid: userName
     },
@@ -59,14 +59,14 @@ const Dashboard = () => {
       id:4,
       date:  "8 02 2022",
       classificaiton: "medical",
-      money: -2000,
+      money: -20,
       userid: userName
     },
     {
       id: 5,
       date:  "8 02 2022",
-      classificaiton: "transport",
-      money: 2000,
+      classificaiton: "shopping",
+      money: -20,
       userid: userName
     },
     {
@@ -145,6 +145,58 @@ const Dashboard = () => {
       date:  "8 02 2022",
       classificaiton: "transport",
       money: -2000,
+      notes: "myki charge",
+      userid: userName
+    }
+    ,
+    {
+      id: 16,
+      date:  "8 02 2022",
+      classificaiton: "transport",
+      money: -2000,
+      notes: "myki charge",
+      userid: userName
+    }
+    ,
+    {
+      id: 17,
+      date:  "8 02 2022",
+      classificaiton: "transport",
+      money: -2000,
+      notes: "myki charge",
+      userid: userName
+    },
+    {
+      id: 18,
+      date:  "8 02 2022",
+      classificaiton: "transport",
+      money: -2000,
+      notes: "myki charge",
+      userid: userName
+    },
+    {
+      id: 19,
+      date:  "8 02 2022",
+      classificaiton: "transport",
+      money: -2,
+      notes: "msadasdasde",
+      userid: userName
+    }
+    ,
+    {
+      id: 20,
+      date:  "8 02 2022",
+      classificaiton: "transport",
+      money: -20,
+      notes: "myki charge",
+      userid: userName
+    }
+    ,
+    {
+      id: 21,
+      date:  "8 02 2022",
+      classificaiton: "shopping",
+      money: -10,
       notes: "myki charge",
       userid: userName
     }

@@ -1,6 +1,7 @@
 import React from 'react'
 import{Link,useNavigate,useLocation} from 'react-router-dom'; 
 import useLogOut from './hooks/useLogOut';
+import Button from 'react-bootstrap/Button';
 
 /**
  * Module Name: Header.js 
@@ -29,15 +30,15 @@ const Header = () => {
     //if in home,signUop,Register page, header link stays the same, if in other such as dashboard, change to other link
   return (
     <header className='Header'>
-        <h1><Link to='/'>RecordIt</Link></h1>
+        <h1 classname='RecordIt'><Link to='/' style={{color:'black'}}>RecordIt</Link></h1>
         {location.pathname.includes('/dashboard')? (<>
-            <Link to = '/LogIn'><button type = "button" className='Account'>Account</button></Link>
-            <button type = "button" className='LogOut' onClick={signOut}>LogOut</button>
+            <Link to = '/LogIn'><Button variant="warning" type = "button" className='Account'>Account</Button></Link>
+            <Button variant="warning" type = "button" className='LogOut' onClick={signOut}>LogOut</Button>
         </>):(<>
-            <Link to = '/LogIn'> <button type = "button" className='LogIn'>LogIn</button></Link>
-            <Link to = '/Register'> <button type = "button" className='SignUp'>SignUp</button></Link>
+            <Link to = '/LogIn'> <Button variant="warning" type = "button" className='LogIn'>LogIn</Button></Link>
+            <Link to = '/Register'> <Button variant="warning" type = "button" className='SignUp'>SignUp</Button></Link>
         </>)}
-       <Link to ='/About'> <button type = "button" className='About'>About</button></Link>
+       <Link to ='/About'> <Button variant="warning" type = "button" className='About'>About</Button></Link>
       
 
     </header>

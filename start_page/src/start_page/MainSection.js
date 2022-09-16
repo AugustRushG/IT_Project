@@ -1,5 +1,7 @@
 import React from 'react'
 import { Link } from 'react-router-dom'
+import Button from 'react-bootstrap/Button';
+
 
 /**
  * Module Name: MainSection.js
@@ -19,7 +21,7 @@ const MainSection = () => {
         
         
         <Link to='/Register'  className='RegisterNow'>
-          <button>Register Now</button>
+          <Button variant="warning">Register Now</Button>
         </Link>
       
         <img src='magnet.png' alt='img'/>
