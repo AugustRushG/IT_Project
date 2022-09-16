@@ -195,6 +195,45 @@ h2.headertekst {
     font-size: 2rem;
 }
 
+.PieChartContainer{
+    position:absolute;
+    left: 70vw;
+    top: 23vh;
+    height: 20vh;
+    width: 20vw;
+}
+
+.PieChartBackGround{
+    position:absolute;
+    left: 65vw;
+    height: 37vh;
+    width: 30vw;
+    top: 23vh;
+    border-radius: 20px;
+    
+    background-color: white;
+}
+
+.VerticalBarChartContainer{
+
+    position:absolute;
+    left: 65vw;
+    top: 70vh;
+    height: 25vh;
+    width: 30vw;
+
+}
+
+.VerticalBarChartBackground{
+    position:absolute;
+    left: 65vw;
+    height: 35vh;
+    width: 30vw;
+    top: 65vh;
+    border-radius: 20px;
+    
+    background-color: white;
+}
 
 
 
