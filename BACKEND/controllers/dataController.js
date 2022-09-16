@@ -18,6 +18,7 @@ const addData = async (req, res, next) => {
 }
 
 const getAllData = async (req, res, next) => {
+   
     try {
         const user = await Users.find({username:req.params.userName})
         const records = await Record.find({userID: user._id}).lean()

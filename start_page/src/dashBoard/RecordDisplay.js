@@ -10,6 +10,8 @@ import Feed from './Feed'
  */
 
 const RecordDisplay = ({records,setExpenditure,date,setIncome,searchResult}) => {
+
+  
   return (
     <main className='RecordDisplay'>
       
@@ -18,12 +20,14 @@ const RecordDisplay = ({records,setExpenditure,date,setIncome,searchResult}) => 
       <span id='Money'>Money</span>
       <span id='Notes'>Notes</span>
       
+      
 
       {/* if records exist, pass in all necessary values, otherwise show no records been recorded */}
       {records.length?(
-        <Feed setExpenditure={setExpenditure} date={date} setIncome={setIncome} searchResult={searchResult}></Feed>
+       
+        <Feed setExpenditure={setExpenditure} date={date} setIncome={setIncome} searchResult={searchResult} records={records}></Feed>
       ):
-      <p style={{marginTop:"2rem"}}>
+      <p id='NoRecords'>
         No Records been recorded yet.
       </p>
       }

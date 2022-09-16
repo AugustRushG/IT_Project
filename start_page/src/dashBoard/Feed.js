@@ -9,7 +9,7 @@ import Record from './Record';
  * Variable Accessed: 
  */
 
-const Feed = ({ setExpenditure,date,setIncome,searchResult}) => {
+const Feed = ({ setExpenditure,date,setIncome,searchResult,records}) => {
 
     let totalExpenditure=0;
     let totalIncome=0;
@@ -38,7 +38,7 @@ const Feed = ({ setExpenditure,date,setIncome,searchResult}) => {
             checkExpenditureOrIncome(record.money);
             
             return ( 
-                <Record key={record.id} record={record}/>
+                <Record key={record._id} record={record}/>
             )  
         }
 

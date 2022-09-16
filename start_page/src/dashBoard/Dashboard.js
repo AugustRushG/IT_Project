@@ -6,6 +6,7 @@ import { useState } from 'react'
 import { Link } from 'react-router-dom'
 import PieChart from './PieChart'
 import VerticalBarChart from './VerticalBarChart'
+import axios from '../api/axios'
 
 /**
  * Module Name: Dashboard.js
@@ -14,6 +15,8 @@ import VerticalBarChart from './VerticalBarChart'
  * Summary: Dashboard page for user, most of the functionality is here
  * Variable Accessed: 
  */
+
+const GET_URL='api/records/dashboard';
 
 const Dashboard = () => {
   
@@ -32,186 +35,48 @@ const Dashboard = () => {
 
   //set and get date
   const [date,setDate]=useState(new Date());
-  const [records, setRecord]=useState([{
-    id: 1,
-    date:  "8 08 2022",
-    classificaiton: "rent",
-    money: +2000,
-    notes: "rent monthly",
-    userid: userName
-    },
-    {
-      id: 2,
-      date:  "6 02 2021",
-      classificaiton: "transport",
-      money: -20,
-      notes: "myki charge",
-      userid: userName
-    },
-    {
-      id: 3,
-      date:  "8 02 2022",
-      classificaiton: "shopping",
-      money: -20,
-      notes: "bought a new ps5",
-      userid: userName
-    },
-    {
-      id:4,
-      date:  "8 02 2022",
-      classificaiton: "medical",
-      money: -20,
-      userid: userName
-    },
-    {
-      id: 5,
-      date:  "8 02 2022",
-      classificaiton: "shopping",
-      money: -20,
-      userid: userName
-    },
-    {
-      id: 6,
-      date:  "8 02 2022",
-      classificaiton: "transport",
-      money: 4000,
-      userid: userName
-    },
-    {
-      id: 7,
-      date:  "8 02 2022",
-      classificaiton: "transport",
-      money: -2000,
-      notes: "myki charge",
-      userid: userName
-    },
-    {
-      id: 8,
-      date:  "8 02 2022",
-      classificaiton: "transport",
-      money: -2000,
-      notes: "myki charge",
-      userid: userName
-    },
-    {
-      id: 9,
-      date:  "8 02 2022",
-      classificaiton: "transport",
-      money: -2000,
-      notes: "myki charge",
-      userid: userName
-    },
-    {
-      id: 10,
-      date:  "8 02 2022",
-      classificaiton: "transport",
-      money: -2000,
-      notes: "myki charge",
-      userid: userName
-    },
-    {
-      id: 11,
-      date:  "8 02 2022",
-      classificaiton: "transport",
-      money: -2000,
-      notes: "myki charge",
-      userid: userName
-    },
-    {
-      id: 12,
-      date:  "8 02 2022",
-      classificaiton: "transport",
-      money: -2000,
-      notes: "myki charge",
-      userid: userName
-    },
-    {
-      id: 13,
-      date:  "8 02 2022",
-      classificaiton: "transport",
-      money: -2000,
-      notes: "myki charge",
-      userid: userName
-    },
-    {
-      id: 14,
-      date:  "8 02 2022",
-      classificaiton: "transport",
-      money: -2000,
-      notes: "myki charge",
-      userid: userName
-    },
-    {
-      id: 15,
-      date:  "8 02 2022",
-      classificaiton: "transport",
-      money: -2000,
-      notes: "myki charge",
-      userid: userName
-    }
-    ,
-    {
-      id: 16,
-      date:  "8 02 2022",
-      classificaiton: "transport",
-      money: -2000,
-      notes: "myki charge",
-      userid: userName
-    }
-    ,
-    {
-      id: 17,
-      date:  "8 02 2022",
-      classificaiton: "transport",
-      money: -2000,
-      notes: "myki charge",
-      userid: userName
-    },
-    {
-      id: 18,
-      date:  "8 02 2022",
-      classificaiton: "transport",
-      money: -2000,
-      notes: "myki charge",
-      userid: userName
-    },
-    {
-      id: 19,
-      date:  "8 02 2022",
-      classificaiton: "transport",
-      money: -2,
-      notes: "msadasdasde",
-      userid: userName
-    }
-    ,
-    {
-      id: 20,
-      date:  "8 02 2022",
-      classificaiton: "transport",
-      money: -20,
-      notes: "myki charge",
-      userid: userName
-    }
-    ,
-    {
-      id: 21,
-      date:  "8 02 2022",
-      classificaiton: "shopping",
-      money: -10,
-      notes: "myki charge",
-      userid: userName
-    }
+  const [records, setRecord]=useState([]);
 
-  ])
+
 
   //filter the records according to the searchResult
   useEffect(()=>{
-    const filteredResults=records.filter((record)=>
+
+  
+    const filteredResults=records?.filter((record)=>
     ((record.notes)?.toLowerCase())?.includes(search?.toLowerCase())
-    ||((record.classificaiton)?.toLowerCase())?.includes(search?.toLowerCase()));
+    ||((record.classification)?.toLowerCase())?.includes(search?.toLowerCase()));
 
     setSearchResult(filteredResults);
+
+    if (filteredResults.length===0){
+      setSearchResult(records);
+      console.log(searchResult);
+    }
+ 
   },[records,search])
+
+
+  useEffect(()=>{
+    const fetchRecords=async()=>{
+      try{
+        const response=await axios.get(GET_URL,{headers:{
+          'Content-Type' : 'application/json',
+          'Accept' : 'application/json',
+          'Authorization' : JSON.parse(localStorage.getItem('accessToken'))}
+          }
+        )
+
+        console.log(response);
+        setRecord(response.data.data);
+        
+      }catch(err){
+          console.error(err);
+      }
+    }
+
+    fetchRecords();
+  },[])
  
 
 

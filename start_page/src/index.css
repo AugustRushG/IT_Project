@@ -23,7 +23,6 @@ html{
 
 body {
   min-height: 100vh;
-  
 }
 
 .App{
@@ -44,14 +43,13 @@ body {
   height: 10vh;
   background: #FFFFFF;
   
-  
 }
 
 .LogIn,.Account{
   position: absolute;
   
-  width: 5vw;
-  left: 75vw;
+  width: 6vw;
+  left: 74vw;
   top: 2.5vh;
   margin: auto;
 
@@ -114,8 +112,8 @@ body {
 
 .Header h1{
   position: absolute;
-  left: 5.28%;
-  top: 10%;
+  left: 3vw;
+  top: 1vh;
   
   font-family: 'Allerta Stencil', sans-serif;
   font-weight: 400;

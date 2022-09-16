@@ -35,9 +35,8 @@ const Record = ({record}) => {
   const userName=auth.user;
 
   // function to choose Icon from to match the classification.
-  const chooseIcon=(classificaiton)=>{
-    
-      switch (classificaiton){
+  const chooseIcon=(classification)=>{  
+      switch (classification){
         case 'rent':
           return rent;
         case 'transport':
@@ -64,7 +63,7 @@ const Record = ({record}) => {
     
     <div className='Record'>
         <Link to={`/record/${userName}/${record.id}`}> 
-          <img src={chooseIcon(record.classificaiton)} alt='img'/> 
+          <img src={chooseIcon(record.classification)} alt='img'/> 
           <p className='RecordDetails'>  
             <span className='Date'>{translateDate(record.date)} </span> 
             <span className='Expenditure'>{translateMoney(record.money)}</span>
