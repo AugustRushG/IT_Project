@@ -3,6 +3,7 @@ import Information from './Information'
 import RecordDisplay from './RecordDisplay'
 import useAuth from '../hooks/useAuth'
 import { useState } from 'react'
+import { Link } from 'react-router-dom'
 import PieChart from './PieChart'
 import VerticalBarChart from './VerticalBarChart'
 
@@ -217,6 +218,10 @@ const Dashboard = () => {
   return (
     <>
       <Information search={search} setSearch={setSearch} date={date} setDate={setDate} expenditure={expenditure} income={income}></Information>
+      <h2 class="headertekst">
+        <span className='line'><Link to='/Add'>add</Link></span>
+        
+      </h2>
       <RecordDisplay records={records} setExpenditure={setExpenditure} date={date} setIncome={setIncome} searchResult={searchResult} ></RecordDisplay>
       <div className='PieChartBackGround'> </div>
       <div className='PieChartContainer'> <PieChart></PieChart></div>

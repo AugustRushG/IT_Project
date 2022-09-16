@@ -47,6 +47,10 @@
     
 }
 
+h2.headertekst {
+    text-align: center;
+    }
+
 
 #search{
     width: 80%;
@@ -259,7 +263,6 @@
     
     background-color: white;
 }
-
 
 
 
