@@ -98,7 +98,7 @@ const Dashboard = () => {
   useEffect(()=>{
     setWholeYearIncome(calculateIncomeWholeYear(records,date));
     setWholeYearExpenditure(calculateExpenditureWholeYear(records,date));
-  },[records])
+  },[records,date])
 
   //function to calculate percentage of spending on each different categories
   const calculatePercentage=(records,selectedDate,allExpen)=>{
