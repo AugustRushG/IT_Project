@@ -7,6 +7,9 @@ const addData = async (req, res, next) => {
         const newRecord = new Record({userId:user._id});
         var dateString = req.body.date.split("-");
         dateString[1] = dateString[1] - 1;
+        if((dateString[1]+'').length == 1){
+            dateString[1] = '0' + dateString[1];
+        }
         newRecord.date = dateString[1] + ' ' + dateString[2] + ' ' + dateString[0];
         newRecord.money = req.body.money;
         newRecord.classification = req.body.category;
