@@ -14,14 +14,14 @@ const Add= ()=> {
     const [description, setDescription] = useState('');
 
     
-
+    const user = auth?.user;
 
     const handleSubmit = async(e)=>{
         e.preventDefault();
         
         try{
     
-          const response = await axios.post(ADD_URL, JSON.stringify({date,category,money,description}),
+          const response = await axios.post(ADD_URL, JSON.stringify({user, date,category,money,description}),
             {
               headers:{'Content-Type':'application/json', 'Authorization':auth?.accessToken},
               withCredentials: true
@@ -73,7 +73,7 @@ const Add= ()=> {
           <button
             type="submit"
           >
-            <Link to='/dashboard/:username'>Submit</Link>
+            Submit
           </button>
         </form>
         </section>

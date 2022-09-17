@@ -3,13 +3,17 @@ const Users = require('../models/user')
 
 const addData = async (req, res, next) => {
     try {
-        const user = await Users.find({username:req.params.userName})
-        const newRecord = new Record({userID: user._id});
-        newRecord.idx = req.body.id;
-        newRecord.date = req.body.date;
+        const user = await Users.findOne({username:req.body.user})
+        const newRecord = new Record({userId:user._id});
+        var dateString = req.body.date.split("-");
+        dateString[1] = dateString[1] - 1;
+        if((dateString[1]+'').length == 1){
+            dateString[1] = '0' + dateString[1];
+        }
+        newRecord.date = dateString[1] + ' ' + dateString[2] + ' ' + dateString[0];
         newRecord.money = req.body.money;
-        newRecord.classification = req.body.classification;
-        newRecord.description = req.body.notes;
+        newRecord.classification = req.body.category;
+        newRecord.description = req.body.description;
         newRecord.save();
         return res.json({msg:"success"});
     } catch (err) {
@@ -18,7 +22,6 @@ const addData = async (req, res, next) => {
 }
 
 const getAllData = async (req, res, next) => {
-   
     try {
         const user = await Users.find({username:req.params.userName})
         const records = await Record.find({userID: user._id}).lean()
