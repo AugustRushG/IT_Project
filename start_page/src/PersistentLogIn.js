@@ -24,7 +24,6 @@ const PersistentLogIn = () => {
 
     useEffect(()=>{
         const verifyAccessToken=async()=>{
-            console.log('verifyiing');
             try{
                 // go in to refresh
                 await refresh();
@@ -41,10 +40,10 @@ const PersistentLogIn = () => {
         !auth.accessToken?verifyAccessToken():setIsLoading(false);
     },[]);
 
-    useEffect(() => {
-        console.log(`isLoading: ${isLoading}`)
-        console.log(`aT: ${JSON.stringify(auth?.accessToken)}`)
-    }, [isLoading])
+    // useEffect(() => {
+    //     console.log(`isLoading: ${isLoading}`)
+    //     console.log(`aT: ${JSON.stringify(auth?.accessToken)}`)
+    // }, [isLoading])
 
 
   return (

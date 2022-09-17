@@ -4,6 +4,8 @@ import rent from './categoryIcons/rent.png';
 import medical from './categoryIcons/first-aid-kit.png';
 import transport from './categoryIcons/transportation.png';
 import shopping from './categoryIcons/online-shopping.png';
+import pet from './categoryIcons/pet.png';
+import gift from './categoryIcons/giftbox.png';
 import useAuth from '../hooks/useAuth'
 
 /**
@@ -45,6 +47,10 @@ const Record = ({record}) => {
           return medical;
         case 'shopping':
           return shopping;
+        case 'pet':
+          return pet;
+        case 'gift':
+          return gift;
         default:
           return null;
       }
@@ -68,7 +74,7 @@ const Record = ({record}) => {
             <span className='Date'>{translateDate(record.date)} </span> 
             <span className='Expenditure'>{translateMoney(record.money)}</span>
             {/*if the length of notes less than 10 show all, if not show 10 and ...*/}
-            <span className='Notes'>{(record.notes)?.length<=25?record.notes:`${(record.notes)?.slice(0,25)}...`}</span>
+            <span className='Notes'>{(record.description)?.length<=25?record.description:`${(record.description)?.slice(0,25)}...`}</span>
                            
           </p>
         </Link>

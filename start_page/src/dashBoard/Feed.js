@@ -33,7 +33,7 @@ const Feed = ({ setExpenditure,date,setIncome,searchResult,records}) => {
     // fucntion to only display records thats in the month.
     const checkMonth=(record)=>{ 
        
-        if (parseInt(record.date.substring(0,1))===date.getMonth()&&parseInt(record.date.substring(5,9))===date.getFullYear()){
+        if (parseInt(record.date.substring(0,2))===date.getMonth()&&parseInt(record.date.substring(6,10))===date.getFullYear()){
             display=true;
             checkExpenditureOrIncome(record.money);
             
