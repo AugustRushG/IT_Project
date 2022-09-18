@@ -1,3 +1,4 @@
+const record = require('../models/record');
 const Record = require('../models/record')
 const Users = require('../models/user')
 
@@ -23,12 +24,38 @@ const addData = async (req, res, next) => {
 
 const getAllData = async (req, res, next) => {
     try {
-        const user = await Users.find({username:req.params.userName})
-        const records = await Record.find({userID: user._id}).lean()
+        console.log(req.params.user);
+        const user = await Users.findOne({username:req.params.user});
+        const records = await Record.find({userId: user._id}).lean();
         if (records === null) {
             return res.status(404).json({msg:"No records!"});
         }
-        return res.json({data: records})
+        return res.json({data: records});
+    } catch (err) {
+        return next(err);
+    }
+}
+
+const getMonthData = async (req, res, next) => {
+    try {
+        const user = await Users.find({username:req.params.userName});
+        const totalRecords = await Record.find({userID: user._id}).lean();
+        const reqMonth = req.body.month - 1;
+        const reqYear = req.body.year;
+        var pattern = "#reqMonth code\n123 #reqYear";
+        const records = await totalRecords.find({date:{$regex:patern}});
+        if (records === null) {
+            return res.status(404).json({msg:"No records!"});
+        }
+        var expend, income;
+        for(record in records){
+            if(record.money < 0){
+                expend += record.money;
+            }else{
+                income += record.money;
+            }
+        }
+        return res.json({expend: expend, income: income})
     } catch (err) {
         return next(err)
     }
