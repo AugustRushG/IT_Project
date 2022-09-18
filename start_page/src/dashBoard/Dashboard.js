@@ -16,16 +16,15 @@ import axios from '../api/axios'
  * Variable Accessed: 
  */
 
-const GET_URL='api/records/dashboard';
 
 const Dashboard = () => {
   
   //get username
   const {auth} =useAuth();
  
-  const userName=auth.user;
+  var userName=auth.user;
   
-
+  const GET_URL=`api/records/dashboard/${userName}`;
   const [search, setSearch]=useState('');
   const [searchResult, setSearchResult]=useState([]);
 

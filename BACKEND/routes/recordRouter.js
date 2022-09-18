@@ -4,7 +4,7 @@ const dataController = require('../controllers/dataController')
 //const isAuthenticated = require('../middleware')
 
 dataRouter.post('/add',dataController.addData)
-dataRouter.get('/dashboard',dataController.getAllData)
+dataRouter.get('/dashboard/:user',dataController.getAllData)
 dataRouter.get('/edit',dataController.editData)
 dataRouter.get('/delete',dataController.deleteData)
 
