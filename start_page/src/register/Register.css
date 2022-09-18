@@ -9,8 +9,6 @@
 section {
     position: relative;
     width: 100%;
-    
-    
     top: 22vh;
     margin: auto;
     max-width: 420px;
@@ -109,6 +107,7 @@ button {
     font-size: 22px;
     color: black;
     text-decoration: underline;
+   
 }
 
 p > a{
@@ -118,10 +117,12 @@ p > a{
 
 a:hover{
     color:darkblue;
-  }
-
-.modal{
-   
-    text-align: center;
-    
 }
+
+#regSignIn{
+   position: relative;
+   top: 1vh;
+}
+
+
+
