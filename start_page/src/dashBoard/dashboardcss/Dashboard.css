@@ -8,7 +8,8 @@
 
 
  /* width */
-::-webkit-scrollbar {
+ ::-webkit-scrollbar {
+  
     width: 5px;
   }
   
@@ -84,7 +85,8 @@ h2.headertekst {
     width: 47vw;
     margin-left: 0%;
     height: 77vh;
-    overflow-y: scroll;
+    overflow-y: auto;
+    
     min-height: 60vh;
     background-color: #FDF4C9;
     border-radius: 20px;
@@ -276,11 +278,4 @@ h2.headertekst {
     font-family: 'Allerta Stencil', sans-serif;
     
 }
-
-
-
-
-
-
-
 

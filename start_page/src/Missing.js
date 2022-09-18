@@ -1,5 +1,6 @@
 import React from 'react'
 import { Link } from 'react-router-dom'
+import Button from 'react-bootstrap/Button';
 
 /**
  * Module Name: Missing.js
@@ -11,10 +12,10 @@ import { Link } from 'react-router-dom'
 
 const Missing = () => {
   return (
-    <main className='Missing'>
+    <main id='Missing'>
        <h1> Ooops... This page is Missing</h1>
        <h2>
-        <Link to={'/'}><button>Back To Home</button></Link>
+        <Link to={'/'}><Button variant="warning">Back To Home</Button></Link>
        </h2>
        
     </main>
