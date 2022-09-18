@@ -76,6 +76,16 @@ const LogIn = () => {
     }
     
   }
+
+
+  const checkDisabled=(user,pwd)=>{
+    if (!user||!pwd ){
+      return false;
+      
+    }
+
+    return true;
+  }
   return (
    
     <>
@@ -113,7 +123,11 @@ const LogIn = () => {
         
         />
 
-        <button classname='SignIn'  disabled={!user || !pwd ? true : false} >Sign In</button>
+        {checkDisabled(user,pwd)?
+          <Button id='LogsignIn' type='submit' style={{top:'2vh'}} >Sign In</Button>
+        :
+          <Button id='LogsignIn' type='submit' disabled style={{top:'2vh'}}>Sign In</Button>}
+        
 
 
       </form>

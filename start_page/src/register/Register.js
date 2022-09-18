@@ -127,6 +127,15 @@ const Register = () => {
 
   }
 
+  const checkDisabled=(validName,validMatch,validPwd,validQA)=>{
+
+    if (!validName || !validPwd || !validMatch ||!validQA){
+      return false;
+    }
+    return true;
+
+  }
+
   return (
     <>
       
@@ -227,9 +236,12 @@ const Register = () => {
             Can only contain letters and space<br/>
           </p>
 
-
-          <button disabled={!validName || !validPwd || !validMatch ||!validQA ? true : false}>Sign Up</button>
-
+          {checkDisabled(validName,validMatch,validPwd,validQA)?
+             <Button id='regSignIn' type='submit' >Sign Up</Button>
+          :
+            <Button id='regSignIn' type='submit' disabled>Sign Up</Button>
+          }
+         
         </form>
 
         <p>
