@@ -1,5 +1,5 @@
 # RecordIt Project 
-An website Application for users to record their expenditure and income based on different categories and helps users to save money to achieve certain goals.
+An website Application for users to record their expenditure and income based on different categories and helps users to save money to achieve certain goals. Such as saving money to buy a car, manage income to invest and etc.
 
 ## Available Scripts
 
