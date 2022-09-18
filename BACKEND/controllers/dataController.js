@@ -86,7 +86,7 @@ const editData = async (req, res, next) => {
 const deleteData = async (req, res, next) => {
     try {
         const result = await Record.deleteOne({_id: req.body.rid})
-        return res.sent(result)
+        return res.send(result)
     } catch (err) {
         return next(err)
     }

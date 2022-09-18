@@ -9,9 +9,10 @@ const ADD_URL = 'http://localhost:8080/api/records/add'
 const Add= ()=> {
     const {auth} = useAuth();
     const [date, setDate] = useState('');
-    const [category, setCategory] = useState('');
+    const [category, setCategory] = useState('default');
     const [money, setMoney] = useState('');
     const [description, setDescription] = useState('');
+
 
     
     const user = auth?.user;
@@ -43,30 +44,43 @@ const Add= ()=> {
     
       return (
         <section>
-        <form onSubmit={handleSubmit}>
-          <p>Add Record</p >
+                <form onSubmit={handleSubmit}>
+          <p> Update Record</p >
           <input
             type="date"
             name="date"
+            value={date}
             placeholder="enter a date"
             onChange={(e)=>setDate(e.target.value)}
           />
-          <input
+        <select  
             type="category"
-            name="category"
-            placeholder="enter a category"
-            onChange={(e)=>setCategory(e.target.value)}
-          />
+            name="category" 
+            value={category}
+            defaultValue={category}
+            onChange={(e)=>setCategory(e.target.value)}>
+          <option category="default" hidden>select a category</option>
+          <option category="rent">rent</option>
+          <option category="transport">transport</option>
+          <option category="medical">medical</option>
+          <option category="shopping">shopping</option>
+          <option category="shopping">pet</option>
+          <option category="shopping">gift</option>
+          <option category="other">other</option>
+        </select>
+
          <input
             type="money"
             name="money"
+            value={money}
             placeholder="enter money"
             onChange={(e)=>setMoney(e.target.value)}
           />
         <input
             type="description"
             name="description"
-            placeholder="enter description"
+            value={description}
+            placeholder="leave a quick note if any"
             onChange={(e)=>setDescription(e.target.value)}
           />
           
