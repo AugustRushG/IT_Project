@@ -7,6 +7,7 @@ import shopping from './categoryIcons/online-shopping.png';
 import pet from './categoryIcons/pet.png';
 import gift from './categoryIcons/giftbox.png';
 import useAuth from '../hooks/useAuth'
+import axios from '../api/axios';
 
 /**
  * Module Name: Record.js
@@ -63,12 +64,27 @@ const Record = ({record}) => {
     return `${dateSep[1]}/${[parseInt(dateSep[0])+1]}/${dateSep[2]}`;
   }
 
+
+
+  const deleteRecord= async(id)=>{
+    console.warn(id)
+    const response = await axios.post('api/records/delete',JSON.stringify({id}),
+    {headers:{'Content-Type': 'application/json', 'Authorization':auth?.accessToken},withCredentials: true});
+
+    console.log(response.data);
+    console.log(response.accessToken);
+    console.log(JSON.stringify(response));
+    window.location.reload();
+
+
+ }
+
  
   
   return (
     
     <div className='Record'>
-        <Link to={`/record/${userName}/${record.id}`}> 
+
           <img src={chooseIcon(record.classification)} alt='img'/> 
           <p className='RecordDetails'>  
             <span className='Date'>{translateDate(record.date)} </span> 
@@ -77,6 +93,10 @@ const Record = ({record}) => {
             <span className='Notes'>{(record.description)?.length<=25?record.description:`${(record.description)?.slice(0,25)}...`}</span>
                            
           </p>
+          <button onClick={()=>deleteRecord(record._id)}>Delete</button>
+        
+        <Link to={`/record/${userName}/${record.id}`}> 
+        <span className="glyphicon glyphicon-pencil">edit</span>
         </Link>
     </div>
   )
