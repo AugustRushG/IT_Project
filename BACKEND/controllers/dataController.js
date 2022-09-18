@@ -24,7 +24,6 @@ const addData = async (req, res, next) => {
 
 const getAllData = async (req, res, next) => {
     try {
-        console.log(req.params.user);
         const user = await Users.findOne({username:req.params.user});
         const records = await Record.find({userId: user._id}).lean();
         if (records === null) {
@@ -85,7 +84,7 @@ const editData = async (req, res, next) => {
 
 const deleteData = async (req, res, next) => {
     try {
-        const result = await Record.deleteOne({_id: req.body.rid})
+        const result = await Record.deleteOne({_id: req.body.id})
         return res.send(result)
     } catch (err) {
         return next(err)
