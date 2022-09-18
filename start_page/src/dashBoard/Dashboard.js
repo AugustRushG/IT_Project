@@ -136,8 +136,8 @@ const Dashboard = () => {
 
     var positiveExpenditure=allExpen*(-1);
 
-    return [transportPer/positiveExpenditure,medicalPer/positiveExpenditure,giftPer/positiveExpenditure,
-    petPer/positiveExpenditure,shoppingPer/positiveExpenditure,rentPer/positiveExpenditure];
+    return [transportPer/positiveExpenditure*100,medicalPer/positiveExpenditure*100,giftPer/positiveExpenditure*100,
+    petPer/positiveExpenditure*100,shoppingPer/positiveExpenditure*100,rentPer/positiveExpenditure*100];
     
   }
 
