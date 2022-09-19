@@ -7,7 +7,7 @@ import Authentication from "./authentication/Authentication";
 import ResetPassword from "./resetPassword/ResetPassword";
 import {Route, Routes } from 'react-router-dom'; 
 import Dashboard from "./dashBoard/Dashboard";
-import Add from "./dashBoard/Add";
+
 import About from "./About";
 import RequireAuth from "./RequireAuth";
 import PersistentLogIn from "./PersistentLogIn";
@@ -40,7 +40,7 @@ function App() {
         <Route exact path='/ResetPassword' element={<ResetPassword/>}></Route>
         <Route exact path='/Authentication' element={<Authentication/>}></Route>
         <Route exact path='/About' element={<About/>}></Route>
-        <Route exact path='/Add' element={<Add/>}></Route>
+
         <Route path='*' element={<Missing />}></Route>
 
         {/*needs to be protected*/}

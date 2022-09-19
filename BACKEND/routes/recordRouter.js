@@ -5,7 +5,7 @@ const dataController = require('../controllers/dataController')
 
 dataRouter.post('/add',dataController.addData)
 dataRouter.get('/dashboard/:user',dataController.getAllData)
-dataRouter.get('/edit',dataController.editData)
+dataRouter.post('/edit',dataController.editData)
 dataRouter.post('/delete',dataController.deleteData)
 
 module.exports = dataRouter;
