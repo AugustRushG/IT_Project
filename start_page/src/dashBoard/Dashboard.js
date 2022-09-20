@@ -7,6 +7,8 @@ import { Link } from 'react-router-dom'
 import PieChart from './PieChart'
 import VerticalBarChart from './VerticalBarChart'
 import axios from '../api/axios'
+import Modal from 'react-bootstrap/Modal';
+import Button from 'react-bootstrap/Button';
 
 /**
  * Module Name: Dashboard.js
@@ -27,6 +29,7 @@ const Dashboard = () => {
   const GET_URL=`api/records/dashboard/${userName}`;
   const [search, setSearch]=useState('');
   const [searchResult, setSearchResult]=useState([]);
+  const [show, setShow] = useState(false);
 
 
   const [expenditure, setExpenditure]=useState('');
@@ -40,7 +43,11 @@ const Dashboard = () => {
   const [wholeYearIncome,setWholeYearIncome]=useState([]);
   const [wholeYearExpenditure, setWholeYearExpenditure]=useState([]);
 
-
+  
+  const showPopup=()=> {
+    console.log('show');
+    setShow(true);
+  }
 
   //filter the records according to the searchResult
   useEffect(()=>{

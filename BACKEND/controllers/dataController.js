@@ -6,7 +6,7 @@ const addData = async (req, res, next) => {
     try {
         const user = await Users.findOne({username:req.body.user})
         const newRecord = new Record({userId:user._id});
-        var dateString = req.body.date.split("-");
+        var dateString = req.body.day.split("-");
         dateString[1] = dateString[1] - 1;
         if((dateString[1]+'').length == 1){
             dateString[1] = '0' + dateString[1];
@@ -62,21 +62,22 @@ const getMonthData = async (req, res, next) => {
 
 const editData = async (req, res, next) => {
     try {
-        const records = await Record.find({_id: req.body.rid})
-        if (records === null) {
+        const record = await Record.findOne({_id: req.body.recordID})
+        if (record === null) {
             return res.status(404).json({msg:"No records!"});
         }
-        if (req.body.money != null){
-            records.money = req.body.money;
+        if (req.body.day === null){
+            var dateString = req.body.day.split("-");
+            dateString[1] = dateString[1] - 1;
+            if((dateString[1]+'').length == 1){
+                dateString[1] = '0' + dateString[1];
+            }
         }
-        if(req.body.classification != null){
-            records.classification = req.body.classification;
-        }
-        if(req.body.notes != null){
-            records.description = req.body.notes ;
-        }
-        records.save();
-        return res.json({data: records})
+        record.money = req.body.money;
+        record.classification = req.body.category;
+        record.description = req.body.description;
+        record.save();
+        return res.json({data: record})
     } catch (err) {
         return next(err)
     }
