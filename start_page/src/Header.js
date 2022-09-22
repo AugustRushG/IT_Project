@@ -32,7 +32,7 @@ const Header = () => {
     <header className='Header'>
         <h1 classname='RecordIt'><Link to='/' style={{color:'black'}}>RecordIt</Link></h1>
         {location.pathname.includes('/dashboard')? (<>
-            <Link to = '/LogIn'><Button variant="warning" type = "button" className='Account'>Account</Button></Link>
+            {/*<Link to = '/LogIn'><Button variant="warning" type = "button" className='Account'>Account</Button></Link>*/}
             <Button variant="warning" type = "button" className='LogOut' onClick={signOut}>LogOut</Button>
         </>):(<>
             <Link to = '/LogIn'> <Button variant="warning" type = "button" className='LogIn'>LogIn</Button></Link>
