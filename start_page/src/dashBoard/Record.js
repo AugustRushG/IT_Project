@@ -101,7 +101,7 @@ const Record = ({record}) => {
     setDescription(record.description);
     setShow(true);
 
-    console.log(  `${dateSep[2]}-${dateSep[0]}-${dateSep[1]}`);
+    console.log(`${dateSep[2]}-${dateSep[0]}-${dateSep[1]}`);
 
   }
 
