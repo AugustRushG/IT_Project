@@ -1,5 +1,4 @@
 import React from 'react';
-
 import rent from './categoryIcons/rent.png';
 import medical from './categoryIcons/first-aid-kit.png';
 import transport from './categoryIcons/transportation.png';
@@ -101,7 +100,7 @@ const Record = ({record}) => {
     setDescription(record.description);
     setShow(true);
 
-    console.log(`${dateSep[2]}-${dateSep[0]}-${dateSep[1]}`);
+    console.log(  `${dateSep[2]}-${dateSep[0]}-${dateSep[1]}`);
 
   }
 
@@ -140,9 +139,12 @@ const Record = ({record}) => {
             {/*if the length of notes less than 10 show all, if not show 10 and ...*/}
             <span className='Notes'>{(record.description)?.length<=25?record.description:`${(record.description)?.slice(0,25)}...`}</span>
                            
-          </p>
-          <button onClick={()=>deleteRecord(record._id)}>Delete</button>
+          
+          <span className='Operation'>
+          <button onClick={()=>deleteRecord(record._id)}>delete</button>
           <button onClick={()=>showPopup()}>Edit</button>
+          </span>
+          </p>
 
           <Modal show={show} onHide={()=>setShow(false)}>
         <Modal.Header closeButton>

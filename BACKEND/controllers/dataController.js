@@ -64,6 +64,14 @@ const uploadImages = async (req, res, next) => {
     
 }
 
+const setBudget = async (req, res, next) => {
+    try{
+        
+    }catch(error){
+        return next(err);
+    }
+}
+
 const getAllData = async (req, res, next) => {
     try {
         const user = await Users.findOne({username:req.params.user});

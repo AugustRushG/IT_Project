@@ -117,8 +117,10 @@ h2.headertekst {
 
 #Notes{
     position:absolute;
-    left: 33vw;
+    left: 29vw;
 }
+
+
 
 .Record{
     position: relative;
@@ -184,6 +186,15 @@ h2.headertekst {
 .Notes{
     position: absolute;
     left: 20vw;
+    text-align: center;
+    height: fit-content;
+    font-size: 0.9rem;
+    top: 1vh;
+}
+
+.Operation{
+    position: absolute;
+    left: 28vw;
     text-align: center;
     height: fit-content;
     font-size: 0.9rem;

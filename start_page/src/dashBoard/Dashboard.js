@@ -9,6 +9,8 @@ import VerticalBarChart from './VerticalBarChart'
 import axios from '../api/axios'
 import Modal from 'react-bootstrap/Modal';
 import Button from 'react-bootstrap/Button';
+import { CircularProgressbar } from 'react-circular-progressbar';
+import 'react-circular-progressbar/dist/styles.css';
 
 /**
  * Module Name: Dashboard.js
@@ -34,6 +36,8 @@ const Dashboard = () => {
 
   const [expenditure, setExpenditure]=useState('');
   const [income, setIncome]=useState('');
+  const [budget, setBudget]=useState('');
+  const budget_percentage = parseFloat((-expenditure)/budget).toFixed(2);
 
   //set and get date
   const [date,setDate]=useState(new Date());
@@ -45,7 +49,7 @@ const Dashboard = () => {
 
   
   const showPopup=()=> {
-    console.log('show');
+    console.log(expenditure);
     setShow(true);
   }
 
@@ -283,14 +287,55 @@ const Dashboard = () => {
     
     <>
       
-      <Information search={search} setSearch={setSearch} date={date} setDate={setDate} expenditure={expenditure} income={income}></Information>
+      <Information search={search} setSearch={setSearch} date={date} setDate={setDate} expenditure={expenditure} income={income}>        
+        <button onClick={()=>showPopup()}>
+          Add
+        </button>
+      </Information>
+      <section2>
+      <p> Set Budget</p >
+          <input
+            type="number"
+            name="date"
+            value={budget}
+            placeholder="enter your budget for this  month"
+            onChange={(e)=>setBudget(e.target.value)}
+          />
+      <h>You've used {budget_percentage*100}% of your monthly budget</h>
+
+
+      <h><CircularProgressbar value={budget_percentage} maxValue={1} text={`${budget_percentage*100 }%`} /></h>
+
+        
+          
+      </section2>
+
+
+
       <RecordDisplay records={records} setExpenditure={setExpenditure} date={date} setIncome={setIncome} searchResult={searchResult} ></RecordDisplay>
       <div className='PieChartBackGround'> </div>
       <div className='PieChartContainer'> <PieChart pieDataSet={pieDataSet}></PieChart></div>
       <div className='VerticalBarChartBackground'> </div>
       <div className='VerticalBarChartContainer'><VerticalBarChart wholeYearIncome={wholeYearIncome} wholeYearExpenditure={wholeYearExpenditure}></VerticalBarChart></div>
       
-
+      <Modal show={show} onHide={()=>setShow(false)}>
+        <Modal.Header closeButton>
+          <Modal.Title>Registerion Successful</Modal.Title>
+        </Modal.Header>
+        <Modal.Body>Start enjoying RecordIt Now!</Modal.Body>
+        <Modal.Footer>
+          <Link to='/LogIn'>
+            <Button variant="primary" onClick={()=>setShow(false)}>
+              LogIn
+            </Button>
+          </Link>
+          <Link to='/'>
+            <Button variant="secondary" onClick={()=>setShow(false)}>
+              Back to home
+            </Button>
+          </Link>
+        </Modal.Footer>
+      </Modal>
      
     </>
   )
