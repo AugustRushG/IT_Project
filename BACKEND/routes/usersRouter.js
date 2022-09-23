@@ -46,7 +46,6 @@ router.post("/register", (req, res) => {
 // $route POST api/users/login
 // @desc return token jwt passport
 // @access public
-
 router.post("/login", (req,res) => {
     const username = req.body.user;
     const password = req.body.pwd;

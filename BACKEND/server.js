@@ -1,6 +1,5 @@
 // Import express
 const express = require('express')
-
 const bodyParser = require("body-parser")
 const passport = require("passport")
 
@@ -8,10 +7,12 @@ const passport = require("passport")
 const usersRouter = require("./routes/usersRouter")
 const recordRouter = require("./routes/recordRouter")
 
+require("./config/passport")(passport);
+require(`./models`)
+
 // Set app up as an express app
 const app = express();
 
-require("./config/passport")(passport);
 
 // passport initialization
 app.use(passport.initialize());
@@ -36,5 +37,3 @@ const port = process.env.PORT || 8080;
 app.listen(port, () => {
     console.log('Demo app is listening on port 8080!')
 });
-
-require(`./models`)
