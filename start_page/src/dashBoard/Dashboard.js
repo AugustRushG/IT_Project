@@ -12,6 +12,7 @@ import Button from 'react-bootstrap/Button';
 import { CircularProgressbar } from 'react-circular-progressbar';
 import 'react-circular-progressbar/dist/styles.css';
 
+
 /**
  * Module Name: Dashboard.js
  * Date of Creation: 27/08/2022
@@ -287,27 +288,20 @@ const Dashboard = () => {
     
     <>
       
-      <Information search={search} setSearch={setSearch} date={date} setDate={setDate} expenditure={expenditure} income={income}>        
-        <button onClick={()=>showPopup()}>
-          Add
-        </button>
-      </Information>
+      <Information search={search} setSearch={setSearch} date={date} setDate={setDate} expenditure={expenditure} income={income}/> 
+      
       <section2>
       <p> Set Budget</p >
-          <input
-            type="number"
-            name="date"
-            value={budget}
-            placeholder="enter your budget for this  month"
-            onChange={(e)=>setBudget(e.target.value)}
-          />
-      <h>You've used {budget_percentage*100}% of your monthly budget</h>
-
-
-      <h><CircularProgressbar value={budget_percentage} maxValue={1} text={`${budget_percentage*100 }%`} /></h>
-
-        
-          
+        <input
+          type="number"
+          name="date"
+          value={budget}
+          placeholder="enter your budget for this  month"
+          onChange={(e)=>setBudget(e.target.value)}
+        />
+        <h>You've used {budget_percentage*100}% of your monthly budget</h>
+        <h><CircularProgressbar value={budget_percentage} maxValue={1} text={`${budget_percentage*100 }%`} /></h>
+     
       </section2>
 
 

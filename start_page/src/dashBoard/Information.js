@@ -1,5 +1,6 @@
 import React from 'react'
 import {FaSearch} from 'react-icons/fa'
+import { GrAdd} from "react-icons/gr";
 import MonthPicker from './MonthPicker';
 import {translateMoney} from './Record'
 import Modal from 'react-bootstrap/Modal';
@@ -7,6 +8,7 @@ import { useState } from 'react'
 import Form from 'react-bootstrap/Form'
 import axios from 'axios';
 import useAuth from '../hooks/useAuth';
+
 
 const ADD_URL = 'http://localhost:8080/api/records/add'
 
@@ -78,11 +80,11 @@ const Information = ({search,setSearch,date,setDate,expenditure,income}) => {
         <h2 className='ExpenditureDisplay'>
           Expenditure: <br/>{translateMoney(expenditure)}
         </h2>
-        <h2 class="headertekst">
-        <button onClick={()=>showPopup()}>
-          Add
-        </button>
-        </h2>
+           
+       
+        <GrAdd onClick={()=>showPopup()} size={30} className='addButton'/>
+         
+        
       </div>
       <form className='SearchForm' onSubmit={(e)=>e.preventDefault}>
         <label htmlFor='search'><FaSearch className='FaSearch' size={25}/></label>

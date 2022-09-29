@@ -251,7 +251,8 @@ h2.headertekst {
     position:absolute;
     left: 65vw;
     height: 40vh;
-    width: 30vw;
+    width: fit-content;
+    min-width: 30vw;
     top: 23vh;
     border-radius: 20px;
     
@@ -263,19 +264,20 @@ h2.headertekst {
     position:absolute;
     left: 65vw;
     top: 70vh;
-    height: 30vh;
     width: 30vw;
+    height: 30vh;
+   
 
 }
 
 .VerticalBarChartBackground{
     position:absolute;
+    
     left: 65vw;
     height: 30vh;
     width: 30vw;
     top: 70vh;
     border-radius: 20px;
-    
     background-color: #FDF4C9;
 }
 
@@ -289,4 +291,18 @@ h2.headertekst {
     font-family: 'Allerta Stencil', sans-serif;
     
 }
+
+.addButton{
+    position: absolute;
+    left: 50vw;
+    top: 5vh;
+
+}
+
+.addButton:hover{
+  
+    background-color: #FDF4C9;
+}
+
+
 

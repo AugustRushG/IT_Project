@@ -8,11 +8,13 @@
 
 .MainSection {
   position: relative;
-  width: 75%;
+  width: 70vw;
   height: 55vh;
-  left: 12.5%;
+  left: 14vw;
   top: 20vh;
   
+  display: block;
+
   background: #FDF4C9;
   box-shadow: 0px 4px 4px rgba(0, 0, 0, 0.25);
   border-radius: 20px; 
@@ -20,19 +22,15 @@
 
   
   .RegisterNow{
-    position: relative;
+    position: absolute;
     width: 10vw;
     height: 5vh;
-    top: 20vh;
-    margin-left: 12vw;
-  
-    background: #FFE24E;
-    border-radius: 20px;
-  
+    top: 40vh;
+    left: 14vw;
+   
     font-family: 'Inter', sans-serif;
     font-weight: 700;
     font-size: 100%;
-    line-height: 24px;
     text-align: center;
   
     color: #000000;
@@ -41,24 +39,22 @@
 }
   
 .MainSection h1{
-  position: relative;
+  position: absolute;
   top: 12vh;
-  margin-left: 10%;
+  left: 8vw;
   width: 20vw;
-  
   font-family: 'Allerta Stencil', sans-serif;
   font-weight: 800;
   font-size: 3em;
-  line-height: 50px;
   text-align: center;
   color: #000000;
   
 }
   
 .MainSection p{
-  position: relative;
-  top:16vh;
-  margin-left: 5%;
+  position: absolute;
+  top:30vh;
+  left: 4vw;
   width: 30vw;
 
   font-family: 'Inter';

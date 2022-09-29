@@ -22,6 +22,7 @@ const cors = require('cors');
 const corsOptions = {
     credentials:true,
     origin:'https://elaborate-wisp-cfd9ac.netlify.app',
+    //origin:'http://localhost:3000',
     optionsSuccessStatus:220,
 };
 app.use(cors(corsOptions));
