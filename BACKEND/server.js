@@ -21,6 +21,7 @@ app.use(passport.initialize());
 const cors = require('cors');
 const corsOptions = {
     credentials:true,
+    origin:'https://elaborate-wisp-cfd9ac.netlify.app',
     optionsSuccessStatus:220,
 };
 app.use(cors(corsOptions));
