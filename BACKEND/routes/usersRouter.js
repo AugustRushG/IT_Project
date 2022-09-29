@@ -50,6 +50,8 @@ router.post("/login", (req,res) => {
     const username = req.body.user;
     const password = req.body.pwd;
     //search the db
+
+    console.log(req);
    
     User.findOne({username}).then(user => {
         if(!user){
