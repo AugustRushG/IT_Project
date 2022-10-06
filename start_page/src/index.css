@@ -49,62 +49,77 @@ body {
 .LogIn,.Account{
   position: absolute;
   
-  width: 6vw;
-  left: 74vw;
+  width: fit-content;
+  left: 76vw;
   top: 2.5vh;
   margin: auto;
-
-  background:#D9D9D9;
-  box-shadow: 0px 4px 4px rgba(0, 0, 0, 0.25);
-  border-radius: 20px;
-
-  font-family: 'Inter', sans-serif;
-  font-weight: 700;
-  font-size: 100%;
-  text-align: center;
-
-  color: #000000;
-
 
 }
 
-.SignUp,.LogOut{
+
+.LogIn>Button{
+  width: 4.5vw;
+  height: 4.5vh;
+  font-family: 'Inter', sans-serif;
+  font-size: 1vw;
+  color: #000000;
+  text-align: center;
+}
+
+
+.SignUp{
+  position: absolute;
+  width: 2vw;
+  left: 81.2vw;
+  top: 2.5vh;
+  margin: auto;
+}
+
+.SignUp > Button{
+  width: 5vw;
+  height: 4.5vh;
+  font-family: 'Inter', sans-serif;
+  font-size: 1vw;
+  color: #000000;
+  text-align: center;
+}
+
+#LogOut{
   position: absolute;
   width: 5vw;
-  left: 81vw;
+  height: 4.5vh;
+  left: 81.2vw;
   top: 2.5vh;
   margin: auto;
 
-  background: #D9D9D9;
-  box-shadow: 0px 4px 4px rgba(0, 0, 0, 0.25);
-  border-radius: 20px;
-
   font-family: 'Inter', sans-serif;
-  font-weight: 700;
-  font-size: 100%;
-
+  font-size: 1vw;
+  color: #000000;
   text-align: center;
 
-  color: #000000;
+ 
 }
 
 .About{
   position: absolute;
-  width: 5vw;
+  width: fit-content;
   left: 87vw;
   top: 2.5vh;
   margin: auto;
-
-  background: #D9D9D9;
-  box-shadow: 0px 4px 4px rgba(0, 0, 0, 0.25);
-  border-radius: 20px;
-
-  font-family: 'Inter', sans-serif;
-  font-weight: 700;
-  font-size: 100%;
  
-  color: #000000;
 }
+
+.About > Button{
+  width: 5vw;
+  height: 4.5vh;
+  font-family: 'Inter', sans-serif;
+  font-size: 1vw;
+  color: #000000;
+  text-align: center;
+  
+}
+
+
 
 
 .Header h1{

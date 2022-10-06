@@ -33,12 +33,12 @@ const Header = () => {
         <h1 classname='RecordIt'><Link to='/' style={{color:'black'}}>RecordIt</Link></h1>
         {location.pathname.includes('/dashboard')? (<>
             {/*<Link to = '/LogIn'><Button variant="warning" type = "button" className='Account'>Account</Button></Link>*/}
-            <Button variant="warning" type = "button" className='LogOut' onClick={signOut}>LogOut</Button>
+            <Button variant="warning" id='LogOut' onClick={signOut}>LogOut</Button>
         </>):(<>
-            <Link to = '/LogIn'> <Button variant="warning" type = "button" className='LogIn'>LogIn</Button></Link>
-            <Link to = '/Register'> <Button variant="warning" type = "button" className='SignUp'>SignUp</Button></Link>
+            <Link to = '/LogIn'  className='LogIn'> <Button variant="warning">LogIn</Button></Link>
+            <Link to = '/Register' className='SignUp'> <Button variant="warning">SignUp</Button></Link>
         </>)}
-       <Link to ='/About'> <Button variant="warning" type = "button" className='About'>About</Button></Link>
+       <Link to ='/About' className='About'> <Button variant="warning" >About</Button></Link>
       
 
     </header>
