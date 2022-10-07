@@ -21,7 +21,7 @@ app.use(passport.initialize());
 const cors = require('cors');
 const corsOptions = {
     credentials:true,
-    origin:'https://recordit123.netlify.app/',
+    origin:'https://recordit123.netlify.app',
     //origin:'http://localhost:3000',
     optionsSuccessStatus:220,
 };
