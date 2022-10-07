@@ -52,9 +52,6 @@ const Register = () => {
 
   const [show, setShow] = useState(false);
 
-  const handleClose = () => setShow(false);
-  const handleShow = () => setShow(true);
-
   useEffect(()=>{userRef.current.focus();},[])
 
   //useEffect on username 

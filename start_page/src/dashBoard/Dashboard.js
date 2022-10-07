@@ -48,11 +48,6 @@ const Dashboard = () => {
   const [wholeYearIncome,setWholeYearIncome]=useState([]);
   const [wholeYearExpenditure, setWholeYearExpenditure]=useState([]);
 
-  
-  const showPopup=()=> {
-    console.log(expenditure);
-    setShow(true);
-  }
 
   //filter the records according to the searchResult
   useEffect(()=>{

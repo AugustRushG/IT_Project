@@ -1,9 +1,6 @@
 import { useRef, useState, useEffect } from 'react';
-import{Link, useNavigate,useLocation} from 'react-router-dom'; 
-import { faCheck, faTimes, faInfoCircle } from '@fortawesome/free-solid-svg-icons';
-import { FontAwesomeIcon } from '@fortawesome/react-fontawesome';
+import{ useNavigate} from 'react-router-dom'; 
 import axios from '../api/axios';
-import useAuth from '../hooks/useAuth';
 import BottomSection from '../start_page/BottomSection';
 
 const AUTH_URL='/api/users/authorizeUser'
