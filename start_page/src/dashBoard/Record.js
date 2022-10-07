@@ -5,6 +5,8 @@ import transport from './categoryIcons/transportation.png';
 import shopping from './categoryIcons/online-shopping.png';
 import pet from './categoryIcons/pet.png';
 import gift from './categoryIcons/giftbox.png';
+import income from './categoryIcons/money.png';
+import other from './categoryIcons/unknown-mail.png';
 import useAuth from '../hooks/useAuth'
 import axios from '../api/axios';
 import { useState } from 'react'
@@ -86,6 +88,10 @@ const Record = ({record}) => {
           return pet;
         case 'gift':
           return gift;
+        case 'income':
+          return income;
+        case 'other':
+          return other;
         default:
           return null;
       }

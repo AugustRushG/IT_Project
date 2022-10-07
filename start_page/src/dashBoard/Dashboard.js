@@ -103,6 +103,7 @@ const Dashboard = () => {
 
   //useEffect to draw graph when records,date,expenditure changes.
   useEffect(()=>{
+    
     setPieDataSet(calculatePercentage(records,date,expenditure));
   },[records,date,expenditure])
 
@@ -119,28 +120,35 @@ const Dashboard = () => {
     var shoppingPer=0;
     var transportPer=0;
     var giftPer=0;
+    var otherPer=0;
     for (let i=0;i<records.length;i++){
      
       if (parseInt(records[i].date.substring(0,2))===selectedDate.getMonth()){
         let classification=records[i].classification;
-        if (classification==='pet'){
-          petPer-=records[i].money;
+        if (records[i].money<0){
+          if (classification==='pet'){
+            petPer-=records[i].money;
+          }
+          else if(classification==='rent'){
+            rentPer-=records[i].money;
+          }
+          else if (classification==='medical'){
+            medicalPer-=records[i].money;
+          }
+          else if (classification==='transport'){
+            transportPer-=records[i].money;
+          }
+          else if (classification==='gift'){
+            giftPer-=records[i].money;
+          }
+          else if (classification==='shopping'){
+            shoppingPer-=records[i].money;
+          }
+          else if (classification==='other'){
+            otherPer-=records[i].money;
+          }
         }
-        else if(classification==='rent'){
-          rentPer-=records[i].money;
-        }
-        else if (classification==='medical'){
-          medicalPer-=records[i].money;
-        }
-        else if (classification==='transport'){
-          transportPer-=records[i].money;
-        }
-        else if (classification==='gift'){
-          giftPer-=records[i].money;
-        }
-        else if (classification==='shopping'){
-          shoppingPer-=records[i].money;
-        }
+      
       }
     
     }
@@ -148,7 +156,7 @@ const Dashboard = () => {
     var positiveExpenditure=allExpen*(-1);
 
     return [transportPer/positiveExpenditure*100,medicalPer/positiveExpenditure*100,giftPer/positiveExpenditure*100,
-    petPer/positiveExpenditure*100,shoppingPer/positiveExpenditure*100,rentPer/positiveExpenditure*100];
+    petPer/positiveExpenditure*100,shoppingPer/positiveExpenditure*100,rentPer/positiveExpenditure*100,otherPer/positiveExpenditure*100];
     
   }
 

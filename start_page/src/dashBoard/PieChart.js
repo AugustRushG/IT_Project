@@ -15,7 +15,8 @@ ChartJS.register(ArcElement, Tooltip, Legend);
 const PieChart = ({pieDataSet}) => {
 
     const data={
-        labels: ['Transport', 'Medical', 'Gift', 'Pet', 'Shopping', 'Rent'],
+        
+        labels: ['Transport', 'Medical', 'Gift', 'Pet', 'Shopping', 'Rent','other'],
         datasets: [
             {
               label: '# of Votes',
