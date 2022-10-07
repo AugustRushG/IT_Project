@@ -25,6 +25,8 @@ const useLogOut=()=>{
                     'Authorization' : JSON.parse(localStorage.getItem('accessToken'))}
             });
 
+            console.log(response);
+
         }catch(err){
             console.error(err);
         }

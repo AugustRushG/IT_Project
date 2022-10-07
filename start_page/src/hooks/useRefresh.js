@@ -20,7 +20,9 @@ const useRefresh = () => {
             'Content-Type' : 'application/json',
             'Accept' : 'application/json',
             'Authorization' : JSON.parse(localStorage.getItem('accessToken'))}}
+            
         );
+        console.log(response);
         setAuth(prev => {
             return {
                 user:JSON.parse(localStorage.getItem('user')),

@@ -50,6 +50,8 @@ const Register = () => {
   const [errMsg, setErrMsg] = useState('');
   const [success, setSuccess] = useState(false);
 
+  console.log(success);
+
   const [show, setShow] = useState(false);
 
   useEffect(()=>{userRef.current.focus();},[])
