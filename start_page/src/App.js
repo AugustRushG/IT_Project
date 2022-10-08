@@ -43,7 +43,7 @@ function App() {
 
         <Route exact path='/dashboard' element ={<LogIn />}></Route>
 
-        <Route path='*' element={<Missing />}></Route>
+        <Route path='/*' element={<Missing />}></Route>
         
 
         {/*needs to be protected*/}
