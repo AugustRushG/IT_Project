@@ -80,6 +80,12 @@ const Record = ({record}) => {
   const [recordID, setRecordID] = useState('');
   const user = auth?.user;
   const [show, setShow] = useState(false);
+  const checkDisabled=(day,money,category)=>{
+    if (!day||!money||!category ){
+      return false;
+    }
+    return true;
+  }
 
   const handleSubmit = async(e)=>{
     e.preventDefault();
@@ -161,7 +167,6 @@ const Record = ({record}) => {
           <button onClick={()=>showPopup()}>Edit</button>
           </span>
           </p>
-
           <Modal show={show} onHide={()=>setShow(false)}>
         <Modal.Header closeButton>
           <Modal.Title>Wanna edit this one?</Modal.Title>
@@ -178,11 +183,13 @@ const Record = ({record}) => {
             onChange={(e)=>setDay(e.target.value)}
             
           />
+          <br></br>
         <select  
             type="category"
             name="category" 
             value={category}
-            onChange={(e)=>setCategory(e.target.value)}>
+            onChange={(e)=>setCategory(e.target.value)}
+            >
           <option category={category} selected>{category}</option>
           <option category="rent">rent</option>
           <option category="transport">transport</option>
@@ -192,15 +199,16 @@ const Record = ({record}) => {
           <option category="shopping">gift</option>
           <option category="other">other</option>
         </select>
-
+        <br></br>
          <input
-            type="money"
+            type="number"
             name="money"
 
             value={money}
             placeholder="enter money"
             onChange={(e)=>setMoney(e.target.value)}
           />
+          <br></br>
         <input
             type="description"
             name="description"
@@ -209,12 +217,11 @@ const Record = ({record}) => {
             placeholder="leave a quick note if any"
             onChange={(e)=>setDescription(e.target.value)}
           />
-          
-          <button
-            type="submit" onClick={()=>setShow(false)}
-          >
-            Submit
-          </button>
+          <br></br>
+          {checkDisabled(day,category,money)?
+          <button type="submit"  onClick={()=>setShow(false)}>Submit</button>
+        :
+        <button type="submit" disabled onClick={()=>setShow(false)}>Submit</button>}
         </form> 
           </Form.Group>
         </Modal.Body>

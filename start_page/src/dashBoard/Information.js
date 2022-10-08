@@ -32,6 +32,12 @@ const Information = ({search,setSearch,date,setDate,expenditure,income}) => {
   const [money, setMoney] = useState('');
   const [description, setDescription] = useState('');
   const user = auth?.user;
+  const checkDisabled=(day,money,category)=>{
+    if (!day||!money||!category ){
+      return false;
+    }
+    return true;
+  }
 
   const handleSubmit = async(e)=>{
     e.preventDefault();
@@ -98,14 +104,17 @@ const Information = ({search,setSearch,date,setDate,expenditure,income}) => {
         <Modal.Body>
         <Form.Group >
         <form onSubmit={handleSubmit}>
-          <p> Update Record</p >
+          <p> Add a Record</p >
           <input
             type="date"
             name="date"
             value={day}
             placeholder="enter a date"
             onChange={(e)=>setDay(e.target.value)}
+            
+            
           />
+          <br></br>
         <select  
             type="category"
             name="category" 
@@ -122,26 +131,30 @@ const Information = ({search,setSearch,date,setDate,expenditure,income}) => {
           <option category="other">other</option>
         </select>
 
+        <br></br>
+
          <input
-            type="money"
+            type="number"
             name="money"
             value={money}
-            placeholder="enter money"
+            placeholder="enter money, negative if it's an expenditure"
             onChange={(e)=>setMoney(e.target.value)}
           />
+
+        <br></br>
         <input
             type="description"
             name="description"
             value={description}
             placeholder="leave a quick note if any"
             onChange={(e)=>setDescription(e.target.value)}
+            
           />
-          
-          <button
-            type="submit" onClick={()=>setShow(false)}
-          >
-            Submit
-          </button>
+        <br></br>
+        {checkDisabled(day,category,money)?
+          <button type="submit"  onClick={()=>setShow(false)}>Submit</button>
+        :
+        <button type="submit" disabled onClick={()=>setShow(false)}>Submit</button>}
         </form> 
           </Form.Group>
         </Modal.Body>
