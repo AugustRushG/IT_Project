@@ -53,7 +53,7 @@ const Dashboard = () => {
   const [wholeYearExpenditure, setWholeYearExpenditure]=useState([]);
 
   const [incomePieChart, setIncomePieChart] = useState(false);
-  const [sigChanges, setSigChanges] = useState(true);
+  const [sigChanges, setSigChanges] = useState(false);
 
 
   //filter the records according to the searchResult
@@ -334,8 +334,9 @@ const Dashboard = () => {
     console.log(differenceMonth);
 
     var maxValue= Math.max(...differenceMonth);
-    
-    
+
+    if (maxValue<=0) return [0,0];
+
   
     var index=differenceMonth.indexOf(maxValue);
     
@@ -387,7 +388,7 @@ const Dashboard = () => {
   }
 
   const covertType=(index)=>{
-    if (index===0) return 'pet';
+    if (index===0) return 'Pet';
     else if(index ===1) return 'Rent';
     else if(index ===2) return 'Medical';
     else if(index ===3) return 'Transport';
@@ -428,6 +429,8 @@ const Dashboard = () => {
       <div className='PieChartContainer'>{!incomePieChart?(<PieChart pieDataSet={pieDataSet}></PieChart>):<IncomePieChart pieDataSet={incomePieDataSet}/>}</div>
       <div className='VerticalBarChartBackground'> </div>
       <div className='VerticalBarChartContainer'><VerticalBarChart wholeYearIncome={wholeYearIncome} wholeYearExpenditure={wholeYearExpenditure}></VerticalBarChart></div>
+      
+
       <div className='SigChanges'><p> Comparing from last month, you expenditure on {covertType(calculateSignificantChange(records,date)[0])} has increase by <p id='percent'>{calculateSignificantChange(records,date)[1]} % </p></p>
       <BsCapslockFill size ={40} id='increaseArrow'/></div>
       
