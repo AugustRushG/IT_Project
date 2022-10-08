@@ -292,6 +292,29 @@ h2.headertekst {
     
 }
 
+.SigChanges{
+    position: absolute;
+    left: 51vw;
+    width: 13vw;
+    height: 20vh;
+    top: 73vh;
+    font-size: 1vw;
+    font-family: 'Allerta Stencil', sans-serif;
+   
+}
+
+#percent{
+    position: absolute;
+    font-size: 2vw;
+    left: 4vw;
+}
+
+#increaseArrow{
+    position: absolute;
+    top: 15vh;
+    left: 5vw;
+}
+
 .addButton{
     position: absolute;
     left: 50vw;

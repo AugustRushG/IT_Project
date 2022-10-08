@@ -40,6 +40,35 @@ const EDIT_URL = 'http://localhost:8080/api/records/edit'
   return `$${money}`
 }
 
+// function to choose Icon from to match the classification.
+export const chooseIcon=(classification)=>{  
+  switch (classification){
+    case 'rent':
+      return rent;
+    case 'transport':
+      return transport;
+    case 'medical':
+      return medical;
+    case 'shopping':
+      return shopping;
+    case 'pet':
+      return pet;
+    case 'gift':
+      return gift;
+    case 'income':
+      return income;
+    case 'salary':
+      return salary;
+    case 'investment':
+      return investment;
+    case 'partTime':
+      return partTime;
+   
+    default:
+      return other;
+  }
+}
+
 
 
 const Record = ({record}) => {
@@ -76,34 +105,7 @@ const Record = ({record}) => {
       }
 }
 
-  // function to choose Icon from to match the classification.
-  const chooseIcon=(classification)=>{  
-      switch (classification){
-        case 'rent':
-          return rent;
-        case 'transport':
-          return transport;
-        case 'medical':
-          return medical;
-        case 'shopping':
-          return shopping;
-        case 'pet':
-          return pet;
-        case 'gift':
-          return gift;
-        case 'income':
-          return income;
-        case 'salary':
-          return salary;
-        case 'investment':
-          return investment;
-        case 'partTime':
-          return partTime;
-       
-        default:
-          return other;
-      }
-  }
+  
 
   const showPopup=()=> {
     var dateSep= record.date.split(' ');

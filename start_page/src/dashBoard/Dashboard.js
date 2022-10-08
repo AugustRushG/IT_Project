@@ -12,7 +12,8 @@ import Modal from 'react-bootstrap/Modal';
 import Button from 'react-bootstrap/Button';
 import { CircularProgressbar } from 'react-circular-progressbar';
 import 'react-circular-progressbar/dist/styles.css';
-import { BsArrowLeftRight} from "react-icons/bs";
+import { BsArrowLeftRight,BsCapslockFill} from "react-icons/bs";
+
 
 
 /**
@@ -52,6 +53,7 @@ const Dashboard = () => {
   const [wholeYearExpenditure, setWholeYearExpenditure]=useState([]);
 
   const [incomePieChart, setIncomePieChart] = useState(false);
+  const [sigChanges, setSigChanges] = useState(true);
 
 
   //filter the records according to the searchResult
@@ -116,6 +118,7 @@ const Dashboard = () => {
 
   //function to calculate percentage of spending on each different categories
   const calculatePercentage=(records,selectedDate,allExpen)=>{
+    
     var rentPer=0;
     var petPer=0;
     var medicalPer=0;
@@ -317,8 +320,79 @@ const Dashboard = () => {
       return [salaryPer/allIncome,investmentPer/allIncome,partTimePer/allIncome];
   }
 
-  const calculateSignificantChange=(records,selectedDate,allExpen)=>{
+  const calculateSignificantChange=(records,selectedDate)=>{
+
+    var thisMonth=expenditureThisMonth(records,selectedDate.getMonth());
+    var lastMonth=expenditureThisMonth(records,selectedDate.getMonth()-1);
+    
+    var differenceMonth = [];
+    for (var i=0;i<thisMonth.length;i++){
+      differenceMonth[i]=thisMonth[i]-lastMonth[i];
+    }
+
+    console.log(lastMonth);
+    console.log(differenceMonth);
+
+    var maxValue= Math.max(...differenceMonth);
+    
+    
+  
+    var index=differenceMonth.indexOf(maxValue);
+    
+    
+    return [index,maxValue/lastMonth[index]*100];
         
+  }
+
+  
+
+  const expenditureThisMonth=(records,month)=>{
+    var rentPer=0;
+    var petPer=0;
+    var medicalPer=0;
+    var shoppingPer=0;
+    var transportPer=0;
+    var giftPer=0;
+    for (let i=0;i<records.length;i++){
+     
+      if (parseInt(records[i].date.substring(0,2))===month){
+        let classification=records[i].classification;
+        if (records[i].money<0){
+          if (classification==='pet'){
+            petPer-=records[i].money;
+          }
+          else if(classification==='rent'){
+            rentPer-=records[i].money;
+          }
+          else if (classification==='medical'){
+            medicalPer-=records[i].money;
+          }
+          else if (classification==='transport'){
+            transportPer-=records[i].money;
+          }
+          else if (classification==='gift'){
+            giftPer-=records[i].money;
+          }
+          else if (classification==='shopping'){
+            shoppingPer-=records[i].money;
+          }
+         
+        }
+      
+      }
+    
+    }
+
+    return [('pet',petPer),('rent',rentPer),('medical',medicalPer),('transport',transportPer),('gift',giftPer),('shopping',shoppingPer)]
+  }
+
+  const covertType=(index)=>{
+    if (index===0) return 'pet';
+    else if(index ===1) return 'Rent';
+    else if(index ===2) return 'Medical';
+    else if(index ===3) return 'Transport';
+    else if(index ===4) return 'Gift';
+    else if(index ===5) return 'Shopping';
   }
 
  
@@ -354,6 +428,8 @@ const Dashboard = () => {
       <div className='PieChartContainer'>{!incomePieChart?(<PieChart pieDataSet={pieDataSet}></PieChart>):<IncomePieChart pieDataSet={incomePieDataSet}/>}</div>
       <div className='VerticalBarChartBackground'> </div>
       <div className='VerticalBarChartContainer'><VerticalBarChart wholeYearIncome={wholeYearIncome} wholeYearExpenditure={wholeYearExpenditure}></VerticalBarChart></div>
+      <div className='SigChanges'><p> Comparing from last month, you expenditure on {covertType(calculateSignificantChange(records,date)[0])} has increase by <p id='percent'>{calculateSignificantChange(records,date)[1]} % </p></p>
+      <BsCapslockFill size ={40} id='increaseArrow'/></div>
       
       <Modal show={show} onHide={()=>setShow(false)}>
         <Modal.Header closeButton>
