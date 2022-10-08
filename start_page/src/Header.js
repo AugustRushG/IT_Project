@@ -30,7 +30,7 @@ const Header = () => {
     //if in home,signUop,Register page, header link stays the same, if in other such as dashboard, change to other link
   return (
     <header className='Header'>
-        <h1 classname='RecordIt'><Link to='/' style={{color:'black'}}>RecordIt</Link></h1>
+        <h1 className='RecordIt'><Link to='/' style={{color:'black'}}>RecordIt</Link></h1>
         {location.pathname.includes('/dashboard')? (<>
             {/*<Link to = '/LogIn'><Button variant="warning" type = "button" className='Account'>Account</Button></Link>*/}
             <Button variant="warning" id='LogOut' onClick={signOut}>LogOut</Button>

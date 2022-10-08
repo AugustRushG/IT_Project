@@ -5,12 +5,14 @@ import useAuth from '../hooks/useAuth'
 import { useState } from 'react'
 import { Link } from 'react-router-dom'
 import PieChart from './PieChart'
+import IncomePieChart from './IncomePieChart'
 import VerticalBarChart from './VerticalBarChart'
 import axios from '../api/axios'
 import Modal from 'react-bootstrap/Modal';
 import Button from 'react-bootstrap/Button';
 import { CircularProgressbar } from 'react-circular-progressbar';
 import 'react-circular-progressbar/dist/styles.css';
+import { BsArrowLeftRight} from "react-icons/bs";
 
 
 /**
@@ -45,8 +47,11 @@ const Dashboard = () => {
   const [records, setRecord]=useState([]);
 
   const [pieDataSet,setPieDataSet]=useState([]);
+  const [incomePieDataSet, setIncomePieDataSet] = useState([]);
   const [wholeYearIncome,setWholeYearIncome]=useState([]);
   const [wholeYearExpenditure, setWholeYearExpenditure]=useState([]);
+
+  const [incomePieChart, setIncomePieChart] = useState(false);
 
 
   //filter the records according to the searchResult
@@ -100,7 +105,9 @@ const Dashboard = () => {
   useEffect(()=>{
     
     setPieDataSet(calculatePercentage(records,date,expenditure));
-  },[records,date,expenditure])
+    setIncomePieDataSet(calculateIncomePercentage(records,date,income));
+
+  },[records,date,expenditure,income])
 
   useEffect(()=>{
     setWholeYearIncome(calculateIncomeWholeYear(records,date));
@@ -281,6 +288,39 @@ const Dashboard = () => {
     return [JanExp,FebExp,MarExp,AprExp,MayExp,JunExp,JulExp,AugExp,SepExp,OctExp,NovExp,DecExp];
   }
 
+  // function to switch between income pieChart and expenditure pieChart
+  const changePieChart=()=>{
+    if (incomePieChart) setIncomePieChart(false);
+    else {
+      setIncomePieChart(true);
+    }
+  }
+
+  const calculateIncomePercentage=(records,selectedDate,allIncome)=>{
+      var salaryPer=0;
+      var investmentPer=0;
+      var partTimePer=0;
+
+      for (let i=0;i<records.length;i++){
+     
+        if (parseInt(records[i].date.substring(0,2))===selectedDate.getMonth()){
+          let classification=records[i].classification;
+          if (records[i].money>0){
+            if (classification==='salary') salaryPer+=records[i].money;
+            else if(classification ==='investment') investmentPer+=records[i].money;
+            else if(classification === 'partTime') partTimePer+=records[i].money; 
+          }
+        }
+      }
+      
+      
+      return [salaryPer/allIncome,investmentPer/allIncome,partTimePer/allIncome];
+  }
+
+  const calculateSignificantChange=(records,selectedDate,allExpen)=>{
+        
+  }
+
  
 
  
@@ -310,8 +350,8 @@ const Dashboard = () => {
 
 
       <RecordDisplay records={records} setExpenditure={setExpenditure} date={date} setIncome={setIncome} searchResult={searchResult} ></RecordDisplay>
-      <div className='PieChartBackGround'> </div>
-      <div className='PieChartContainer'> <PieChart pieDataSet={pieDataSet}></PieChart></div>
+      <div className='PieChartBackGround'> <BsArrowLeftRight size={30} id="arrowDownCircle" onClick={()=>changePieChart()}/> </div>
+      <div className='PieChartContainer'>{!incomePieChart?(<PieChart pieDataSet={pieDataSet}></PieChart>):<IncomePieChart pieDataSet={incomePieDataSet}/>}</div>
       <div className='VerticalBarChartBackground'> </div>
       <div className='VerticalBarChartContainer'><VerticalBarChart wholeYearIncome={wholeYearIncome} wholeYearExpenditure={wholeYearExpenditure}></VerticalBarChart></div>
       

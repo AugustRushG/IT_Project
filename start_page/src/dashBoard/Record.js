@@ -7,6 +7,9 @@ import pet from './categoryIcons/pet.png';
 import gift from './categoryIcons/giftbox.png';
 import income from './categoryIcons/money.png';
 import other from './categoryIcons/unknown-mail.png';
+import salary from './categoryIcons/salary.png';
+import partTime from './categoryIcons/part-time.png';
+import investment from './categoryIcons/investment.png';
 import useAuth from '../hooks/useAuth'
 import axios from '../api/axios';
 import { useState } from 'react'
@@ -90,10 +93,15 @@ const Record = ({record}) => {
           return gift;
         case 'income':
           return income;
-        case 'other':
-          return other;
+        case 'salary':
+          return salary;
+        case 'investment':
+          return investment;
+        case 'partTime':
+          return partTime;
+       
         default:
-          return null;
+          return other;
       }
   }
 
