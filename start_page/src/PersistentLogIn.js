@@ -19,6 +19,7 @@ const PersistentLogIn = () => {
     const refresh = useRefresh();
     const [isLoading,setIsLoading]=useState(true);
 
+    console.log("persistent login");
     //get auth
     const {auth} = useAuth();
 
@@ -45,8 +46,9 @@ const PersistentLogIn = () => {
 
   return (
     <>
-     {/*if is loggedin return outlet else is loading*/}
-    {isLoading? <p>Loading...</p>: <Outlet />}
+        {/*if is loggedin return outlet else is loading*/}
+        {console.log(isLoading)}
+        {isLoading? <p>Loading...</p>: <Outlet />}
     </>
   )
 }

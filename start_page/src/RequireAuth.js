@@ -14,6 +14,8 @@ const RequireAuth=()=>{
     //access auth and current location.
     const {auth} =useAuth();
     const location = useLocation();
+    console.log("useAuth activiation")
+    
 
     return (
         auth?.user

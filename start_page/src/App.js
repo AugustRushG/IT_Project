@@ -41,7 +41,10 @@ function App() {
         <Route exact path='/Authentication' element={<Authentication/>}></Route>
         <Route exact path='/About' element={<About/>}></Route>
 
+        <Route exact path='/dashboard' element ={<LogIn />}></Route>
+
         <Route path='*' element={<Missing />}></Route>
+        
 
         {/*needs to be protected*/}
         <Route element={<PersistentLogIn/>}>

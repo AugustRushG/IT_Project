@@ -148,6 +148,24 @@ const Record = ({record}) => {
 
  }
 
+ const highlightMoney=(money)=>{
+  var aboAmount;
+  var isNegative=false;
+  if (money<0){
+    aboAmount=money*-1;
+    isNegative=true;
+  }
+  
+  if (isNegative){
+    if (aboAmount>=1000) return <p id='highlight'>-${aboAmount}</p>;
+    return <p>-${aboAmount}</p>;
+   
+  }
+
+  if (aboAmount>=1000) return <p id='highlight'>${money}</p>;
+  return <p>${money}</p>;
+ }
+
  
   
   return (
@@ -157,7 +175,7 @@ const Record = ({record}) => {
           <img src={chooseIcon(record.classification)} alt='img'/> 
           <p className='RecordDetails'>  
             <span className='Date'>{translateDate(record.date)} </span> 
-            <span className='Expenditure'>{translateMoney(record.money)}</span>
+            <span className='Expenditure'>{highlightMoney(record.money)}</span>
             {/*if the length of notes less than 10 show all, if not show 10 and ...*/}
             <span className='Notes'>{(record.description)?.length<=25?record.description:`${(record.description)?.slice(0,25)}...`}</span>
                            
