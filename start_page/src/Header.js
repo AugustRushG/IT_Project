@@ -2,6 +2,8 @@ import React from 'react'
 import{Link,useNavigate,useLocation} from 'react-router-dom'; 
 import useLogOut from './hooks/useLogOut';
 import Button from 'react-bootstrap/Button';
+import { useMediaQuery } from 'react-responsive'
+import Dropdown from 'react-bootstrap/Dropdown';
 
 /**
  * Module Name: Header.js 
@@ -19,6 +21,9 @@ const Header = () => {
     const navigate=useNavigate();
     const logOut=useLogOut();
 
+    const isMobileOrTablet = useMediaQuery({ query: '(max-width: 1000px)' })
+    const isLaptop = useMediaQuery({ query: '(min-width: 1000px)' })
+
 
     //function to help user log out
     const signOut=async()=>{
@@ -26,26 +31,59 @@ const Header = () => {
       navigate('/')
     }
 
+    const dashboardRego=()=>{
+       return location.pathname.includes('/dashboard/');
+    }
+
+ 
+
 
     //if in home,signUop,Register page, header link stays the same, if in other such as dashboard, change to other link
   return (
-    <header className='Header'>
-        <h1 className='RecordIt'><Link to='/' style={{color:'black'}}>RecordIt</Link></h1>
+    <>
+    
       
-        {location.pathname.includes('/dashboard/')? (<>
-            {/*<Link to = '/LogIn'><Button variant="warning" type = "button" className='Account'>Account</Button></Link>*/}
-            <Button variant="warning" id='LogOut' onClick={signOut}>LogOut</Button>
-        </>):(<>
-          
-            <Link to = '/LogIn'  className='LogIn'> <Button variant="warning" id='LogIn'>LogIn</Button></Link>
-            <Link to = '/Register' className='SignUp'> <Button variant="warning" id='SignUp'>SignUp</Button></Link>
-          
-        </>)}
-        <Link to ='/About' className='About'> <Button variant="warning" >About</Button></Link>
-       
-      
+      <header className='Header'>
+          <Link to='/' style={{color:'black'}}><h1 className='RecordIt'>RecordIt</h1></Link>
 
-    </header>
+          {isMobileOrTablet && 
+            <Dropdown id='dropdown' align="end">
+            <Dropdown.Toggle variant="warning" id="dropdown-basic">
+              Menu
+            </Dropdown.Toggle>
+      
+            <Dropdown.Menu>
+              <Dropdown.Item href="/LogIn">LogIn</Dropdown.Item>
+              <Dropdown.Item href="/Register">SignUp</Dropdown.Item>
+              <Dropdown.Item href="/About">About</Dropdown.Item>
+            </Dropdown.Menu>
+          </Dropdown>
+          }
+          {isLaptop && dashboardRego() && 
+          <>
+            <Button variant="warning" id='LogOut' onClick={signOut}>LogOut</Button> 
+            <Link to ='/About' className='About'><Button variant="warning" >About</Button></Link>
+          </>
+          }
+          {isLaptop && !dashboardRego() &&
+            <>
+              <Link to = '/LogIn'  className='LogIn'> <Button variant="warning" id='LogIn'>LogIn</Button></Link>
+              <Link to = '/Register' className='SignUp'> <Button variant="warning" id='SignUp'>SignUp</Button></Link>
+              <Link to ='/About' className='About'><Button variant="warning" >About</Button></Link>
+            </>
+          }
+             
+           
+          
+
+         
+        
+        
+
+      </header>
+    
+
+    </>
   )
 }
 

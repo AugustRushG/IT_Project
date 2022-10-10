@@ -23,6 +23,7 @@ html{
 
 body {
   min-height: 100vh;
+  font-family: 'Inter', sans-serif;
 }
 
 .App{
@@ -43,23 +44,19 @@ body {
   width: 100%;
   height: 10vh;
 
- 
-  background: #FFFFFF;
-  
+  background: #FFFFFF; 
 }
 
 .LogIn,.Account{
  
   position: absolute;
 
-  width: 5vw;
- 
+  width: 6vw;
   right: 16.5vw;
   top: 2.5vh;
   margin-left: 2vw;
 
 }
-
 
 #LogIn{
   width: 100%;
@@ -72,13 +69,11 @@ body {
 
 }
 
-
-
 .SignUp{
   
   position: absolute;
-  width: 5vw;
-  right: 10.5vw;
+  width: 6vw;
+  right: 9.5vw;
   top: 2.5vh;
   margin-left: 1vw;
 
@@ -96,7 +91,6 @@ body {
   text-align: center;
 
 }
-
 
 #LogOut{
   position: absolute;
@@ -131,9 +125,6 @@ body {
   
 }
 
-
-
-
 .Header h1{
   position: absolute;
   left: 2vw;
@@ -147,7 +138,6 @@ body {
   color: #000000;
 
 }
-
 
 #Missing {
   position: relative;
@@ -179,7 +169,7 @@ button:active {
 
 
 
-@media all and (max-width:1200px){
+@media all and (max-width:1000px){
   
 .SignUp{
   
@@ -227,9 +217,79 @@ button:active {
  
 }
 
-
+#dropdown{
+  position: absolute;
+  right: 5vw;
+  top: 2.5vh;
+}
 
 }
+
+@media all and (max-width:400px){
+  .Header h1{
+    
+    position: absolute;
+    left: 2vw;
+    top: 1vh;
+    
+    font-family: 'Allerta Stencil', sans-serif;
+    font-weight: 400;
+    font-size: 150%;
+    line-height: 61px;
+    
+    color: #000000;
+  
+  }
+
+  .SignUp{
+  
+    position: absolute;
+    width: 8vw;
+    right: 20.5vw;
+    top: 2.5vh;
+    margin-left: 1vw;
+  
+  
+  }
+  
+  .LogIn,.Account{
+   
+    position: absolute;
+  
+    width: 8vw;
+   
+    right: 30.5vw;
+    top: 2.5vh;
+    margin-left: 2vw;
+  
+  }
+  
+  .About{
+    position: absolute;
+    width: 8vw;
+    right: 4vw;
+    top: 2.5vh;
+    margin-left: 5vw;
+  }
+  
+  #LogOut{
+    position: absolute;
+    width: fit-content; 
+    height: 4.5vh;
+    right: 14vw;
+    top: 2.5vh;
+    margin: auto;
+  
+    font-family: 'Inter', sans-serif;
+    font-size: 100%;
+    color: #000000;
+    text-align: center;
+   
+  }
+
+}
+  
+
 
 
 
