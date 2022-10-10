@@ -4,6 +4,7 @@ import axios from '../api/axios';
 import useAuth from '../hooks/useAuth';
 import BottomSection from '../start_page/BottomSection';
 import Button from 'react-bootstrap/Button';
+import Modal from 'react-bootstrap/Modal';
 
 
 /**
@@ -28,10 +29,18 @@ const LogIn = () => {
   const [pwd, setPwd] = useState('');
   const [errMsg, setErrMsg] = useState('');
 
+  const [show, setShow] = useState(false);
+
+  const handleClose = () => setShow(false);
+  const handleShow = () => setShow(true);
+
+  
+
   useEffect(()=>{userRef.current.focus();},[]);
 
   //useEffect on error message clean out error message when user or pwd changes 
   useEffect(()=>{setErrMsg('')},[user,pwd])
+
 
   const handleSubmit = async(e)=>{
     e.preventDefault();
@@ -126,7 +135,9 @@ const LogIn = () => {
         {checkDisabled(user,pwd)?
           <Button id='LogsignIn' type='submit' style={{top:'2vh'}} >Sign In</Button>
         :
-          <Button id='LogsignIn' type='submit' disabled style={{top:'2vh'}}>Sign In</Button>}
+          <Button id='LogsignIn' type='submit' style={{top:'2vh'}} >Sign In</Button>}
+        
+       
         
 
 

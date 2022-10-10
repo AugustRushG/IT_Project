@@ -15,16 +15,18 @@ const MainSection = () => {
   return (
     <>
       <main className='MainSection'>
-      
-        <h1>Welcome To RecordIt</h1>
-        <p>Start saving money today </p>
+
+
+        <h1 id='welcome'>Welcome To RecordIt</h1>
+        <p id='start'>Start saving money today </p>
         
         
         <Link to='/Register'  className='RegisterNow'>
           <Button variant="warning">Register Now</Button>
         </Link>
-      
-        <img src='magnet.png' alt='img'/>
+
+        <div id='imageContainer'> <img src='magnet.png' alt='img' id='magnet'/></div>
+       
         
       </main>
       

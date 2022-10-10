@@ -53,6 +53,7 @@ const Register = () => {
   console.log(success);
 
   const [show, setShow] = useState(false);
+  const [show1, setShow1] = useState(false);
 
   useEffect(()=>{userRef.current.focus();},[])
 
@@ -238,7 +239,7 @@ const Register = () => {
           {checkDisabled(validName,validMatch,validPwd,validQA)?
              <Button id='regSignIn' type='submit' >Sign Up</Button>
           :
-            <Button id='regSignIn' type='submit' disabled>Sign Up</Button>
+            <Button id='regSignIn' type='submit'onClick={()=>setShow1(true)}>Sign Up</Button>
           }
          
         </form>
@@ -269,6 +270,8 @@ const Register = () => {
           </Link>
         </Modal.Footer>
       </Modal>
+
+     
 
       <BottomSection>
       </BottomSection>

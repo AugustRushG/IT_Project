@@ -408,8 +408,8 @@ const Dashboard = () => {
       
       <Information search={search} setSearch={setSearch} date={date} setDate={setDate} expenditure={expenditure} income={income}/> 
       
-      <section2>
-      <p> Set Budget</p >
+      <section id='budget'>
+        <p> Set Budget</p >
         <input
           type="number"
           name="date"
@@ -420,15 +420,20 @@ const Dashboard = () => {
         <h>You've used {budget_percentage*100}% of your monthly budget</h>
         <h><CircularProgressbar value={budget_percentage} maxValue={1} text={`${budget_percentage*100 }%`} /></h>
      
-      </section2>
+      </section>
 
 
 
       <RecordDisplay records={records} setExpenditure={setExpenditure} date={date} setIncome={setIncome} searchResult={searchResult} ></RecordDisplay>
-      <div className='PieChartBackGround'> <BsArrowLeftRight size={30} id="arrowDownCircle" onClick={()=>changePieChart()}/> </div>
-      <div className='PieChartContainer'>{!incomePieChart?(<PieChart pieDataSet={pieDataSet}></PieChart>):<IncomePieChart pieDataSet={incomePieDataSet}/>}</div>
-      <div className='VerticalBarChartBackground'> </div>
-      <div className='VerticalBarChartContainer'><VerticalBarChart wholeYearIncome={wholeYearIncome} wholeYearExpenditure={wholeYearExpenditure}></VerticalBarChart></div>
+      <div className='PieChartBackGround'> 
+        <BsArrowLeftRight size={30} id="arrowDownCircle" onClick={()=>changePieChart()}/> 
+        <div className='PieChartContainer'>{!incomePieChart?(<PieChart pieDataSet={pieDataSet}></PieChart>):<IncomePieChart pieDataSet={incomePieDataSet}/>}</div>
+      </div>
+      
+      <div className='VerticalBarChartBackground'> 
+        <div className='VerticalBarChartContainer'><VerticalBarChart wholeYearIncome={wholeYearIncome} wholeYearExpenditure={wholeYearExpenditure}></VerticalBarChart></div>
+      </div>
+      
       
 
       <div className='SigChanges'><p> Comparing from last month, you expenditure on {covertType(calculateSignificantChange(records,date)[0])} has increase by <p id='percent'>{calculateSignificantChange(records,date)[1]} % </p></p>

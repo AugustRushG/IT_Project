@@ -16,6 +16,10 @@ import { useState } from 'react'
 import Form from 'react-bootstrap/Form';
 import Modal from 'react-bootstrap/Modal';
 
+import { BsXCircle,BsPencilSquare } from "react-icons/bs";
+
+
+
 const EDIT_URL = 'http://localhost:8080/api/records/edit'
 
 /**
@@ -180,10 +184,10 @@ const Record = ({record}) => {
             <span className='Notes'>{(record.description)?.length<=25?record.description:`${(record.description)?.slice(0,25)}...`}</span>
                            
           
-          <span className='Operation'>
-          <button onClick={()=>deleteRecord(record._id)}>delete</button>
-          <button onClick={()=>showPopup()}>Edit</button>
-          </span>
+            <span id ='delete'>
+              <BsXCircle onClick={()=>deleteRecord(record._id)} size={20}>delete</BsXCircle>
+            </span>
+            <span id = 'edit'><BsPencilSquare onClick={()=>showPopup()} size={20}>Edit</BsPencilSquare></span>
           </p>
           <Modal show={show} onHide={()=>setShow(false)}>
         <Modal.Header closeButton>

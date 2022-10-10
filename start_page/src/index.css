@@ -11,7 +11,7 @@
   margin: 0;
   padding: 0;
   box-sizing: border-box;
-
+  
 }
 
 html{
@@ -30,7 +30,7 @@ body {
   position: relative;
   width: 100%;
   height: fit-content;
-  max-width: 1920px;
+  min-width: 100%;
   min-height: 100vh;
   align-items: center;
   
@@ -42,78 +42,90 @@ body {
   position: absolute;
   width: 100%;
   height: 10vh;
+
+ 
   background: #FFFFFF;
   
 }
 
 .LogIn,.Account{
+ 
   position: absolute;
-  
-  width: fit-content;
-  left: 76vw;
+
+  width: 5vw;
+ 
+  right: 16.5vw;
   top: 2.5vh;
-  margin: auto;
+  margin-left: 2vw;
 
 }
 
 
-.LogIn>Button{
-  width: 4.5vw;
+#LogIn{
+  width: 100%;
   height: 4.5vh;
   font-family: 'Inter', sans-serif;
-  font-size: 1vw;
+  font-size: 100%;
   color: #000000;
+
   text-align: center;
+
 }
+
 
 
 .SignUp{
+  
   position: absolute;
-  width: 2vw;
-  left: 81.2vw;
+  width: 5vw;
+  right: 10.5vw;
   top: 2.5vh;
-  margin: auto;
+  margin-left: 1vw;
+
+
 }
 
-.SignUp > Button{
-  width: 5vw;
+#SignUp{
+
+ 
+  width: 100%;
   height: 4.5vh;
   font-family: 'Inter', sans-serif;
-  font-size: 1vw;
+  font-size: 100%;
   color: #000000;
   text-align: center;
+
 }
+
 
 #LogOut{
   position: absolute;
-  width: 5vw;
+  width: fit-content; 
   height: 4.5vh;
-  left: 81.2vw;
+  right: 10vw;
   top: 2.5vh;
   margin: auto;
 
   font-family: 'Inter', sans-serif;
-  font-size: 1vw;
+  font-size: 100%;
   color: #000000;
   text-align: center;
-
  
 }
 
 .About{
   position: absolute;
-  width: fit-content;
-  left: 87vw;
+  width: 5vw;
+  right: 4vw;
   top: 2.5vh;
-  margin: auto;
- 
+  margin-left: 5vw;
 }
 
 .About > Button{
-  width: 5vw;
+  width: 100%;
   height: 4.5vh;
   font-family: 'Inter', sans-serif;
-  font-size: 1vw;
+  font-size: 100%;
   color: #000000;
   text-align: center;
   
@@ -162,6 +174,61 @@ button:active {
   background-color: #3e8e41;
   box-shadow: 0 5px #666;
   transform: translateY(4px);
+}
+
+
+
+
+@media all and (max-width:1200px){
+  
+.SignUp{
+  
+  position: absolute;
+  width: 8vw;
+  right: 13.5vw;
+  top: 2.5vh;
+  margin-left: 1vw;
+
+
+}
+
+.LogIn,.Account{
+ 
+  position: absolute;
+
+  width: 8vw;
+ 
+  right: 23.5vw;
+  top: 2.5vh;
+  margin-left: 2vw;
+
+}
+
+.About{
+  position: absolute;
+  width: 8vw;
+  right: 4vw;
+  top: 2.5vh;
+  margin-left: 5vw;
+}
+
+#LogOut{
+  position: absolute;
+  width: fit-content; 
+  height: 4.5vh;
+  right: 14vw;
+  top: 2.5vh;
+  margin: auto;
+
+  font-family: 'Inter', sans-serif;
+  font-size: 100%;
+  color: #000000;
+  text-align: center;
+ 
+}
+
+
+
 }
 
 

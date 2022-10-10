@@ -15,29 +15,39 @@ const BottomSection = () => {
     <main className='BottomSection'>
       <>
         
-        <span className='bottomh'><img src="/financial-profit.png" alt="img" /><br/>
-        Save Money
+        <div className='bottomh1'>
+          <div id='imgcontainers'>  <img src="/financial-profit.png" alt="img" id='botIcons'/></div>
+         
+          <br/>
+          <p id='stitle'>Save Money</p>
           <span id='small'>
             Set up budget so you can 
             be prepared of financial emergenices 
             and unexpected expenses.
           </span>
-        </span>
+        </div>
       </>
-        <span className='bottomh' id='middleOne'><img src="/money-bag.png" alt="img" /><br/>
-        Day to day bookkeeping
+        <div className='bottomh2'>
+          <div id='imgcontainers'> <img src="/money-bag.png" alt="img" id='botIcons'/></div>
+          
+          <br/>
+          <p id='stitle'>Day to day bookkeeping</p>
           <span id='small'>
             Tired of collecting receipts 
             to track all your expenses? 
             This is your solution
           </span>
-        </span>
+        </div>
         
-        <span className='bottomh'><img src="/profits.png" alt="img" /><br/>
-        Manage Income
+        <div className='bottomh3'>
+          <div id='imgcontainers'>  <img src="/profits.png" alt="img" id='botIcons'/></div>
+         
+          <br/>
+          <p id='stitle'>Manage Income</p>
+          
           <span id='small'>Track all the income and
             make smarter decisions to invest</span>
-        </span>
+        </div>
     </main>
   )
 }
