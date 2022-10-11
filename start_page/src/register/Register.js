@@ -237,9 +237,9 @@ const Register = () => {
           </p>
 
           {checkDisabled(validName,validMatch,validPwd,validQA)?
-             <Button id='regSignIn' type='submit' >Sign Up</Button>
+            <Button id='regSignIn' type='submit' >Sign Up</Button>
           :
-            <Button id='regSignIn' type='submit'onClick={()=>setShow1(true)}>Sign Up</Button>
+            <Button id='regSignIn' type='submit' disabled>Sign Up</Button>
           }
          
         </form>
