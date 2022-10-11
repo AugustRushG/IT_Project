@@ -101,28 +101,76 @@ h2.headertekst {
 }
 
 #Category{
-    position:absolute;
+
+    font-family: 'Allerta Stencil', sans-serif;
+    top: 0;
     left: 1vw;
+    font-size: 1.5vw;
+   
 }
 
 #Date{
     position:absolute;
-    left: 11vw;
+    top: 0;
+    font-family: 'Allerta Stencil', sans-serif;
+    left: 1.5vw;
+    font-size: 1.5vw;
+   
 }
 
 #Money{
     position: absolute;
-    left: 20vw;
+    top: 0;
+    left: 1.5vw;
+    font-size: 1.5vw;
+    font-family: 'Allerta Stencil', sans-serif;
+   
 }
 
 #Notes{
+    
     position:absolute;
-    left: 29vw;
+    top: 0;
+    left: 7vw;
+    font-size: 1.5vw;
+    font-family: 'Allerta Stencil', sans-serif;
+
+}
+
+#CategoryContainer{
+    position: absolute;
+    width: 20%;
+    height: 5vh;
+   
+
+}
+#DateContainer{
+    position: absolute;
+    
+    width: 20%;
+    left: 20%;
+    height: 5vh;
+}
+#MoneyContainer{
+    position: absolute;
+  
+    left: 40%;
+    width: 20%;
+    height: 5vh;
+}
+#NotesContainer{
+   
+    position:absolute;
+    left: 60%;
+    width: 40%;
+    height: 5vh;
+   
 }
 
 
 
 .Record{
+  
     position: relative;
     top: 5vh;
     height: 5vh;   
@@ -130,14 +178,7 @@ h2.headertekst {
 
 
 
-.Record img{
-    top: 0.5vh;
-    width:2vw;
-    height:3.5vh;
-    left: 2vw;
-    float:left;
 
-}
 
 .RecordDetails{
     position: relative;
@@ -145,8 +186,7 @@ h2.headertekst {
     width: 37vw;
     height: 5vh;
     font-family: 'Inter', sans-serif;
- 
-   
+  
 }
 
 .TimeDisplay{
@@ -156,29 +196,76 @@ h2.headertekst {
     top: 3vh;
     font-family: 'Allerta Stencil', sans-serif;
     z-index: 10;
+
+    font-size: 2vw;
+   
+}
+
+.IncomeDisplay{
+    position: absolute;
+    left: 20vw;
+    text-align: center;
+
+    width: fit-content;
+    height: fit-content;
+
+    top: 3vh;
+    font-family: 'Allerta Stencil', sans-serif;
+    
+    font-size: 2vw;
+   
+}
+
+.ExpenditureDisplay{
+    position: absolute;
+    left: 33vw;
+    text-align: center;
+    width: fit-content;
+    height: fit-content;
+    top: 3vh;
+    font-family: 'Allerta Stencil', sans-serif;
+
+    font-size: 2vw;
+
+  
+}
+
+
+#iconContainers{
+    position: absolute;
+    height: 3vh;
+    width: 2vw;
+    left: 3vw;
+    
+}
+
+#recordIcons{
+    height: 100%;
+    width: 100%;
 }
 
 .Date{
     position: absolute;
-    left: 1.5vw;
-    top: 1vh;
+   
+    left: 1.0vw;
+    top: 0.5vh;
     width: fit-content;
     height: fit-content;
-    font-size: 0.9rem;
-   
+    font-size: 1.2vw;
+    
    
 }
+
 
 .Expenditure{
  
     position: absolute;
-    top: 1vh;
+    top:0.5vh;
     left: 11vw;
     height: fit-content;
     width: 4vw;
     text-align: right;
-    font-size: 0.9rem;
-   
+    font-size: 1.2vw;
    
     
 }
@@ -188,9 +275,11 @@ h2.headertekst {
     left: 20vw;
     text-align: center;
     height: fit-content;
-    font-size: 0.9rem;
-    top: 1vh;
+    font-size: 1vw;
+    top: 0.7vh;
 }
+
+
 
 .Operation{
     position: absolute;
@@ -201,32 +290,24 @@ h2.headertekst {
     top: 1vh;
 }
 
-.IncomeDisplay{
-    position: absolute;
-    left: 20vw;
-    text-align: center;
-    width: fit-content;
-    height: 6vh;
-    top: 3vh;
-    font-family: 'Allerta Stencil', sans-serif;
-   
-}
 
-.ExpenditureDisplay{
-    position: absolute;
-    left: 33vw;
-    text-align: center;
-    width: fit-content;
-    height: 6vh;
-    top: 3vh;
-    font-family: 'Allerta Stencil', sans-serif;
-}
 
 
 #arrow{
-    position: absolute;
-    top: 3.5vh;
+   
+    height: 100%;
+    width: 100%;
     
+}
+
+#monthPickerContainer{
+    position: absolute;
+    top: 0.5vh;
+    left: 9vw;
+    width: 2vw;
+    height: 4vh;
+    
+    position: absolute;
 }
 
 #displayNone{
@@ -314,10 +395,18 @@ h2.headertekst {
 }
 
 .addButton{
-    position: absolute;
-    left: 50vw;
-    top: 5vh;
+   
+    height: 100%;
+    width: 100%;
+}
 
+#addContainer{
+    position: absolute;
+   
+    left: 50vw;
+    top: 3vh;
+    height: 4vh;
+    width: 4vw;
 }
 
 .addButton:hover{
@@ -350,15 +439,32 @@ h2.headertekst {
 
 }
 
-#delete{
+#deleteContainer{
+    
     position: absolute;
+   
     top: 0vh;
+    width: 3vw;
+    height: 3vh;
     left: 33vw;
 }
-#edit{
+#editContainer{
+   
     position: absolute;
     top: 0vh;
+    width: 2.8vw;
+    height: 3vh;
     left: 35vw;
+}
+
+#deleteContainer img{
+    height: 100%;
+    width: 100%;
+}
+
+#editContainer img{
+    height: 100%;
+    width: 100%;
 }
 
 #edit:hover{
@@ -366,6 +472,50 @@ h2.headertekst {
 }
 #delete:hover{
     color: red;
+}
+
+
+@media all and (max-width: 1130px) {
+    .PieChartContainer{
+        
+        position:absolute;
+        left: 0;
+        height: 80%;
+        top: 7vh;
+        width: 100%;
+    }
+    
+    .PieChartBackGround{
+        position:absolute;
+        left: 65vw;
+        height: 40vh;
+        width: fit-content;
+        min-width: 30vw;
+        top: 23vh;
+        border-radius: 20px;
+        
+        background-color: #FDF4C9;
+    }
+    
+    .VerticalBarChartContainer{
+       
+        position:absolute;
+      
+        width: 100%;
+        height: 100%;
+    
+    }
+    
+    .VerticalBarChartBackground{
+        position:absolute;
+        
+        left: 65vw;
+        height: 30vh;
+        width: 30vw;
+        top: 70vh;
+        border-radius: 20px;
+        background-color: #FDF4C9;
+    }   
 }
 
 

@@ -46,12 +46,12 @@ const Header = () => {
       <header className='Header'>
           <Link to='/' style={{color:'black'}}><h1 className='RecordIt'>RecordIt</h1></Link>
 
-          {isMobileOrTablet && 
+          {isMobileOrTablet && !dashboardRego() &&
             <Dropdown id='dropdown' align="end">
             <Dropdown.Toggle variant="warning" id="dropdown-basic">
               Menu
             </Dropdown.Toggle>
-      
+            
             <Dropdown.Menu>
               <Dropdown.Item href="/LogIn">LogIn</Dropdown.Item>
               <Dropdown.Item href="/Register">SignUp</Dropdown.Item>
@@ -59,6 +59,20 @@ const Header = () => {
             </Dropdown.Menu>
           </Dropdown>
           }
+
+          {isMobileOrTablet && dashboardRego() &&
+            <Dropdown id='dropdown' align="end">
+            <Dropdown.Toggle variant="warning" id="dropdown-basic">
+              Menu
+            </Dropdown.Toggle>
+            
+            <Dropdown.Menu>
+              <Dropdown.Item onClick={signOut}>LogOut</Dropdown.Item>
+              <Dropdown.Item href="/About">About</Dropdown.Item>
+            </Dropdown.Menu>
+          </Dropdown>
+          }
+
           {isLaptop && dashboardRego() && 
           <>
             <Button variant="warning" id='LogOut' onClick={signOut}>LogOut</Button> 

@@ -52,9 +52,10 @@ body {
   position: absolute;
 
   width: 6vw;
+  min-width: 65px;
   right: 16.5vw;
   top: 2.5vh;
-  margin-left: 2vw;
+  margin-right: 1vw;
 
 }
 
@@ -73,9 +74,11 @@ body {
   
   position: absolute;
   width: 6vw;
-  right: 9.5vw;
+  min-width: 65px;
+  right: 9.8vw;
   top: 2.5vh;
-  margin-left: 1vw;
+  margin-right: 10px;
+  
 
 
 }
@@ -109,10 +112,11 @@ body {
 
 .About{
   position: absolute;
+  min-width: 65px;
   width: 5vw;
   right: 4vw;
   top: 2.5vh;
-  margin-left: 5vw;
+  margin-left: 1vw;
 }
 
 .About > Button{
@@ -222,6 +226,9 @@ button:active {
   right: 5vw;
   top: 2.5vh;
 }
+
+
+
 
 }
 

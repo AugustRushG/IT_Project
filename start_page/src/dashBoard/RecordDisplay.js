@@ -15,10 +15,14 @@ const RecordDisplay = ({records,setExpenditure,date,setIncome,searchResult}) => 
   return (
     <main className='RecordDisplay'>
       
-      <span id='Category'>Category</span>
-      <span id='Date'>Date</span>
-      <span id='Money'>Money</span>
-      <span id='Notes'>Notes</span>
+      <div id='CategoryContainer'><span id='Category'>Category</span></div>
+      <div id='DateContainer'><span id='Date'>Date</span></div>
+      <div id='MoneyContainer'><span id='Money'>Money</span></div>
+      <div id='NotesContainer'><span id='Notes'>Notes</span></div>
+      
+      
+      
+     
       
       
 

@@ -78,7 +78,7 @@ const Information = ({search,setSearch,date,setDate,expenditure,income}) => {
       <div className='Information'>
         <h2 className='TimeDisplay'>
           {date.getFullYear()} <br/> {monthNames[date.getMonth()]}
-          <MonthPicker setDate={setDate} />
+          <MonthPicker setDate={setDate}/>
         </h2>
         <h2 className='IncomeDisplay'>
           Income: <br/>${income}
@@ -87,8 +87,9 @@ const Information = ({search,setSearch,date,setDate,expenditure,income}) => {
           Expenditure: <br/>{translateMoney(expenditure)}
         </h2>
            
-       
-        <GrAdd onClick={()=>showPopup()} size={30} className='addButton'/>
+        <div id='addContainer'>
+          <GrAdd onClick={()=>showPopup()} className='addButton'/>
+        </div>
          
         
       </div>

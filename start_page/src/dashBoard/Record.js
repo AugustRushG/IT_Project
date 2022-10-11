@@ -175,8 +175,9 @@ const Record = ({record}) => {
   return (
     
     <div className='Record'>
-
-          <img src={chooseIcon(record.classification)} alt='img'/> 
+          <div id='iconContainers'>
+            <img src={chooseIcon(record.classification)} alt='img' id='recordIcons'/> 
+          </div>
           <p className='RecordDetails'>  
             <span className='Date'>{translateDate(record.date)} </span> 
             <span className='Expenditure'>{highlightMoney(record.money)}</span>
@@ -184,10 +185,10 @@ const Record = ({record}) => {
             <span className='Notes'>{(record.description)?.length<=25?record.description:`${(record.description)?.slice(0,25)}...`}</span>
                            
           
-            <span id ='delete'>
-              <BsXCircle onClick={()=>deleteRecord(record._id)} size={20}>delete</BsXCircle>
+            <span id ='deleteContainer'>
+              <BsXCircle onClick={()=>deleteRecord(record._id)}>delete</BsXCircle>
             </span>
-            <span id = 'edit'><BsPencilSquare onClick={()=>showPopup()} size={20}>Edit</BsPencilSquare></span>
+            <span id = 'editContainer'><BsPencilSquare onClick={()=>showPopup()}>Edit</BsPencilSquare></span>
           </p>
           <Modal show={show} onHide={()=>setShow(false)}>
         <Modal.Header closeButton>
