@@ -135,7 +135,7 @@ const LogIn = () => {
         {checkDisabled(user,pwd)?
           <Button id='LogsignIn' type='submit' style={{top:'2vh'}} >Sign In</Button>
         :
-          <Button id='LogsignIn' type='submit' style={{top:'2vh'}} >Sign In</Button>}
+          <Button id='LogsignIn' type='submit' style={{top:'2vh'}} disabled>Sign In</Button>}
         
        
         
