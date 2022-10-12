@@ -20,7 +20,7 @@ import { BsXCircle,BsPencilSquare } from "react-icons/bs";
 
 
 
-const EDIT_URL = 'http://localhost:8080/api/records/edit'
+const EDIT_URL = '/api/records/edit'
 
 /**
  * Module Name: Record.js
