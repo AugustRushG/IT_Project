@@ -8,14 +8,22 @@
 
 /*  SECTIONS  */
 .section_mp {
+   
     clear: both;
     padding: 0px;
     margin: 0px;
+    
+   
+
+
+
    
 }
 
 /*  COLUMN SETUP  */
 .col_mp {
+   
+   
     display: block;
     float:left;
     text-align: center;
@@ -37,4 +45,8 @@
 }
 
 /*  GRID OF THREE  */
-.span_1_of_3_mp { width: 33.33%; }
+.span_1_of_3_mp { 
+    
+    width: 33.33%; 
+    min-width: 42px;
+    }

@@ -119,6 +119,7 @@ h2.headertekst {
 }
 
 #Money{
+    
     position: absolute;
     top: 0;
     left: 1.5vw;
@@ -171,7 +172,7 @@ h2.headertekst {
 
 
 .Record{
-  
+   
     position: relative;
     top: 5vh;
     height: 5vh;   
@@ -243,6 +244,7 @@ h2.headertekst {
 }
 
 .Date{
+ 
     position: absolute;
    
     left: 1.0vw;
@@ -256,12 +258,15 @@ h2.headertekst {
 
 
 .Expenditure{
- 
+    
     position: absolute;
-    top:0.5vh;
+    
+    top: 0.3vw;
+
     left: 11vw;
-    height: fit-content;
+    height:fit-content;
     width: 4vw;
+
     text-align: right;
     font-size: 1.2vw;
    
@@ -289,7 +294,6 @@ h2.headertekst {
 
 
 
-
 #arrow{
    
     height: 100%;
@@ -298,13 +302,14 @@ h2.headertekst {
 }
 
 #monthPickerContainer{
-    position: absolute;
-    top: 0.5vh;
-    left: 9vw;
-    width: 2vw;
-    height: 4vh;
     
     position: absolute;
+    top: 0vh;
+    left: 5vw;
+    width: 3vw;
+    height: 4vh;
+    
+  
 }
 
 #displayNone{
@@ -369,6 +374,7 @@ h2.headertekst {
 }
 
 .SigChanges{
+    
     position: absolute;
     left: 51vw;
     width: 13vw;
@@ -380,15 +386,11 @@ h2.headertekst {
 }
 
 #percent{
+    
     position: absolute;
+    width: 10vw;
     font-size: 2vw;
     left: 4vw;
-}
-
-#increaseArrow{
-    position: absolute;
-    top: 15vh;
-    left: 5vw;
 }
 
 .addButton{
@@ -422,9 +424,10 @@ h2.headertekst {
 }
 
 #highlight{
+
+   
     color: red;
 }
-
 
 
 #deleteContainer{
@@ -432,27 +435,28 @@ h2.headertekst {
     position: absolute;
    
     top: 0vh;
-    width: 3vw;
+    width: 2vw;
     height: 3vh;
-    left: 33vw;
+    left: 32vw;
 }
 #editContainer{
    
     position: absolute;
     top: 0vh;
-    width: 2.8vw;
+    width: 2vw;
     height: 3vh;
-    left: 35vw;
+    left: 34vw;
 }
 
-#deleteContainer img{
+#deleteImg{
     height: 100%;
     width: 100%;
 }
 
-#editContainer img{
+#editImg{
     height: 100%;
     width: 100%;
+
 }
 
 #edit:hover{
@@ -461,6 +465,7 @@ h2.headertekst {
 #delete:hover{
     color: red;
 }
+
 
 
 @media all and (max-width: 1130px) {
@@ -554,11 +559,11 @@ h2.headertekst {
     }
 
     #monthPickerContainer{
-      
+        
         position: absolute;
-        top: 0;
-        left: 35vw;
-        width: 5vw;
+        
+        left: 24vw;
+        width: 30vw;
         height: 3vh;
         
         position: absolute;
@@ -725,6 +730,7 @@ h2.headertekst {
     }
     
     #Money{
+       
         position: absolute;
         top: 0;
         left: 1.5vw;
@@ -825,12 +831,6 @@ h2.headertekst {
     }
     
   
-    
-    
-    
-    
-    
-    
     
 }
 

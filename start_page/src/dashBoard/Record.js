@@ -161,13 +161,13 @@ const Record = ({record}) => {
   }
   
   if (isNegative){
-    if (aboAmount>=1000) return <p id='highlight'>-${aboAmount}</p>;
-    return <p>-${aboAmount}</p>;
+    if (aboAmount>=1000) return <div id='highlight'>-${aboAmount}</div>;
+    return `-$${aboAmount}`;
    
   }
 
-  if (aboAmount>=1000) return <p id='highlight'>${money}</p>;
-  return <p>${money}</p>;
+  if (aboAmount>=1000) return <div id='highlight'>${money}</div>;
+  return `${money}`
  }
 
  
@@ -183,20 +183,19 @@ const Record = ({record}) => {
             <span className='Expenditure'>{highlightMoney(record.money)}</span>
             {/*if the length of notes less than 10 show all, if not show 10 and ...*/}
             <span className='Notes'>{(record.description)?.length<=25?record.description:`${(record.description)?.slice(0,25)}...`}</span>
-                           
-          
-            <span id ='deleteContainer'>
-              <BsXCircle onClick={()=>deleteRecord(record._id)}>delete</BsXCircle>
-            </span>
-            <span id = 'editContainer'><BsPencilSquare onClick={()=>showPopup()}>Edit</BsPencilSquare></span>
+                          
+            <div id ='deleteContainer'>
+              <BsXCircle onClick={()=>deleteRecord(record._id)} id='deleteImg'>delete</BsXCircle>
+            </div>
+            <div id = 'editContainer'><BsPencilSquare onClick={()=>showPopup()} id='editImg'>Edit</BsPencilSquare></div>
           </p>
           <Modal show={show} onHide={()=>setShow(false)}>
-        <Modal.Header closeButton>
+          <Modal.Header closeButton>
           <Modal.Title>Wanna edit this one?</Modal.Title>
-        </Modal.Header>
-        <Modal.Body>
-        <Form.Group >
-        <form onSubmit={handleSubmit}>
+          </Modal.Header>
+          <Modal.Body>
+          <Form.Group >
+          <form onSubmit={handleSubmit}>
           <p> Update Record</p >
           <input
             type="date"

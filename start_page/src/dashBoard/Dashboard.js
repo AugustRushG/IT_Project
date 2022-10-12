@@ -332,17 +332,16 @@ const Dashboard = () => {
       differenceMonth[i]=thisMonth[i]-lastMonth[i];
     }
 
-    console.log(lastMonth);
-    console.log(differenceMonth);
 
     var maxValue= Math.max(...differenceMonth);
 
     if (maxValue<=0) return [0,0];
-
+    
   
     var index=differenceMonth.indexOf(maxValue);
     
-    
+    console.log([index,maxValue/lastMonth[index]*100]);
+    if (maxValue/lastMonth[index]*100===Infinity) return [0,0];
     return [index,maxValue/lastMonth[index]*100];
         
   }
@@ -441,8 +440,17 @@ const Dashboard = () => {
       </div>
       
       
-      {!isMobile&& <div className='SigChanges'><p> Comparing from last month, you expenditure on {covertType(calculateSignificantChange(records,date)[0])} has increase by <p id='percent'>{calculateSignificantChange(records,date)[1]} % </p></p>
-      <BsCapslockFill size ={40} id='increaseArrow'/></div>}
+      {!isMobile &&
+        <div className='SigChanges'>
+          <div> Comparing from last month, you expenditure on {covertType(calculateSignificantChange(records,date)[0])} has increase by 
+            <p id='percent'>{calculateSignificantChange(records,date)[1]} %
+             
+            </p>
+            
+          </div>
+         
+        </div>
+      }
      
       
       <Modal show={show} onHide={()=>setShow(false)}>
