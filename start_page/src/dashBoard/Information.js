@@ -8,7 +8,7 @@ import { useState } from 'react'
 import Form from 'react-bootstrap/Form'
 import axios from 'axios';
 import useAuth from '../hooks/useAuth';
-
+import { useMediaQuery } from 'react-responsive'
 
 const ADD_URL = 'http://localhost:8080/api/records/add'
 
@@ -72,19 +72,21 @@ const Information = ({search,setSearch,date,setDate,expenditure,income}) => {
  
   //console.log("date now is "+date.getFullYear()+','+date.getMonth())
 
+  const isMobile = useMediaQuery({ query: '(max-width: 450px)' })
+
   return (
     <>
       
       <div className='Information'>
         <h2 className='TimeDisplay'>
-          {date.getFullYear()} <br/> {monthNames[date.getMonth()]}
+          {date.getFullYear()} {!isMobile&&<br/>} {monthNames[date.getMonth()]}
           <MonthPicker setDate={setDate}/>
         </h2>
         <h2 className='IncomeDisplay'>
-          Income: <br/>${income}
+          Income: {!isMobile&&<br/>}${income}
         </h2>      
         <h2 className='ExpenditureDisplay'>
-          Expenditure: <br/>{translateMoney(expenditure)}
+          Expenditure: {!isMobile&&<br/>}{translateMoney(expenditure)}
         </h2>
            
         <div id='addContainer'>

@@ -13,6 +13,8 @@ import Button from 'react-bootstrap/Button';
 import { CircularProgressbar } from 'react-circular-progressbar';
 import 'react-circular-progressbar/dist/styles.css';
 import { BsArrowLeftRight,BsCapslockFill} from "react-icons/bs";
+import { useMediaQuery } from 'react-responsive'
+
 
 
 
@@ -396,6 +398,10 @@ const Dashboard = () => {
     else if(index ===5) return 'Shopping';
   }
 
+
+  
+  const isMobile = useMediaQuery({ query: '(max-width: 450px)' })
+  
  
 
  
@@ -407,7 +413,7 @@ const Dashboard = () => {
     <>
       
       <Information search={search} setSearch={setSearch} date={date} setDate={setDate} expenditure={expenditure} income={income}/> 
-      
+      {/*
       <section id='budget'>
         <p> Set Budget</p >
         <input
@@ -420,7 +426,7 @@ const Dashboard = () => {
         <h>You've used {budget_percentage*100}% of your monthly budget</h>
         <h><CircularProgressbar value={budget_percentage} maxValue={1} text={`${budget_percentage*100 }%`} /></h>
      
-      </section>
+  </section>*/}
 
 
 
@@ -435,9 +441,9 @@ const Dashboard = () => {
       </div>
       
       
-
-      <div className='SigChanges'><p> Comparing from last month, you expenditure on {covertType(calculateSignificantChange(records,date)[0])} has increase by <p id='percent'>{calculateSignificantChange(records,date)[1]} % </p></p>
-      <BsCapslockFill size ={40} id='increaseArrow'/></div>
+      {!isMobile&& <div className='SigChanges'><p> Comparing from last month, you expenditure on {covertType(calculateSignificantChange(records,date)[0])} has increase by <p id='percent'>{calculateSignificantChange(records,date)[1]} % </p></p>
+      <BsCapslockFill size ={40} id='increaseArrow'/></div>}
+     
       
       <Modal show={show} onHide={()=>setShow(false)}>
         <Modal.Header closeButton>

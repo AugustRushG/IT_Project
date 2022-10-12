@@ -138,6 +138,7 @@ h2.headertekst {
 }
 
 #CategoryContainer{
+   
     position: absolute;
     width: 20%;
     height: 5vh;
@@ -175,9 +176,6 @@ h2.headertekst {
     top: 5vh;
     height: 5vh;   
 }
-
-
-
 
 
 .RecordDetails{
@@ -278,7 +276,6 @@ h2.headertekst {
     font-size: 1vw;
     top: 0.7vh;
 }
-
 
 
 .Operation{
@@ -428,16 +425,7 @@ h2.headertekst {
     color: red;
 }
 
-#budget{
-    border: red solid 2px;
-    position: absolute;
-    top: 23vh;
-    left: 53vw;
-    width: 10vw;
-    height: 20vh;
-    border-radius: 20px;
 
-}
 
 #deleteContainer{
     
@@ -516,6 +504,334 @@ h2.headertekst {
         border-radius: 20px;
         background-color: #FDF4C9;
     }   
+}
+
+@media all and (max-width: 450px){
+  
+
+    .TimeDisplay{
+       
+        width: 45vw;
+        position: absolute;
+        left: 5vw;
+        top: 1vh;
+        font-family: 'Allerta Stencil', sans-serif;
+        z-index: 10;
+    
+        font-size: 5vw;
+       
+    }
+    
+    .IncomeDisplay{
+       
+        position: absolute;
+        left: 5vw;
+        text-align: center;
+    
+        width: fit-content;
+        height: fit-content;
+    
+        top: 4vh;
+        font-family: 'Allerta Stencil', sans-serif;
+        
+        font-size: 5vw;
+       
+    }
+    
+    .ExpenditureDisplay{
+       
+        position: absolute;
+        left: 5vw;
+        text-align: center;
+        width: fit-content;
+        height: fit-content;
+        top: 7vh;
+        font-family: 'Allerta Stencil', sans-serif;
+    
+        font-size: 5vw;
+    
+      
+    }
+
+    #monthPickerContainer{
+      
+        position: absolute;
+        top: 0;
+        left: 35vw;
+        width: 5vw;
+        height: 3vh;
+        
+        position: absolute;
+    }
+
+    .SearchForm{
+       
+        position: absolute;
+        width: 40vw;
+        left: 60vw;
+        top: 13vh;
+        display: block;
+        
+    }
+    
+    #search{
+        
+        width: 80%;
+        min-height: 30px;
+        font-size: 1rem;
+        padding: 0.25rem;
+        border-radius: 0.25rem;
+        top: 7px;
+        right: 0px;
+        outline: none;
+    }
+    
+    .searchForm>label {
+        position: relative;
+        left: -99999px;
+    
+    }
+
+    .FaSearch{
+        position: absolute;
+        top: 0;
+        right: 0px; 
+    }
+
+    .PieChartContainer{
+       
+        position:absolute;
+        top: 0vh;
+        left: 0vw;
+        height: 100%;
+        width: 70%;
+    }
+    
+    .PieChartBackGround{
+        position:absolute;
+        left: 0vw;
+        height: 40vh;
+        width: fit-content;
+        min-width: 100vw;
+        top: 75vh;
+       
+        background-color: #FDF4C9;
+    }
+    
+    .VerticalBarChartContainer{
+       
+        position:absolute;
+       
+        width: 100%;
+        height: 100%;
+    
+    }
+    
+    .VerticalBarChartBackground{
+        position:absolute;
+        
+        left: 0vw;
+        height: 30vh;
+        width: 100vw;
+        top: 115vh;
+       
+        background-color: #FDF4C9;
+    }
+
+    #budget{
+        border: red solid 2px;
+        position: absolute;
+        top: 150vh;
+        left: 53vw;
+        width: 10vw;
+        height: 20vh;
+        border-radius: 20px;
+    
+    }
+
+    .SigChanges{
+        position: absolute;
+        left: 51vw;
+        width: 13vw;
+        height: 20vh;
+        top:3vh;
+        font-size: 1vw;
+        font-family: 'Allerta Stencil', sans-serif;
+       
+    }
+
+    .RecordDisplay{
+        position:absolute;
+        top: 23vh;
+        left: 0vw;
+        width: 100vw;
+        margin-left: 0%;
+        height: 50vh;
+        overflow-y: auto;
+        
+        min-height: 50vh;
+        background-color: #FDF4C9;
+        border-radius: 20px;
+      
+    }
+
+    #CategoryContainer{
+       
+        position: absolute;
+        width: 20%;
+        height: 4vh;
+       
+    
+    }
+    #DateContainer{
+        position: absolute;
+        
+        width: 20%;
+        left: 20%;
+        height: 5vh;
+    }
+    #MoneyContainer{
+        position: absolute;
+      
+        left: 40%;
+        width: 20%;
+        height: 5vh;
+    }
+    #NotesContainer{
+       
+        position:absolute;
+        left: 60%;
+        width: 40%;
+        height: 5vh;
+       
+    }
+
+    #Category{
+
+        font-family: 'Allerta Stencil', sans-serif;
+        top: 0;
+        left: 2vw;
+        font-size: 3vw;
+       
+    }
+    
+    #Date{
+        position:absolute;
+        top: 0;
+        font-family: 'Allerta Stencil', sans-serif;
+        left: 1.5vw;
+        font-size: 3vw;
+       
+    }
+    
+    #Money{
+        position: absolute;
+        top: 0;
+        left: 1.5vw;
+        font-size: 3vw;
+        font-family: 'Allerta Stencil', sans-serif;
+       
+    }
+    
+    #Notes{
+        
+        position:absolute;
+        top: 0;
+        left: 7vw;
+        font-size: 3vw;
+        font-family: 'Allerta Stencil', sans-serif;
+    
+    }
+
+    #iconContainers{
+      
+        position: absolute;
+        height: 3vh;
+        width: 5vw;
+        left: 5vw;
+        
+    }
+
+    .Record{
+        
+        position: relative;
+        top: 3vh;
+        height: 5vh;   
+    }
+    
+    
+    .RecordDetails{
+        position: relative;
+        left: 9vw;
+        width: 37vw;
+        height: 5vh;
+        font-family: 'Inter', sans-serif;
+      
+    }
+
+    .Date{
+        position: absolute;
+       
+        left: 10vw;
+        top: 0.5vh;
+        width: fit-content;
+        height: fit-content;
+        font-size: 3vw;
+        
+       
+    }
+    
+    
+    .Expenditure{
+     
+        position: absolute;
+        top:0.5vh;
+        left: 32vw;
+        height: fit-content;
+        width: 4vw;
+        text-align: right;
+        font-size: 3vw;
+       
+        
+    }
+    
+    .Notes{
+       
+        position: absolute;
+        left: 45vw;
+        text-align: center;
+        height: 50%;
+        width: 90%;
+        font-size: 2.5vw;
+        top: 0.7vh;
+    }
+
+    #deleteContainer{
+    
+        position: absolute;
+       
+        top: 0vh;
+        width: 3vw;
+        height: 3vh;
+        left: 79vw;
+    }
+    #editContainer{
+       
+        position: absolute;
+        top: 0vh;
+        width: 2.8vw;
+        height: 3vh;
+        left: 84vw;
+    }
+    
+  
+    
+    
+    
+    
+    
+    
+    
 }
 
 
