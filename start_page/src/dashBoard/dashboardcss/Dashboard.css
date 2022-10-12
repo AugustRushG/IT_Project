@@ -459,10 +459,10 @@ h2.headertekst {
 
 }
 
-#edit:hover{
+#editImg:hover{
     color: red;
 }
-#delete:hover{
+#deleteImg:hover{
     color: red;
 }
 
