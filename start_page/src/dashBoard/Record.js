@@ -130,11 +130,16 @@ const Record = ({record}) => {
 
   }
 
+  var months = [ "Jan", "Feb", "Mar", "Apr", "May", "Jun", 
+           "Jul", "Aug", "Sep", "Oct", "Nov", "Dec" ];
+
+  
+
 
   // function to translate the date into readable date.
   const translateDate=(date)=>{
     var dateSep= date.split(' ');
-    return `${dateSep[1]}/${[parseInt(dateSep[0])+1]}/${dateSep[2]}`;
+    return `${dateSep[1]} ${months[parseInt(dateSep[0])+1]}`;
   }
 
 

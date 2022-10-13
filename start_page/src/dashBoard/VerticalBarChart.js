@@ -39,7 +39,7 @@ ChartJS.register(
           },
           title: {
             display: true,
-            text: 'Compare',
+            text: 'Income VS Expenditure',
           },
         },
     };

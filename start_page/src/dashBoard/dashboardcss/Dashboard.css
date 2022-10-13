@@ -89,7 +89,8 @@ h2.headertekst {
     
     min-height: 60vh;
     background-color: #FDF4C9;
-    border-radius: 20px;
+    border-radius: 10px;
+   
   
 }
 
@@ -146,6 +147,7 @@ h2.headertekst {
 
 }
 #DateContainer{
+   
     position: absolute;
    
     width: 20%;
@@ -174,7 +176,7 @@ h2.headertekst {
    
     position: relative;
     top: 5vh;
-    height: 5vh;   
+    height: 4vh;   
 }
 
 
@@ -191,18 +193,18 @@ h2.headertekst {
     
     width: 12vw;
     position: absolute;
-    left: 3.5vw;
+    left: 4vw;
     top: 3vh;
     font-family: 'Allerta Stencil', sans-serif;
     z-index: 10;
 
-    font-size: 2vw;
+    font-size: 1.5vw;
    
 }
 
 .IncomeDisplay{
     position: absolute;
-    left: 20vw;
+    left: 15vw;
     text-align: center;
 
     width: fit-content;
@@ -211,20 +213,20 @@ h2.headertekst {
     top: 3vh;
     font-family: 'Allerta Stencil', sans-serif;
     
-    font-size: 2vw;
+    font-size: 1.5vw;
    
 }
 
 .ExpenditureDisplay{
     position: absolute;
-    left: 33vw;
+    left: 25vw;
     text-align: center;
     width: fit-content;
     height: fit-content;
     top: 3vh;
     font-family: 'Allerta Stencil', sans-serif;
 
-    font-size: 2vw;
+    font-size: 1.5vw;
 
   
 }
@@ -233,7 +235,7 @@ h2.headertekst {
 #iconContainers{
     position: absolute;
     height: 3vh;
-    width: 2vw;
+    width: 1.8vw;
     left: 3vw;
     
 }
@@ -247,7 +249,7 @@ h2.headertekst {
  
     position: absolute;
    
-    left: 1.0vw;
+    left: 2vw;
     top: 0.5vh;
     width: fit-content;
     height: fit-content;
@@ -337,13 +339,15 @@ h2.headertekst {
 }
 
 .PieChartBackGround{
+   
     position:absolute;
     left: 65vw;
     height: 40vh;
     width: fit-content;
     min-width: 30vw;
     top: 23vh;
-    border-radius: 20px;
+    border-radius: 10px;
+    
     
     background-color: #FDF4C9;
 }
@@ -357,11 +361,6 @@ h2.headertekst {
 
 }
 
-#monthP{
-    border: red 2px solid;
-    width: 100vw;
-    height: 100vh;
-}
 
 .VerticalBarChartBackground{
     position:absolute;
@@ -370,7 +369,8 @@ h2.headertekst {
     height: 30vh;
     width: 30vw;
     top: 70vh;
-    border-radius: 20px;
+    border-radius: 10px;
+    
     background-color: #FDF4C9;
 }
 
@@ -391,7 +391,7 @@ h2.headertekst {
     left: 51vw;
     width: 13vw;
     height: 20vh;
-    top: 73vh;
+    top: 24vh;
     font-size: 1vw;
     font-family: 'Allerta Stencil', sans-serif;
    
@@ -414,8 +414,8 @@ h2.headertekst {
 #addContainer{
     position: absolute;
    
-    left: 50vw;
-    top: 5vh;
+    left: 40vw;
+    top: 3.5vh;
     height: 4vh;
     width: 4vw;
 }
@@ -448,7 +448,7 @@ h2.headertekst {
    
     top: 0vh;
     width: 2vw;
-    height: 3vh;
+    height: 2.3vh;
     left: 32vw;
 }
 #editContainer{
@@ -456,7 +456,7 @@ h2.headertekst {
     position: absolute;
     top: 0vh;
     width: 2vw;
-    height: 3vh;
+    height: 2.3vh;
     left: 34vw;
 }
 

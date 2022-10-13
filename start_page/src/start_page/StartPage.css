@@ -411,7 +411,7 @@ br{
    
     position: absolute;
     top: 4vh;
-    left: 16vw;
+    left: 15vw;
     width: 40vw;
     height: fit-content;
     font-family: 'Allerta Stencil', sans-serif;
@@ -424,10 +424,10 @@ br{
   #imageContainer{
    
     position: absolute;
-    left: 20vw;
+    left: 15vw;
     top: 12vh;
     height: 20vh;
-    width: 30vw;
+    width: 40vw;
   }
 
   
@@ -442,7 +442,7 @@ br{
     font-family: 'Inter';
     font-style: normal;
     font-weight: 400;
-    font-size: 3vw;
+    font-size: 4vw;
     line-height: 36px;
     text-align: center;
   
@@ -470,7 +470,7 @@ br{
     
     width: 100%;
     height: 100%;
-    font-size: 60%;
+    font-size: 70%;
   }
 
   .BottomSection{

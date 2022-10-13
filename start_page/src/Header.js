@@ -37,6 +37,7 @@ const Header = () => {
       navigate('/')
     }
 
+    //function to detect whether in dashboard or not
     const dashboardRego=()=>{
        return location.pathname.includes('/dashboard/');
     }
@@ -52,7 +53,7 @@ const Header = () => {
       <header className='Header'>
           <Link to='/' style={{color:'black'}}><h1 className='RecordIt'>RecordIt</h1></Link>
 
-          {isMobileOrTablet && !dashboardRego() &&
+          {isMobileOrTablet && !auth?.user && !dashboardRego() &&
             <Dropdown id='dropdown' align="end">
             <Dropdown.Toggle variant="warning" id="dropdown-basic">
               Menu
@@ -66,7 +67,33 @@ const Header = () => {
           </Dropdown>
           }
 
-          {isMobileOrTablet && dashboardRego() &&
+          {isMobileOrTablet && !auth?.user && dashboardRego() &&
+            <Dropdown id='dropdown' align="end">
+            <Dropdown.Toggle variant="warning" id="dropdown-basic">
+              Menu
+            </Dropdown.Toggle>
+            
+            <Dropdown.Menu>
+              <Dropdown.Item onClick={signOut}>LogOut</Dropdown.Item>
+              <Dropdown.Item href="/About">About</Dropdown.Item>
+            </Dropdown.Menu>
+          </Dropdown>
+          }
+
+          {isMobileOrTablet && auth?.user && !dashboardRego() &&
+            <Dropdown id='dropdown' align="end">
+            <Dropdown.Toggle variant="warning" id="dropdown-basic">
+              Menu
+            </Dropdown.Toggle>
+            
+            <Dropdown.Menu>
+              <Dropdown.Item onClick={()=>navigate(-1)}>Dashboard</Dropdown.Item>
+              <Dropdown.Item href="/About">About</Dropdown.Item>
+            </Dropdown.Menu>
+          </Dropdown>
+          }
+
+          {isMobileOrTablet && auth?.user && dashboardRego() &&
             <Dropdown id='dropdown' align="end">
             <Dropdown.Toggle variant="warning" id="dropdown-basic">
               Menu
