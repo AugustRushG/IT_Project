@@ -189,6 +189,7 @@ h2.headertekst {
 }
 
 .TimeDisplay{
+    
     width: 12vw;
     position: absolute;
     left: 3.5vw;
@@ -302,12 +303,14 @@ h2.headertekst {
 }
 
 #monthPickerContainer{
-    
+   
     position: absolute;
+   
     top: 0vh;
     left: 5vw;
-    width: 3vw;
-    height: 4vh;
+    width: 10vw;
+    height: 2vh;
+    min-width: 130px;
     
   
 }
@@ -349,6 +352,12 @@ h2.headertekst {
     width: 100%;
     height: 100%;
 
+}
+
+#monthP{
+    border: red 2px solid;
+    width: 100vw;
+    height: 100vh;
 }
 
 .VerticalBarChartBackground{
@@ -509,6 +518,100 @@ h2.headertekst {
         border-radius: 20px;
         background-color: #FDF4C9;
     }   
+
+    
+#monthPickerContainer{
+   
+    position: absolute;
+   
+    top: 0vh;
+    left: 5vw;
+    width: 13vw;
+    height: 2vh;
+    
+  
+}
+
+}
+
+@media all and (max-width:1000px){
+    .PieChartContainer{
+        
+        position:absolute;
+        left: 2vw;
+        height: 80%;
+        top: 2vh;
+        width: 80%;
+    }
+    
+    .PieChartBackGround{
+        position:absolute;
+        left: 55vw;
+        height: 40vh;
+        width: 40vw;
+        min-width: 30vw;
+        top: 23vh;
+        border-radius: 20px;
+        
+        background-color: #FDF4C9;
+    }
+    
+    .VerticalBarChartContainer{
+       
+        position:absolute;
+      
+        width: 100%;
+        height: 100%;
+    
+    }
+    
+    .VerticalBarChartBackground{
+        position:absolute;
+        
+        
+        left: 55vw;
+        height: 20vh;
+        width: 40vw;
+        top: 75vh;
+        border-radius: 20px;
+        background-color: #FDF4C9;
+    }   
+
+    #arrowDownCircle{
+        position: absolute;
+        right: 1vw;
+        top: 1vh;
+    }
+
+    #iconContainers{
+      
+        position: absolute;
+        height: 2vh;
+        width: 2vw;
+        left: 3vw;
+        
+    }
+
+    .Record{
+        
+        position: relative;
+        top: 5%;
+        height: 5%;   
+    }
+
+    .SigChanges{
+        position: absolute;
+        left: 67vw;
+        width: 13vw;
+        height: 20vh;
+        top: 66vh;
+        font-size: 1vw;
+        font-family: 'Allerta Stencil', sans-serif;
+       
+    }
+
+    
+    
 }
 
 @media all and (max-width: 450px){
@@ -562,11 +665,11 @@ h2.headertekst {
         
         position: absolute;
         
-        left: 24vw;
-        width: 30vw;
-        height: 3vh;
+        left: 22vw;
         
-        position: absolute;
+        height: 2vh;
+        
+       
     }
 
     .SearchForm{
@@ -599,7 +702,7 @@ h2.headertekst {
 
     .FaSearch{
         position: absolute;
-        top: 0;
+        top: 4px;
         right: 0px; 
     }
 
@@ -619,7 +722,7 @@ h2.headertekst {
         width: fit-content;
         min-width: 100vw;
         top: 75vh;
-       
+        border-radius: 0%;
         background-color: #FDF4C9;
     }
     
@@ -634,11 +737,12 @@ h2.headertekst {
     
     .VerticalBarChartBackground{
         position:absolute;
-        
+       
         left: 0vw;
         height: 30vh;
         width: 100vw;
         top: 115vh;
+        border-radius: 0%;
        
         background-color: #FDF4C9;
     }
@@ -752,7 +856,8 @@ h2.headertekst {
     #iconContainers{
       
         position: absolute;
-        height: 3vh;
+        top: 0.5vh;
+        height: 2vh;
         width: 5vw;
         left: 5vw;
         
@@ -829,6 +934,16 @@ h2.headertekst {
         height: 3vh;
         left: 84vw;
     }
+
+    #addContainer{
+        position: absolute;
+       
+        left: 50vw;
+        top: 2.5vh;
+        height: 5vh;
+        width: 5vw;
+    }
+    
     
   
     

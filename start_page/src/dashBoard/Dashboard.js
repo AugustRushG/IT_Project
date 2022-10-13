@@ -28,6 +28,8 @@ import { useMediaQuery } from 'react-responsive'
 
 
 const Dashboard = () => {
+
+ 
   
   //get username
   const {auth} =useAuth();
@@ -411,6 +413,7 @@ const Dashboard = () => {
     
     <>
       
+
       <Information search={search} setSearch={setSearch} date={date} setDate={setDate} expenditure={expenditure} income={income}/> 
       {/*
       <section id='budget'>
@@ -444,6 +447,7 @@ const Dashboard = () => {
         <div className='SigChanges'>
           <div> Comparing from last month, you expenditure on {covertType(calculateSignificantChange(records,date)[0])} has increase by 
             <p id='percent'>{calculateSignificantChange(records,date)[1]} %
+            
              
             </p>
             
@@ -451,6 +455,8 @@ const Dashboard = () => {
          
         </div>
       }
+
+      
      
       
       <Modal show={show} onHide={()=>setShow(false)}>
