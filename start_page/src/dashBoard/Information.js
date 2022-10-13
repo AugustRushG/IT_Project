@@ -10,7 +10,7 @@ import axios from 'axios';
 import useAuth from '../hooks/useAuth';
 import { useMediaQuery } from 'react-responsive'
 
-const ADD_URL = '/api/records/add'
+const ADD_URL = 'http://localhost:8080/api/records/add'
 
 /**
  * Module Name: Information.js

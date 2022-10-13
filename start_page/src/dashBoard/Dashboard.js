@@ -339,10 +339,13 @@ const Dashboard = () => {
 
     if (maxValue<=0) return [0,0];
     
-  
+    console.log(differenceMonth);
+    console.log(maxValue);
+    console.log(lastMonth);
     var index=differenceMonth.indexOf(maxValue);
     
     console.log([index,maxValue/lastMonth[index]*100]);
+    if (lastMonth[index]===0) return [index,maxValue];
     if (maxValue/lastMonth[index]*100===Infinity) return [0,0];
     return [index,maxValue/lastMonth[index]*100];
         

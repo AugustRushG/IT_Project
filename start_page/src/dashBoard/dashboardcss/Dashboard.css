@@ -115,7 +115,6 @@ h2.headertekst {
     font-family: 'Allerta Stencil', sans-serif;
     left: 1.5vw;
     font-size: 1.5vw;
-   
 }
 
 #Money{
@@ -148,7 +147,7 @@ h2.headertekst {
 }
 #DateContainer{
     position: absolute;
-    
+   
     width: 20%;
     left: 20%;
     height: 5vh;
@@ -184,7 +183,7 @@ h2.headertekst {
     left: 9vw;
     width: 37vw;
     height: 5vh;
-    font-family: 'Inter', sans-serif;
+    
   
 }
 
@@ -253,7 +252,9 @@ h2.headertekst {
     width: fit-content;
     height: fit-content;
     font-size: 1.2vw;
+   
     
+   
    
 }
 
@@ -270,6 +271,8 @@ h2.headertekst {
 
     text-align: right;
     font-size: 1.2vw;
+
+   
    
     
 }
@@ -307,7 +310,7 @@ h2.headertekst {
     position: absolute;
    
     top: 0vh;
-    left: 5vw;
+    left: 1vw;
     width: 10vw;
     height: 2vh;
     min-width: 130px;
@@ -412,7 +415,7 @@ h2.headertekst {
     position: absolute;
    
     left: 50vw;
-    top: 3vh;
+    top: 5vh;
     height: 4vh;
     width: 4vw;
 }
@@ -614,6 +617,31 @@ h2.headertekst {
     
 }
 
+@media all and (max-width:900px){
+
+    .PieChartContainer{
+        
+        position:absolute;
+        left: 2vw;
+        height: 80%;
+        top: 3vh;
+        width: 90%;
+    }
+}
+
+@media all and (max-width:800px){
+
+    .PieChartContainer{
+        
+        position:absolute;
+        left: 1vw;
+        height: 80%;
+        top: 3vh;
+        width: 100%;
+    }
+}
+
+
 @media all and (max-width: 450px){
   
 
@@ -665,8 +693,8 @@ h2.headertekst {
         
         position: absolute;
         
-        left: 22vw;
-        
+        left: 28vw;
+       
         height: 2vh;
         
        
@@ -830,6 +858,7 @@ h2.headertekst {
         font-family: 'Allerta Stencil', sans-serif;
         left: 1.5vw;
         font-size: 3vw;
+        
        
     }
     

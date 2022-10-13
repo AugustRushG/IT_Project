@@ -182,7 +182,7 @@ const Record = ({record}) => {
             <span className='Date'>{translateDate(record.date)} </span> 
             <span className='Expenditure'>{highlightMoney(record.money)}</span>
             {/*if the length of notes less than 10 show all, if not show 10 and ...*/}
-            <span className='Notes'>{(record.description)?.length<=25?record.description:`${(record.description)?.slice(0,25)}...`}</span>
+            <span className='Notes'>{(record.description)?.length<=20?record.description:`${(record.description)?.slice(0,20)}...`}</span>
                           
             <div id ='deleteContainer'>
               <BsXCircle onClick={()=>deleteRecord(record._id)} id='deleteImg'>delete</BsXCircle>
