@@ -66,7 +66,26 @@ const uploadImages = async (req, res, next) => {
 
 const setBudget = async (req, res, next) => {
     try{
-        
+        const user = await Users.findOne({username:req.body.userName});
+        if(user === null){
+            return res.status(404).json({msg:"No user!"});
+        }else{
+            user.budget = req.body.budget;
+            user.save();
+            return res.json({msg:"success"});
+        }
+    }catch(error){
+        return next(err);
+    }
+}
+
+const getBudget = async (req, res, next) => {
+    try{
+        const user = await Users.findOne({username:req.params.user});
+        if (user.budget === null) {
+            return res.status(404).json({msg:"No budget!"});
+        }
+        return res.json({budget: user.budget});
     }catch(error){
         return next(err);
     }
@@ -120,6 +139,8 @@ const deleteData = async (req, res, next) => {
 
 module.exports = {
     addData,
+    setBudget,
+    getBudget,
     getAllData,
     editData,
     deleteData

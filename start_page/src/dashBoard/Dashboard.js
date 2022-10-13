@@ -14,6 +14,10 @@ import { CircularProgressbar } from 'react-circular-progressbar';
 import 'react-circular-progressbar/dist/styles.css';
 import { BsArrowLeftRight,BsCapslockFill} from "react-icons/bs";
 import { useMediaQuery } from 'react-responsive'
+import { GrCycle} from "react-icons/gr";
+import Form from 'react-bootstrap/Form'
+
+const BUDGET_URL = 'http://localhost:8080/api/records/setBudget'
 
 
 
@@ -28,8 +32,6 @@ import { useMediaQuery } from 'react-responsive'
 
 
 const Dashboard = () => {
-
- 
   
   //get username
   const {auth} =useAuth();
@@ -37,11 +39,14 @@ const Dashboard = () => {
   var userName=auth.user;
   
   const GET_URL=`api/records/dashboard/${userName}`;
+  const GET_BUDGET_URL=`api/records/budget/${userName}`;
+
   const [search, setSearch]=useState('');
   const [searchResult, setSearchResult]=useState([]);
   const [show, setShow] = useState(false);
+  const [budgetShow, setBudgetShow] = useState(false);
 
-
+  
   const [expenditure, setExpenditure]=useState('');
   const [income, setIncome]=useState('');
   const [budget, setBudget]=useState('');
@@ -59,7 +64,9 @@ const Dashboard = () => {
   const [incomePieChart, setIncomePieChart] = useState(false);
   const [sigChanges, setSigChanges] = useState(false);
 
+  const [refresh,setRefresh] = useState(false);
 
+  
   //filter the records according to the searchResult
   useEffect(()=>{
 
@@ -103,11 +110,55 @@ const Dashboard = () => {
       }
     }
 
+    const fetchBudget=async()=>{
+      try{
+        const response=await axios.get(GET_BUDGET_URL,{headers:{
+          'Content-Type' : 'application/json',
+          'Accept' : 'application/json',
+          'Authorization' : JSON.parse(localStorage.getItem('accessToken'))}
+          }
+        )
+        console.log(JSON.stringify(response));
+        console.log(response.data.budget);
+        setBudget(response.data.budget);
+        
+      }catch(err){
+          console.error(err);
+      }
+    }
+
     fetchRecords();
+    fetchBudget();
+
     
   },[])
 
-  //useEffect to draw graph when records,date,expenditure changes.
+  useEffect(()=>{
+    const fetchRecords=async()=>{
+      try{
+        const response=await axios.get(GET_URL,{headers:{
+          'Content-Type' : 'application/json',
+          'Accept' : 'application/json',
+          'Authorization' : JSON.parse(localStorage.getItem('accessToken'))}
+          }
+        )
+
+        setRecord(response.data);
+        
+      }catch(err){
+          console.error(err);
+      }
+    }
+    if(refresh) {
+       fetchRecords();
+       setRefresh(false);
+
+
+    }
+
+},[refresh]); 
+  
+//useEffect to draw graph when records,date,expenditure changes.
   useEffect(()=>{
     
     setPieDataSet(calculatePercentage(records,date,expenditure));
@@ -119,6 +170,36 @@ const Dashboard = () => {
     setWholeYearIncome(calculateIncomeWholeYear(records,date));
     setWholeYearExpenditure(calculateExpenditureWholeYear(records,date));
   },[records,date])
+
+  const checkDisabled=(budget)=>{
+    if (!budget ){
+      return false;
+    }
+    return true;
+  }
+
+  const handleSubmit = async(e)=>{
+    e.preventDefault();
+    
+    try{
+
+      const response = await axios.post(BUDGET_URL, JSON.stringify({userName,budget}),
+        {
+          headers:{'Content-Type':'application/json', 'Authorization':auth?.accessToken},
+          withCredentials: true
+        }
+      );
+      console.log(response.data);
+      console.log(response.accessToken);
+      console.log(JSON.stringify(response));
+      alert("set budget successfully");
+      
+    }
+    catch(error) {
+        console.log(error);
+        alert("set budget failed");
+      }
+}
 
   //function to calculate percentage of spending on each different categories
   const calculatePercentage=(records,selectedDate,allExpen)=>{
@@ -334,19 +415,17 @@ const Dashboard = () => {
       differenceMonth[i]=thisMonth[i]-lastMonth[i];
     }
 
+    /*console.log(lastMonth);
+    console.log(differenceMonth);*/
 
     var maxValue= Math.max(...differenceMonth);
 
     if (maxValue<=0) return [0,0];
-    
-    console.log(differenceMonth);
-    console.log(maxValue);
-    console.log(lastMonth);
+
+  
     var index=differenceMonth.indexOf(maxValue);
     
-    console.log([index,maxValue/lastMonth[index]*100]);
-    if (lastMonth[index]===0) return [index,maxValue];
-    if (maxValue/lastMonth[index]*100===Infinity) return [0,0];
+    
     return [index,maxValue/lastMonth[index]*100];
         
   }
@@ -416,23 +495,21 @@ const Dashboard = () => {
     
     <>
       
-
       <Information search={search} setSearch={setSearch} date={date} setDate={setDate} expenditure={expenditure} income={income}/> 
-      {/*
-      <section id='budget'>
-        <p> Set Budget</p >
-        <input
-          type="number"
-          name="date"
-          value={budget}
-          placeholder="enter your budget for this  month"
-          onChange={(e)=>setBudget(e.target.value)}
-        />
+      {
+      <section2>
+        <button onClick={()=>setBudgetShow(true)}> Set Budget</button>
+        
+
         <h>You've used {budget_percentage*100}% of your monthly budget</h>
         <h><CircularProgressbar value={budget_percentage} maxValue={1} text={`${budget_percentage*100 }%`} /></h>
      
-  </section>*/}
+      </section2>
 
+        }
+        <div id='addContainer'>
+          <GrCycle onClick={()=>setRefresh(true)} className='addButton'/>
+        </div>
 
 
       <RecordDisplay records={records} setExpenditure={setExpenditure} date={date} setIncome={setIncome} searchResult={searchResult} ></RecordDisplay>
@@ -446,21 +523,34 @@ const Dashboard = () => {
       </div>
       
       
-      {!isMobile &&
-        <div className='SigChanges'>
-          <div> Comparing from last month, you expenditure on {covertType(calculateSignificantChange(records,date)[0])} has increase by 
-            <p id='percent'>{calculateSignificantChange(records,date)[1]} %
-            
-             
-            </p>
-            
-          </div>
-         
-        </div>
-      }
-
+      {!isMobile&& <div className='SigChanges'><p> Comparing from last month, you expenditure on {covertType(calculateSignificantChange(records,date)[0])} has increase by <p id='percent'>{calculateSignificantChange(records,date)[1]} % </p></p>
+      <BsCapslockFill size ={40} id='increaseArrow'/></div>}
       
-     
+      <Modal show={budgetShow} onHide={()=>setBudgetShow(false)}>
+        <Modal.Header closeButton>
+          <Modal.Title>Set a monthly budget!</Modal.Title>
+        </Modal.Header>
+        <Modal.Body>
+        <Form.Group >
+        <form onSubmit={handleSubmit}>
+          <p>Set a monthly budget</p >
+          <input
+          type="number"
+          name="date"
+          value={budget}
+          placeholder="enter your budget for this  month"
+          onChange={(e)=>setBudget(e.target.value)}
+        />
+        <br></br>
+        {checkDisabled(budget)?
+          <button type="submit"  onClick={()=>setBudgetShow(false)}>Submit</button>
+        :
+        <button type="submit" disabled onClick={()=>setBudgetShow(false)}>Submit</button>}
+
+        </form> 
+          </Form.Group>
+        </Modal.Body>
+      </Modal>
       
       <Modal show={show} onHide={()=>setShow(false)}>
         <Modal.Header closeButton>
