@@ -4,6 +4,8 @@ import useLogOut from './hooks/useLogOut';
 import Button from 'react-bootstrap/Button';
 import { useMediaQuery } from 'react-responsive'
 import Dropdown from 'react-bootstrap/Dropdown';
+import useAuth from "./hooks/useAuth";
+
 
 /**
  * Module Name: Header.js 
@@ -18,11 +20,15 @@ const Header = () => {
     const location=useLocation();
     console.log("current is "+location.pathname);
 
+    const {auth} =useAuth();
+
     const navigate=useNavigate();
     const logOut=useLogOut();
 
     const isMobileOrTablet = useMediaQuery({ query: '(max-width: 1000px)' })
     const isLaptop = useMediaQuery({ query: '(min-width: 1000px)' })
+
+  
 
 
     //function to help user log out
@@ -79,10 +85,17 @@ const Header = () => {
             <Link to ='/About' className='About'><Button variant="warning" >About</Button></Link>
           </>
           }
-          {isLaptop && !dashboardRego() &&
+          {isLaptop &&!auth?.user && !dashboardRego() &&
             <>
               <Link to = '/LogIn'  className='LogIn'> <Button variant="warning" id='LogIn'>LogIn</Button></Link>
               <Link to = '/Register' className='SignUp'> <Button variant="warning" id='SignUp'>SignUp</Button></Link>
+              <Link to ='/About' className='About'><Button variant="warning" >About</Button></Link>
+            </>
+          }
+
+          {isLaptop &&auth?.user && !dashboardRego() &&
+            <>
+              <div className='dashboard'> <Button variant="warning" id='dashboard' onClick={()=>navigate(-1)}>Dashboard</Button></div>
               <Link to ='/About' className='About'><Button variant="warning" >About</Button></Link>
             </>
           }

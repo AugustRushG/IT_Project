@@ -171,6 +171,24 @@ button:active {
   transform: translateY(4px);
 }
 
+.dashboard{
+  
+  position: absolute;
+  
+  min-width: 65px;
+  right: 9.8vw;
+  top: 2.5vh;
+  margin-right: 10px;
+  
+
+}
+
+#dashboard{
+  height: 4.5vh;
+  font-family: 'Inter', sans-serif;
+  font-size: 100%;
+}
+
 
 
 

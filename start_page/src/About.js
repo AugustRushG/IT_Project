@@ -1,5 +1,6 @@
 import React from 'react'
 
+
 /**
  * Module Name: About.js
  * Date of Creation: 30/08/2022
@@ -9,6 +10,7 @@ import React from 'react'
  */
 
 const About = () => {
+  
   return (
     <section>
         <h1>
