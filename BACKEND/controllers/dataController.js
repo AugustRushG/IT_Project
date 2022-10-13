@@ -66,11 +66,13 @@ const uploadImages = async (req, res, next) => {
 
 const setBudget = async (req, res, next) => {
     try{
-        const user = await Users.findOne({username:req.body.user});
+        const user = await Users.findOne({username:req.body.userName});
         if(user === null){
             return res.status(404).json({msg:"No user!"});
         }else{
             user.budget = req.body.budget;
+            user.save();
+            return res.json({msg:"success"});
         }
     }catch(error){
         return next(err);

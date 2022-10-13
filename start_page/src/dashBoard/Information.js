@@ -54,7 +54,6 @@ const Information = ({search,setSearch,date,setDate,expenditure,income}) => {
       console.log(response.data);
       console.log(response.accessToken);
       console.log(JSON.stringify(response));
-      window.location.reload();
       
 
       

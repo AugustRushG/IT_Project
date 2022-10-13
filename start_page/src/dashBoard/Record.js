@@ -106,7 +106,6 @@ const Record = ({record}) => {
       console.log(response.data);
       console.log(response.accessToken);
       console.log(JSON.stringify(response));
-      window.location.reload();
 
       
     }
@@ -147,7 +146,6 @@ const Record = ({record}) => {
     console.log(response.data);
     console.log(response.accessToken);
     console.log(JSON.stringify(response));
-    window.location.reload();
 
 
  }
