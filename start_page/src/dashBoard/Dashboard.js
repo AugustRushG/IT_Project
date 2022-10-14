@@ -509,9 +509,7 @@ const Dashboard = () => {
       </section>
 
         }
-        <div id='addContainer'>
-          <GrCycle className='addButton'/>
-        </div>
+       
 
 
       <RecordDisplay records={records} setExpenditure={setExpenditure} date={date} setIncome={setIncome} searchResult={searchResult}  setRefresh={setRefresh}></RecordDisplay>
