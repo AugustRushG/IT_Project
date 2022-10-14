@@ -9,7 +9,7 @@ import Feed from './Feed'
  * Variable Accessed: 
  */
 
-const RecordDisplay = ({records,setExpenditure,date,setIncome,searchResult}) => {
+const RecordDisplay = ({records,setExpenditure,date,setIncome,searchResult,setRefresh}) => {
 
   
   return (
@@ -29,7 +29,7 @@ const RecordDisplay = ({records,setExpenditure,date,setIncome,searchResult}) => 
       {/* if records exist, pass in all necessary values, otherwise show no records been recorded */}
       {records.length?(
        
-        <Feed setExpenditure={setExpenditure} date={date} setIncome={setIncome} searchResult={searchResult} records={records}></Feed>
+        <Feed setExpenditure={setExpenditure} date={date} setIncome={setIncome} searchResult={searchResult} records={records} setRefresh={setRefresh}></Feed>
       ):
       <p id='NoRecords'>
         No Records been recorded yet.

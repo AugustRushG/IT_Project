@@ -20,7 +20,7 @@ const ADD_URL = 'http://localhost:8080/api/records/add'
  * Variable Accessed: 
  */
 
-const Information = ({search,setSearch,date,setDate,expenditure,income}) => {
+const Information = ({search,setSearch,date,setDate,expenditure,income,setRefresh}) => {
   // to display month in string 
   const monthNames = ["January", "February", "March", "April", "May", "June",
   "July", "August", "September", "October", "November", "December"
@@ -54,6 +54,9 @@ const Information = ({search,setSearch,date,setDate,expenditure,income}) => {
       console.log(response.data);
       console.log(response.accessToken);
       console.log(JSON.stringify(response));
+
+      setRefresh(true);
+      
       
 
       
@@ -82,10 +85,10 @@ const Information = ({search,setSearch,date,setDate,expenditure,income}) => {
           <MonthPicker setDate={setDate}/>
         </h2>
         <h2 className='IncomeDisplay'>
-          Income: {!isMobile&&<br/>}${income}
+          Income: {!isMobile&&<br/>}${income.toFixed(2)}
         </h2>      
         <h2 className='ExpenditureDisplay'>
-          Expenditure: {!isMobile&&<br/>}{translateMoney(expenditure)}
+          Expenditure: {!isMobile&&<br/>}{translateMoney(expenditure.toFixed(2))}
         </h2>
            
         <div id='addContainer'>

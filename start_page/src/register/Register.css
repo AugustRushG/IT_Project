@@ -20,21 +20,6 @@ section {
     background-color: #FDF4C9 
 }
 
-section2 {
-    position: relative;
-    left: 115px;
-    width: 100%;
-    top: 10vh;
-    margin: auto;
-    max-width: 200px;
-    min-height: 400px;
-    display: flex;
-    flex-direction: column;
-    justify-content: flex-start;
-    padding: 1rem;
-    background-color: #FDF4C9;
-    border-radius: 20px
-}
 
 form {
     display: flex;

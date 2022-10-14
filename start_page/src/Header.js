@@ -51,88 +51,83 @@ const Header = () => {
     
       
       <header className='Header'>
-          <Link to='/' style={{color:'black'}}><h1 className='RecordIt'>RecordIt</h1></Link>
+        <Link to='/' style={{color:'black'}}><h1 className='RecordIt'>RecordIt</h1></Link>
 
-          {isMobileOrTablet && !auth?.user && !dashboardRego() &&
-            <Dropdown id='dropdown' align="end">
-            <Dropdown.Toggle variant="warning" id="dropdown-basic">
-              Menu
-            </Dropdown.Toggle>
-            
-            <Dropdown.Menu>
-              <Dropdown.Item href="/LogIn">LogIn</Dropdown.Item>
-              <Dropdown.Item href="/Register">SignUp</Dropdown.Item>
-              <Dropdown.Item href="/About">About</Dropdown.Item>
-            </Dropdown.Menu>
-          </Dropdown>
-          }
+        {isMobileOrTablet && !auth?.user && !dashboardRego() &&
+          <Dropdown id='dropdown' align="end">
+          <Dropdown.Toggle variant="warning" id="dropdown-basic">
+            Menu
+          </Dropdown.Toggle>
+          
+          <Dropdown.Menu>
+            <Dropdown.Item href="/LogIn">LogIn</Dropdown.Item>
+            <Dropdown.Item href="/Register">SignUp</Dropdown.Item>
+            <Dropdown.Item href="/About">About</Dropdown.Item>
+          </Dropdown.Menu>
+        </Dropdown>
+        }
 
-          {isMobileOrTablet && !auth?.user && dashboardRego() &&
-            <Dropdown id='dropdown' align="end">
-            <Dropdown.Toggle variant="warning" id="dropdown-basic">
-              Menu
-            </Dropdown.Toggle>
-            
-            <Dropdown.Menu>
-              <Dropdown.Item onClick={signOut}>LogOut</Dropdown.Item>
-              <Dropdown.Item href="/About">About</Dropdown.Item>
-            </Dropdown.Menu>
-          </Dropdown>
-          }
+        {isMobileOrTablet && !auth?.user && dashboardRego() &&
+          <Dropdown id='dropdown' align="end">
+          <Dropdown.Toggle variant="warning" id="dropdown-basic">
+            Menu
+          </Dropdown.Toggle>
+          
+          <Dropdown.Menu>
+            <Dropdown.Item onClick={signOut}>LogOut</Dropdown.Item>
+            <Dropdown.Item href="/About">About</Dropdown.Item>
+          </Dropdown.Menu>
+        </Dropdown>
+        }
 
-          {isMobileOrTablet && auth?.user && !dashboardRego() &&
-            <Dropdown id='dropdown' align="end">
-            <Dropdown.Toggle variant="warning" id="dropdown-basic">
-              Menu
-            </Dropdown.Toggle>
-            
-            <Dropdown.Menu>
-              <Dropdown.Item onClick={()=>navigate(-1)}>Dashboard</Dropdown.Item>
-              <Dropdown.Item href="/About">About</Dropdown.Item>
-            </Dropdown.Menu>
-          </Dropdown>
-          }
+        {isMobileOrTablet && auth?.user && !dashboardRego() &&
+          <Dropdown id='dropdown' align="end">
+          <Dropdown.Toggle variant="warning" id="dropdown-basic">
+            Menu
+          </Dropdown.Toggle>
+          
+          <Dropdown.Menu>
+            <Dropdown.Item onClick={()=>navigate(-1)}>Dashboard</Dropdown.Item>
+            <Dropdown.Item href="/About">About</Dropdown.Item>
+          </Dropdown.Menu>
+        </Dropdown>
+        }
 
-          {isMobileOrTablet && auth?.user && dashboardRego() &&
-            <Dropdown id='dropdown' align="end">
-            <Dropdown.Toggle variant="warning" id="dropdown-basic">
-              Menu
-            </Dropdown.Toggle>
-            
-            <Dropdown.Menu>
-              <Dropdown.Item onClick={signOut}>LogOut</Dropdown.Item>
-              <Dropdown.Item href="/About">About</Dropdown.Item>
-            </Dropdown.Menu>
-          </Dropdown>
-          }
+        {isMobileOrTablet && auth?.user && dashboardRego() &&
+          <Dropdown id='dropdown' align="end">
+          <Dropdown.Toggle variant="warning" id="dropdown-basic">
+            Menu
+          </Dropdown.Toggle>
+          
+          <Dropdown.Menu>
+            <Dropdown.Item onClick={signOut}>LogOut</Dropdown.Item>
+            <Dropdown.Item href="/About">About</Dropdown.Item>
+          </Dropdown.Menu>
+        </Dropdown>
+        }
 
-          {isLaptop && dashboardRego() && 
+        {isLaptop && dashboardRego() && 
+        <>
+          <Button variant="warning" id='LogOut' onClick={signOut}>LogOut</Button> 
+          <Link to ='/About' className='About'><Button variant="warning" >About</Button></Link>
+        </>
+        }
+        {isLaptop &&!auth?.user && !dashboardRego() &&
           <>
-            <Button variant="warning" id='LogOut' onClick={signOut}>LogOut</Button> 
+            <Link to = '/LogIn'  className='LogIn'> <Button variant="warning" id='LogIn'>LogIn</Button></Link>
+            <Link to = '/Register' className='SignUp'> <Button variant="warning" id='SignUp'>SignUp</Button></Link>
             <Link to ='/About' className='About'><Button variant="warning" >About</Button></Link>
           </>
-          }
-          {isLaptop &&!auth?.user && !dashboardRego() &&
-            <>
-              <Link to = '/LogIn'  className='LogIn'> <Button variant="warning" id='LogIn'>LogIn</Button></Link>
-              <Link to = '/Register' className='SignUp'> <Button variant="warning" id='SignUp'>SignUp</Button></Link>
-              <Link to ='/About' className='About'><Button variant="warning" >About</Button></Link>
-            </>
-          }
+        }
 
-          {isLaptop &&auth?.user && !dashboardRego() &&
-            <>
-              <div className='dashboard'> <Button variant="warning" id='dashboard' onClick={()=>navigate(-1)}>Dashboard</Button></div>
-              <Link to ='/About' className='About'><Button variant="warning" >About</Button></Link>
-            </>
-          }
-             
+        {isLaptop &&auth?.user && !dashboardRego() &&
+          <>
+            <div className='dashboard'> <Button variant="warning" id='dashboard' onClick={()=>navigate(-1)}>Dashboard</Button></div>
+            <Link to ='/About' className='About'><Button variant="warning" >About</Button></Link>
+          </>
+        }
+            
            
-          
-
-         
-        
-        
 
       </header>
     

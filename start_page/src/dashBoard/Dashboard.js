@@ -12,7 +12,7 @@ import Modal from 'react-bootstrap/Modal';
 import Button from 'react-bootstrap/Button';
 import { CircularProgressbar } from 'react-circular-progressbar';
 import 'react-circular-progressbar/dist/styles.css';
-import { BsArrowLeftRight,BsCapslockFill} from "react-icons/bs";
+import { BsArrowLeftRight} from "react-icons/bs";
 import { useMediaQuery } from 'react-responsive'
 import { GrCycle} from "react-icons/gr";
 import Form from 'react-bootstrap/Form'
@@ -62,15 +62,17 @@ const Dashboard = () => {
   const [wholeYearExpenditure, setWholeYearExpenditure]=useState([]);
 
   const [incomePieChart, setIncomePieChart] = useState(false);
+
+
   const [sigChanges, setSigChanges] = useState(false);
 
   const [refresh,setRefresh] = useState(false);
-
-  
+ 
   //filter the records according to the searchResult
   useEffect(()=>{
 
     //sort records according to dates
+    console.log(records);
     records.sort(function(a, b) {
       var c = new Date(a.date);
       var d = new Date(b.date);
@@ -133,6 +135,7 @@ const Dashboard = () => {
     
   },[])
 
+  // useEffect to update records when adding/editing/deleting
   useEffect(()=>{
     const fetchRecords=async()=>{
       try{
@@ -143,22 +146,21 @@ const Dashboard = () => {
           }
         )
 
-        setRecord(response.data);
+        setRecord(response.data.data);
         
       }catch(err){
           console.error(err);
       }
     }
     if(refresh) {
-       fetchRecords();
-       setRefresh(false);
-
+        fetchRecords();
+        setRefresh(false);
 
     }
 
-},[refresh]); 
+  },[refresh]); 
   
-//useEffect to draw graph when records,date,expenditure changes.
+  //useEffect to draw graph when records,date,expenditure changes.
   useEffect(()=>{
     
     setPieDataSet(calculatePercentage(records,date,expenditure));
@@ -199,7 +201,7 @@ const Dashboard = () => {
         console.log(error);
         alert("set budget failed");
       }
-}
+  }
 
   //function to calculate percentage of spending on each different categories
   const calculatePercentage=(records,selectedDate,allExpen)=>{
@@ -495,24 +497,24 @@ const Dashboard = () => {
     
     <>
       
-      <Information search={search} setSearch={setSearch} date={date} setDate={setDate} expenditure={expenditure} income={income}/> 
+      <Information search={search} setSearch={setSearch} date={date} setDate={setDate} expenditure={expenditure} income={income} setRefresh={setRefresh}/> 
       {
-      <section2>
+      <section id='section2'>
         <button onClick={()=>setBudgetShow(true)}> Set Budget</button>
         
 
         <h>You've used {budget_percentage*100}% of your monthly budget</h>
         <h><CircularProgressbar value={budget_percentage} maxValue={1} text={`${budget_percentage*100 }%`} /></h>
      
-      </section2>
+      </section>
 
         }
         <div id='addContainer'>
-          <GrCycle onClick={()=>setRefresh(true)} className='addButton'/>
+          <GrCycle className='addButton'/>
         </div>
 
 
-      <RecordDisplay records={records} setExpenditure={setExpenditure} date={date} setIncome={setIncome} searchResult={searchResult} ></RecordDisplay>
+      <RecordDisplay records={records} setExpenditure={setExpenditure} date={date} setIncome={setIncome} searchResult={searchResult}  setRefresh={setRefresh}></RecordDisplay>
       <div className='PieChartBackGround'> 
         <BsArrowLeftRight size={30} id="arrowDownCircle" onClick={()=>changePieChart()}/> 
         <div className='PieChartContainer'>{!incomePieChart?(<PieChart pieDataSet={pieDataSet}></PieChart>):<IncomePieChart pieDataSet={incomePieDataSet}/>}</div>
@@ -524,7 +526,7 @@ const Dashboard = () => {
       
       
       {!isMobile&& <div className='SigChanges'><p> Comparing from last month, you expenditure on {covertType(calculateSignificantChange(records,date)[0])} has increase by <p id='percent'>{calculateSignificantChange(records,date)[1]} % </p></p>
-      <BsCapslockFill size ={40} id='increaseArrow'/></div>}
+     </div>}
       
       <Modal show={budgetShow} onHide={()=>setBudgetShow(false)}>
         <Modal.Header closeButton>

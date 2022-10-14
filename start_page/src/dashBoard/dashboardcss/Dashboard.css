@@ -391,7 +391,7 @@ h2.headertekst {
     left: 51vw;
     width: 13vw;
     height: 20vh;
-    top: 24vh;
+    top: 75vh;
     font-size: 1vw;
     font-family: 'Allerta Stencil', sans-serif;
    
@@ -477,6 +477,22 @@ h2.headertekst {
 #deleteImg:hover{
     color: red;
 }
+
+#section2 {
+    position: absolute;
+    left:52.5vw;
+    width: 10vw;
+    top: 23vh;
+    margin: auto;
+    height: 30vh;
+    display: flex;
+    flex-direction: column;
+    justify-content: flex-start;
+    padding: 1rem;
+    background-color: #FDF4C9;
+    border-radius: 10px
+}
+
 
 
 

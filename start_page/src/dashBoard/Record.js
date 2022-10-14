@@ -75,7 +75,7 @@ export const chooseIcon=(classification)=>{
 
 
 
-const Record = ({record}) => {
+const Record = ({record,setRefresh}) => {
   const {auth} =useAuth();
   const [day, setDay] = useState('');
   const [category, setCategory] = useState('default');
@@ -102,7 +102,8 @@ const Record = ({record}) => {
           withCredentials: true
         }
       );
-
+      
+      setRefresh(true);
       console.log(response.data);
       console.log(response.accessToken);
       console.log(JSON.stringify(response));
@@ -138,7 +139,7 @@ const Record = ({record}) => {
   // function to translate the date into readable date.
   const translateDate=(date)=>{
     var dateSep= date.split(' ');
-    return `${dateSep[1]} ${months[parseInt(dateSep[0])+1]}`;
+    return `${dateSep[1]} ${months[parseInt(dateSep[0])]}`;
   }
 
 
@@ -152,9 +153,13 @@ const Record = ({record}) => {
     console.log(response.accessToken);
     console.log(JSON.stringify(response));
 
+    setRefresh(true);
+
 
  }
 
+
+ // function to highlight expenditure thats more than 1000 dollars
  const highlightMoney=(money)=>{
   var aboAmount;
   var isNegative=false;
