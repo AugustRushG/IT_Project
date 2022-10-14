@@ -427,8 +427,9 @@ const Dashboard = () => {
   
     var index=differenceMonth.indexOf(maxValue);
     
+    var result=Number(maxValue/lastMonth[index]*100).toFixed(2);
     
-    return [index,maxValue/lastMonth[index]*100];
+    return [index,result];
         
   }
 
