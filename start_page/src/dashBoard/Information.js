@@ -85,10 +85,10 @@ const Information = ({search,setSearch,date,setDate,expenditure,income,setRefres
           <MonthPicker setDate={setDate}/>
         </h2>
         <h2 className='IncomeDisplay'>
-          Income: {!isMobile&&<br/>}${income.toFixed(2)}
+          Income: {!isMobile&&<br/>}{translateMoney(income)}
         </h2>      
         <h2 className='ExpenditureDisplay'>
-          Expenditure: {!isMobile&&<br/>}{translateMoney(expenditure.toFixed(2))}
+          Expenditure: {!isMobile&&<br/>}{translateMoney(expenditure)}
         </h2>
            
         <div id='addContainer'>

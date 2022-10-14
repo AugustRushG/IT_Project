@@ -39,9 +39,11 @@ const EDIT_URL = '/api/records/edit'
   }
   
   if (isNegative){
-    return `-$${aboAmount}`;
+    var aboAmount1=Number(aboAmount).toFixed(2);
+    return `-$${aboAmount1}`;
   }
-  return `$${money}`
+  var money1=Number(money).toFixed(2);
+  return `$${money1}`
 }
 
 // function to choose Icon from to match the classification.
@@ -169,13 +171,14 @@ const Record = ({record,setRefresh}) => {
   }
   
   if (isNegative){
-    if (aboAmount>=1000) return <div id='highlight'>-${aboAmount}</div>;
-    return `-$${aboAmount}`;
+    var aboAmount1=Number(aboAmount).toFixed(2);
+    if (aboAmount>=1000) return <div id='highlight'>-${aboAmount1}</div>;
+    return `-$${aboAmount1}`;
    
   }
-
-  if (aboAmount>=1000) return <div id='highlight'>${money}</div>;
-  return `${money}`
+  var money1=Number(money).toFixed(2);
+  if (aboAmount>=1000) return <div id='highlight'>${money1}</div>;
+  return `${money1}`
  }
 
  
