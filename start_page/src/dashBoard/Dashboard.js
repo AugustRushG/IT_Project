@@ -14,10 +14,10 @@ import { CircularProgressbar } from 'react-circular-progressbar';
 import 'react-circular-progressbar/dist/styles.css';
 import { BsArrowLeftRight} from "react-icons/bs";
 import { useMediaQuery } from 'react-responsive'
-import { GrCycle} from "react-icons/gr";
 import Form from 'react-bootstrap/Form'
+import styled from "styled-components";
 
-const BUDGET_URL = 'http://localhost:8080/api/records/setBudget'
+const BUDGET_URL = 'api/records/setBudget'
 
 
 
@@ -67,6 +67,16 @@ const Dashboard = () => {
   const [sigChanges, setSigChanges] = useState(false);
 
   const [refresh,setRefresh] = useState(false);
+
+  /*const Button = styled.button`
+  background-color: black;
+  color: white;
+  font-size: 20px;
+  padding: 10px 60px;
+  border-radius: 5px;
+  margin: 10px 0px;
+  cursor: pointer;
+`;*/
  
   //filter the records according to the searchResult
   useEffect(()=>{
@@ -427,9 +437,8 @@ const Dashboard = () => {
   
     var index=differenceMonth.indexOf(maxValue);
     
-    var result=Number(maxValue/lastMonth[index]*100).toFixed(2);
     
-    return [index,result];
+    return [index,maxValue/lastMonth[index]*100];
         
   }
 
@@ -500,8 +509,11 @@ const Dashboard = () => {
       
       <Information search={search} setSearch={setSearch} date={date} setDate={setDate} expenditure={expenditure} income={income} setRefresh={setRefresh}/> 
       {
-      <section id='section2'>
-        <button onClick={()=>setBudgetShow(true)}> Set Budget</button>
+      <section id='budgetSection'>
+        <Button variant="primary" onClick={()=>setBudgetShow(true)}> Set Budget</Button>
+        <h>Your monthly budget</h>
+        <h2 className='BudgetMoneyDisplay'>${budget}</h2>
+
         
 
         <h>You've used {budget_percentage*100}% of your monthly budget</h>

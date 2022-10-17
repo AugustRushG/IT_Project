@@ -93,7 +93,6 @@ router.get("/checkToken", passport.authenticate('jwt', {session:false}),(req,res
 router.post("/authorizeUser", (req,res) => {
     const username = req.body.user;
     const answer = req.body.questionAnswer;
-    console.log(answer);
     User.findOne({username}).then(user => {
         if(!user){
             return res.status(400).json({username:"user not exist!"});

@@ -6,7 +6,7 @@ const addData = async (req, res, next) => {
     try {
         const user = await Users.findOne({username:req.body.user})
         const newRecord = new Record({userId:user._id});
-        
+        console.log(req.body);
         // transform date into required format
         var dateString = req.body.day.split("-");
         dateString[1] = dateString[1] - 1;
@@ -14,7 +14,6 @@ const addData = async (req, res, next) => {
             dateString[1] = '0' + dateString[1];
         }
         newRecord.date = dateString[1] + ' ' + dateString[2] + ' ' + dateString[0];
-
         newRecord.money = req.body.money;
         newRecord.classification = req.body.category;
         newRecord.description = req.body.description;

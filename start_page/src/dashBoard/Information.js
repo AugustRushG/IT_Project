@@ -6,11 +6,11 @@ import {translateMoney} from './Record'
 import Modal from 'react-bootstrap/Modal';
 import { useState } from 'react'
 import Form from 'react-bootstrap/Form'
-import axios from 'axios';
+import axios from '../api/axios'
 import useAuth from '../hooks/useAuth';
 import { useMediaQuery } from 'react-responsive'
 
-const ADD_URL = 'http://localhost:8080/api/records/add'
+const ADD_URL = 'api/records/add'
 
 /**
  * Module Name: Information.js
@@ -25,23 +25,31 @@ const Information = ({search,setSearch,date,setDate,expenditure,income,setRefres
   const monthNames = ["January", "February", "March", "April", "May", "June",
   "July", "August", "September", "October", "November", "December"
   ];
-  const [show, setShow] = useState(false);
+  const [incomeShow, setIncomeShow] = useState(false);
+  const [expenseShow, setExpenseShow] = useState(false);
   const {auth} = useAuth();
   const [day, setDay] = useState('');
   const [category, setCategory] = useState('default');
-  const [money, setMoney] = useState('');
+  const [money1, setMoney1] = useState();
+  var money;
+
   const [description, setDescription] = useState('');
+
   const user = auth?.user;
-  const checkDisabled=(day,money,category)=>{
-    if (!day||!money||!category ){
+  const checkDisabled=(day,money1,category)=>{
+    if (!day||!money1||!category ){
       return false;
     }
     return true;
   }
 
-  const handleSubmit = async(e)=>{
+
+
+
+
+  const handleExpenseSubmit = async(e)=>{
     e.preventDefault();
-    
+    money = -1 * money1;
     try{
 
       const response = await axios.post(ADD_URL, JSON.stringify({user, day,category,money,description}),
@@ -54,6 +62,7 @@ const Information = ({search,setSearch,date,setDate,expenditure,income,setRefres
       console.log(response.data);
       console.log(response.accessToken);
       console.log(JSON.stringify(response));
+      alert("add record successfully");
 
       setRefresh(true);
       
@@ -63,12 +72,40 @@ const Information = ({search,setSearch,date,setDate,expenditure,income,setRefres
     }
     catch(error) {
         console.log(error)
+        alert("add record failed");
       }
 }
 
-  const showPopup=()=> {
-    setShow(true);
-  }
+  const handleIncomeSubmit = async(e)=>{
+    e.preventDefault();
+    money = 1 * money1;
+    try{
+
+      const response = await axios.post(ADD_URL, JSON.stringify({user, day,category,money,description}),
+        {
+          headers:{'Content-Type':'application/json', 'Authorization':auth?.accessToken},
+          withCredentials: true
+        }
+      );
+
+      console.log(response.data);
+      console.log(response.accessToken);
+      console.log(JSON.stringify(response));
+      alert("add record successfully");
+
+      setRefresh(true);
+      
+      
+
+      
+    }
+    catch(error) {
+        console.log(error);
+        alert("add record failed");
+      }
+}
+
+
 
   // get current date
  
@@ -90,10 +127,15 @@ const Information = ({search,setSearch,date,setDate,expenditure,income,setRefres
         <h2 className='ExpenditureDisplay'>
           Expenditure: {!isMobile&&<br/>}{translateMoney(expenditure)}
         </h2>
-           
-        <div id='addContainer'>
-          <GrAdd onClick={()=>showPopup()} className='addButton'/>
-        </div>
+        <div className='ExpenseAdd'>expense</div>
+        <h2 id='addContainer'> 
+          <GrAdd onClick={()=>setExpenseShow(true)} className='addButton'/>
+        </h2> 
+        <div className='IncomeAdd'>income</div>
+        <h2 id='incomeContainer'> 
+          <GrAdd onClick={()=>setIncomeShow(true)} className='addButton'/>
+        
+        </h2>
          
         
       </div>
@@ -102,14 +144,74 @@ const Information = ({search,setSearch,date,setDate,expenditure,income,setRefres
         <input id='search' type='text' placeholder='Search Records' value={search} onChange={(e)=>setSearch(e.target.value)} ></input>
       </form>
 
-      <Modal show={show} onHide={()=>setShow(false)}>
+      <Modal show={incomeShow} onHide={()=>setIncomeShow(false)}>
         <Modal.Header closeButton>
-          <Modal.Title>Start adding a new record!</Modal.Title>
+          <Modal.Title>Start adding a new income!</Modal.Title>
         </Modal.Header>
         <Modal.Body>
         <Form.Group >
-        <form onSubmit={handleSubmit}>
-          <p> Add a Record</p >
+        <form onSubmit={handleIncomeSubmit}>
+          <p> Add an income</p >
+          <input
+            type="date"
+            name="date"
+            value={day}
+            placeholder="enter a date"
+            onChange={(e)=>setDay(e.target.value)}
+            
+            
+          />
+          <br></br>
+        <select  
+            type="category"
+            name="category" 
+            value={category}
+            defaultValue={category}
+            onChange={(e)=>setCategory(e.target.value)}>
+          <option category="default" hidden>select a category</option>
+          <option category='salary'>salary</option>
+          <option category='investment'>investment</option>
+          <option category='partTime'>partTime</option>
+          <option category="other">other</option>
+        </select>
+
+        <br></br>
+
+         <input
+            type="number"
+            name="money"
+            value={money1}
+            placeholder="enter money, negative if it's an expenditure"
+            onChange={(e)=>setMoney1(e.target.value)}
+          />
+
+        <br></br>
+        <input
+            type="description"
+            name="description"
+            value={description}
+            placeholder="leave a quick note if any"
+            onChange={(e)=>setDescription(e.target.value)}
+            
+          />
+        <br></br>
+        {checkDisabled(day,category,money1)?
+          <button type="submit"  onClick={()=>setIncomeShow(false)}>Submit</button>
+        :
+        <button type="submit" disabled onClick={()=>setIncomeShow(false)}>Submit</button>}
+        </form> 
+          </Form.Group>
+        </Modal.Body>
+      </Modal>
+
+      <Modal show={expenseShow} onHide={()=>setExpenseShow(false)}>
+        <Modal.Header closeButton>
+          <Modal.Title>Start adding a new expense!</Modal.Title>
+        </Modal.Header>
+        <Modal.Body>
+        <Form.Group >
+        <form onSubmit={handleExpenseSubmit}>
+          <p> Add an expense</p >
           <input
             type="date"
             name="date"
@@ -141,9 +243,9 @@ const Information = ({search,setSearch,date,setDate,expenditure,income,setRefres
          <input
             type="number"
             name="money"
-            value={money}
+            value={money1}
             placeholder="enter money, negative if it's an expenditure"
-            onChange={(e)=>setMoney(e.target.value)}
+            onChange={(e)=>setMoney1(e.target.value)}
           />
 
         <br></br>
@@ -156,10 +258,10 @@ const Information = ({search,setSearch,date,setDate,expenditure,income,setRefres
             
           />
         <br></br>
-        {checkDisabled(day,category,money)?
-          <button type="submit"  onClick={()=>setShow(false)}>Submit</button>
+        {checkDisabled(day,category,money1)?
+          <button type="submit"  onClick={()=>setExpenseShow(false)}>Submit</button>
         :
-        <button type="submit" disabled onClick={()=>setShow(false)}>Submit</button>}
+        <button type="submit" disabled onClick={()=>setExpenseShow(false)}>Submit</button>}
         </form> 
           </Form.Group>
         </Modal.Body>

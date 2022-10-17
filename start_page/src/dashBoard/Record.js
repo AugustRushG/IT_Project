@@ -109,11 +109,13 @@ const Record = ({record,setRefresh}) => {
       console.log(response.data);
       console.log(response.accessToken);
       console.log(JSON.stringify(response));
+      alert("edit record successfully");
 
       
     }
     catch(error) {
         console.log(error)
+        alert("edit record failed");
       }
 }
 
@@ -154,6 +156,7 @@ const Record = ({record,setRefresh}) => {
     console.log(response.data);
     console.log(response.accessToken);
     console.log(JSON.stringify(response));
+    alert("delete record successfully");
 
     setRefresh(true);
 
