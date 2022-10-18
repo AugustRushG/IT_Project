@@ -34,6 +34,7 @@ const Information = ({search,setSearch,date,setDate,expenditure,income,setRefres
   var money;
 
   const [description, setDescription] = useState('');
+  const [image, setImage] = useState('');
 
   const user = auth?.user;
   const checkDisabled=(day,money1,category)=>{
@@ -51,13 +52,28 @@ const Information = ({search,setSearch,date,setDate,expenditure,income,setRefres
     e.preventDefault();
     money = -1 * money1;
     try{
-
+      const formData = new FormData();
+      formData.append("user",user);
+      formData.append("day",day);
+      formData.append("category",category);
+      formData.append("money",money);
+      formData.append("description",description);
+      formData.append("image",image, image.name);
+      const response = await axios.post(ADD_URL, formData,
+        {
+          headers:{'Content-Type':'multipart/form-data', 'Authorization':auth?.accessToken},
+          withCredentials: true
+        }
+      );
+      /*
       const response = await axios.post(ADD_URL, JSON.stringify({user, day,category,money,description}),
         {
           headers:{'Content-Type':'application/json', 'Authorization':auth?.accessToken},
           withCredentials: true
         }
       );
+      */
+      
 
       console.log(response.data);
       console.log(response.accessToken);
@@ -255,6 +271,14 @@ const Information = ({search,setSearch,date,setDate,expenditure,income,setRefres
             value={description}
             placeholder="leave a quick note if any"
             onChange={(e)=>setDescription(e.target.value)}
+            
+          />
+
+        <input
+            type="file"
+            name="image"
+            placeholder="Submit your receipt image if any"
+            onChange={(e)=>setImage(e.target.files[0])}
             
           />
         <br></br>

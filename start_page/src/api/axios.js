@@ -8,6 +8,6 @@ import axios from 'axios';
  * Variable Accessed: 
  */
 export default axios.create({
-    //baseURL: 'http://localhost:8080' 
-    baseURL: 'https://recordit123.herokuapp.com/'
+    baseURL: 'http://localhost:8080' 
+    //baseURL: 'https://recordit123.herokuapp.com/'
 });

@@ -20,7 +20,7 @@ dataRouter.get('/budget/:user',dataController.getBudget)
 dataRouter.get('/dashboard/:user',dataController.getAllData)
 
 // $route POST api/records/edit
-dataRouter.post('/edit',dataController.editData)
+dataRouter.post('/edit',store.single('image'), dataController.editData)
 
 // $route POST api/records/delete
 dataRouter.post('/delete',dataController.deleteData)

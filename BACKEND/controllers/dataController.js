@@ -6,7 +6,6 @@ const addData = async (req, res, next) => {
     try {
         const user = await Users.findOne({username:req.body.user})
         const newRecord = new Record({userId:user._id});
-        console.log(req.body);
         // transform date into required format
         var dateString = req.body.day.split("-");
         dateString[1] = dateString[1] - 1;
@@ -17,11 +16,10 @@ const addData = async (req, res, next) => {
         newRecord.money = req.body.money;
         newRecord.classification = req.body.category;
         newRecord.description = req.body.description;
-
         const file = req.file;
         if(file){
             //convert images into base 64 encoding
-            const img = fs.readFileSync(file.path);
+            const img = fs.readFileSync("uploads/" + file.filename);
             encode_image = img.toString('base64');
 
             //create object to store data in the collection
@@ -40,28 +38,18 @@ const addData = async (req, res, next) => {
     }
 }
 
-const uploadImages = async (req, res, next) => {
-    const file = req.file;
-    if(!files){
-        const error = new Error('Please choose files');
-        error.httpStatusCode = 400;
-        return next(error);
+/*
+const getImages = async (req, res, next) => {
+    try{
+        const user = await Users.findOne({username:req.params.user});
+        if (user.budget === null) {
+            return res.status(404).json({msg:"No budget!"});
+        }
+        return res.json({budget: user.budget});
+    }catch(error){
+        return next(err);
     }
-
-    //convert images into base 64 encoding
-    const img = fs.readFileSync(file.path);
-    encode_image = img.toString('base64');
-
-    //create object to store data in the collection
-    let finalImg = {
-        filename: file.originalname,
-        contentType:file.mimetype,
-        imageBase64:encode_image
-    }
-    newRecord.receipt = finalImg;
-
-    
-}
+}*/
 
 const setBudget = async (req, res, next) => {
     try{
@@ -119,6 +107,20 @@ const editData = async (req, res, next) => {
         record.money = req.body.money;
         record.classification = req.body.category;
         record.description = req.body.description;
+        const file = req.file;
+        if(file){
+            //convert images into base 64 encoding
+            const img = fs.readFileSync("uploads/" + file.filename);
+            encode_image = img.toString('base64');
+
+            //create object to store data in the collection
+            let finalImg = {
+                filename: file.originalname,
+                contentType:file.mimetype,
+                imageBase64:encode_image
+            }
+            record.receipt = finalImg;
+        }
         record.save();
         return res.json({data: record})
     } catch (err) {
