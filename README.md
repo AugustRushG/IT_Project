@@ -1,69 +1,45 @@
 # RecordIt Project 
-An website Application for users to record their expenditure and income based on different categories and helps users to save money to achieve certain goals. Such as saving money to buy a car, manage income to invest and etc.
+## Table of contents
+* [Project Description](#project-description)
+* [Team Information](#team-information)
+* [Technologies](#technologies)
+* [Setup](#setup)
 
-## Available Scripts
+## Project Description
+RecordIt is a web application designed to help users keep track of their money by giving the functionalities of recording daily income and expenditures based on different categories such as rent, shopping, salary and so on. More than that, it provides a detailed analysis of users' expenditures and income based on different categories in order to give users a better way to understand where the money comes from and where the money goes. The application also provides the functionality of uploading receipts so that users don’t need to look through piles of physical receipts when they need it, don’t even mention there is this huge probability that users may already lose them.
 
-In the project directory, you can run:
+## Team Information
+### Team name
+RecordIt (Team 031)
 
-### `npm start`
+### Team members
+Product Owner: Hao Xu
+Scrum Master: Qianwen Wu
+Frontend Developers: Hao Xu, Yongxi Du, Haoran Li
+Backend Developers: Qianwen Wu, Yuhao Sun
 
-Runs the app in the development mode.\
-Open [http://localhost:3000](http://localhost:3000) to view it in your browser.
+## Technologies
+* ReactJS - v18.2.0
+* NodeJS - v16.14.2
+* ExpressJS - v4.18.2
 
-The page will reload when you make changes.\
-You may also see any lint errors in the console.
+## Setup
+There are 2 ways to get access to the project.
+### Web Application Deployment
+Open https://recordit123.netlify.app/ to view it in browser.
 
-### `npm test`
-
-Launches the test runner in the interactive watch mode.\
-See the section about [running tests](https://facebook.github.io/create-react-app/docs/running-tests) for more information.
-
-### `npm run build`
-
-Builds the app for production to the `build` folder.\
-It correctly bundles React in production mode and optimizes the build for the best performance.
-
-The build is minified and the filenames include the hashes.\
-Your app is ready to be deployed!
-
-See the section about [deployment](https://facebook.github.io/create-react-app/docs/deployment) for more information.
-
-### `npm run eject`
-
-**Note: this is a one-way operation. Once you `eject`, you can't go back!**
-
-If you aren't satisfied with the build tool and configuration choices, you can `eject` at any time. This command will remove the single build dependency from your project.
-
-Instead, it will copy all the configuration files and the transitive dependencies (webpack, Babel, ESLint, etc) right into your project so you have full control over them. All of the commands except `eject` will still work, but they will point to the copied scripts so you can tweak them. At this point you're on your own.
-
-You don't have to ever use `eject`. The curated feature set is suitable for small and middle deployments, and you shouldn't feel obligated to use this feature. However we understand that this tool wouldn't be useful if you couldn't customize it when you are ready for it.
-
-## Learn More
-
-You can learn more in the [Create React App documentation](https://facebook.github.io/create-react-app/docs/getting-started).
-
-To learn React, check out the [React documentation](https://reactjs.org/).
-
-### Code Splitting
-
-This section has moved here: [https://facebook.github.io/create-react-app/docs/code-splitting](https://facebook.github.io/create-react-app/docs/code-splitting)
-
-### Analyzing the Bundle Size
-
-This section has moved here: [https://facebook.github.io/create-react-app/docs/analyzing-the-bundle-size](https://facebook.github.io/create-react-app/docs/analyzing-the-bundle-size)
-
-### Making a Progressive Web App
-
-This section has moved here: [https://facebook.github.io/create-react-app/docs/making-a-progressive-web-app](https://facebook.github.io/create-react-app/docs/making-a-progressive-web-app)
-
-### Advanced Configuration
-
-This section has moved here: [https://facebook.github.io/create-react-app/docs/advanced-configuration](https://facebook.github.io/create-react-app/docs/advanced-configuration)
-
-### Deployment
-
-This section has moved here: [https://facebook.github.io/create-react-app/docs/deployment](https://facebook.github.io/create-react-app/docs/deployment)
-
-### `npm run build` fails to minify
-
-This section has moved here: [https://facebook.github.io/create-react-app/docs/troubleshooting#npm-run-build-fails-to-minify](https://facebook.github.io/create-react-app/docs/troubleshooting#npm-run-build-fails-to-minify)
+### Install locally
+To run this project, install it locally using npm:
+1. Open server-side server:
+```
+$ cd BACKEND
+$ npm install
+$ npm start
+```
+2. Open client-side server
+```
+$ cd BACKEND
+$ npm install
+$ npm start
+```
+3. Open http://localhost:3000 to view it in your browser.
