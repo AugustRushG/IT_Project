@@ -6,7 +6,7 @@ import {translateMoney} from './Record'
 import Modal from 'react-bootstrap/Modal';
 import { useState } from 'react'
 import Form from 'react-bootstrap/Form'
-import axios from '../api/axios'
+import axios from '../api/axios';
 import useAuth from '../hooks/useAuth';
 import { useMediaQuery } from 'react-responsive'
 
@@ -58,22 +58,19 @@ const Information = ({search,setSearch,date,setDate,expenditure,income,setRefres
       formData.append("category",category);
       formData.append("money",money);
       formData.append("description",description);
-      formData.append("image",image, image.name);
+      if(image){formData.append("image",image, image.name);}
+      setDay('');
+      setMoney1();
+      setCategory('default');
+      setDescription('');
+      setImage('');
+      
       const response = await axios.post(ADD_URL, formData,
         {
           headers:{'Content-Type':'multipart/form-data', 'Authorization':auth?.accessToken},
           withCredentials: true
         }
       );
-      /*
-      const response = await axios.post(ADD_URL, JSON.stringify({user, day,category,money,description}),
-        {
-          headers:{'Content-Type':'application/json', 'Authorization':auth?.accessToken},
-          withCredentials: true
-        }
-      );
-      */
-      
 
       console.log(response.data);
       console.log(response.accessToken);
@@ -95,11 +92,24 @@ const Information = ({search,setSearch,date,setDate,expenditure,income,setRefres
   const handleIncomeSubmit = async(e)=>{
     e.preventDefault();
     money = 1 * money1;
+    
     try{
+      const formData = new FormData();
+      formData.append("user",user);
+      formData.append("day",day);
+      formData.append("category",category);
+      formData.append("money",money);
+      formData.append("description",description);
+      if(image){formData.append("image",image, image.name);}
 
-      const response = await axios.post(ADD_URL, JSON.stringify({user, day,category,money,description}),
+      setDay('');
+      setMoney1();
+      setCategory('default');
+      setDescription('');
+      setImage('');
+      const response = await axios.post(ADD_URL, formData,
         {
-          headers:{'Content-Type':'application/json', 'Authorization':auth?.accessToken},
+          headers:{'Content-Type':'multipart/form-data', 'Authorization':auth?.accessToken},
           withCredentials: true
         }
       );
@@ -197,7 +207,7 @@ const Information = ({search,setSearch,date,setDate,expenditure,income,setRefres
             type="number"
             name="money"
             value={money1}
-            placeholder="enter money, negative if it's an expenditure"
+            placeholder="enter money"
             onChange={(e)=>setMoney1(e.target.value)}
           />
 
@@ -208,6 +218,15 @@ const Information = ({search,setSearch,date,setDate,expenditure,income,setRefres
             value={description}
             placeholder="leave a quick note if any"
             onChange={(e)=>setDescription(e.target.value)}
+            
+          />
+        <br></br>
+        <input
+            type="file"
+            name="image"
+            placeholder="Submit your receipt image if any"
+            accept=".jpg, .jpeg, .png"
+            onChange={(e)=>setImage(e.target.files[0])}
             
           />
         <br></br>
@@ -260,7 +279,7 @@ const Information = ({search,setSearch,date,setDate,expenditure,income,setRefres
             type="number"
             name="money"
             value={money1}
-            placeholder="enter money, negative if it's an expenditure"
+            placeholder="enter money"
             onChange={(e)=>setMoney1(e.target.value)}
           />
 
@@ -273,11 +292,13 @@ const Information = ({search,setSearch,date,setDate,expenditure,income,setRefres
             onChange={(e)=>setDescription(e.target.value)}
             
           />
+        <br></br>
 
         <input
             type="file"
             name="image"
             placeholder="Submit your receipt image if any"
+            accept=".jpg, .jpeg, .png"
             onChange={(e)=>setImage(e.target.files[0])}
             
           />

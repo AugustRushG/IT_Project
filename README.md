@@ -13,10 +13,10 @@ RecordIt is a web application designed to help users keep track of their money b
 RecordIt (Team 031)
 
 ### Team members
-Product Owner: Hao Xu
-Scrum Master: Qianwen Wu
-Frontend Developers: Hao Xu, Yongxi Du, Haoran Li
-Backend Developers: Qianwen Wu, Yuhao Sun
+* Product Owner: Hao Xu
+* Scrum Master: Qianwen Wu
+* Frontend Developers: Hao Xu, Yongxi Du, Haoran Li
+* Backend Developers: Qianwen Wu, Yuhao Sun
 
 ## Technologies
 * ReactJS - v18.2.0

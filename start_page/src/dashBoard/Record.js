@@ -16,7 +16,8 @@ import { useState } from 'react'
 import Form from 'react-bootstrap/Form';
 import Modal from 'react-bootstrap/Modal';
 
-import { BsXCircle,BsPencilSquare } from "react-icons/bs";
+
+import { BsXCircle,BsPencilSquare,BsFillFileEarmarkPostFill } from "react-icons/bs";
 
 
 
@@ -84,8 +85,13 @@ const Record = ({record,setRefresh}) => {
   const [money, setMoney] = useState('');
   const [description, setDescription] = useState('');
   const [recordID, setRecordID] = useState('');
+  const [image, setImage] = useState('');
   const user = auth?.user;
   const [show, setShow] = useState(false);
+  const [imgShow, setImgShow] = useState(false);
+  const [imgString,setImgString] = useState("");
+
+
   const checkDisabled=(day,money,category)=>{
     if (!day||!money||!category ){
       return false;
@@ -93,14 +99,21 @@ const Record = ({record,setRefresh}) => {
     return true;
   }
 
-  const handleSubmit = async(e)=>{
+  const handleEditSubmit = async(e)=>{
     e.preventDefault();
-    
     try{
-
-      const response = await axios.post(EDIT_URL, JSON.stringify({recordID,user, day,category,money,description}),
+      const formData = new FormData();
+      console.log(image);
+      formData.append("recordID",recordID);
+      formData.append("user",user);
+      formData.append("day",day);
+      formData.append("category",category);
+      formData.append("money",money);
+      formData.append("description",description);
+      if(image){formData.append("image",image, image.name);}
+      const response = await axios.post(EDIT_URL, formData,
         {
-          headers:{'Content-Type':'application/json', 'Authorization':auth?.accessToken},
+          headers:{'Content-Type':'multipart/form-data', 'Authorization':auth?.accessToken},
           withCredentials: true
         }
       );
@@ -119,7 +132,10 @@ const Record = ({record,setRefresh}) => {
       }
 }
 
-  
+  const showImg=()=> {
+    setImgString(record.receipt.imageBase64);
+    setImgShow(true);
+  }
 
   const showPopup=()=> {
     var dateSep= record.date.split(' ');
@@ -183,7 +199,6 @@ const Record = ({record,setRefresh}) => {
   if (aboAmount>=1000) return <div id='highlight'>${money1}</div>;
   return `${money1}`
  }
-
  
   
   return (
@@ -199,9 +214,16 @@ const Record = ({record,setRefresh}) => {
             <span className='Notes'>{(record.description)?.length<=20?record.description:`${(record.description)?.slice(0,20)}...`}</span>
                           
             <div id ='deleteContainer'>
-              <BsXCircle onClick={()=>deleteRecord(record._id)} id='deleteImg'>delete</BsXCircle>
+              <BsXCircle onClick={()=>deleteRecord(record._id)} id='deleteImg'></BsXCircle>
             </div>
-            <div id = 'editContainer'><BsPencilSquare onClick={()=>showPopup()} id='editImg'>Edit</BsPencilSquare></div>
+            <div id = 'editContainer'><BsPencilSquare onClick={()=>showPopup()} id='editImg'></BsPencilSquare></div>
+          
+            <div id = 'receiptContainer'>
+              {record.receipt
+              ? <BsFillFileEarmarkPostFill onClick={()=>showImg()} id='imageImg'></BsFillFileEarmarkPostFill>
+              : <></> }
+              
+            </div>
           </p>
           <Modal show={show} onHide={()=>setShow(false)}>
           <Modal.Header closeButton>
@@ -209,7 +231,7 @@ const Record = ({record,setRefresh}) => {
           </Modal.Header>
           <Modal.Body>
           <Form.Group >
-          <form onSubmit={handleSubmit}>
+          <form onSubmit={handleEditSubmit}>
           <p> Update Record</p >
           <input
             type="date"
@@ -254,6 +276,22 @@ const Record = ({record,setRefresh}) => {
             onChange={(e)=>setDescription(e.target.value)}
           />
           <br></br>
+
+          <input
+            type="file"
+            name="image"
+            placeholder="Submit your receipt image if any"
+            accept=".jpg, .jpeg, .png"
+            onChange={(e)=>setImage(e.target.files[0])}
+            
+          />
+        <br></br>
+
+        
+        
+        
+
+
           {checkDisabled(day,category,money)?
           <button type="submit"  onClick={()=>setShow(false)}>Submit</button>
         :
@@ -261,6 +299,17 @@ const Record = ({record,setRefresh}) => {
         </form> 
           </Form.Group>
         </Modal.Body>
+      </Modal>
+
+
+      <Modal show={imgShow} onHide={()=>setImgShow(false)}>
+          <Modal.Header closeButton>
+          <Modal.Title>This is the receipt</Modal.Title>
+          </Modal.Header>
+          <Modal.Body>
+          <br />
+        {imgString != null && <img src={`data:image;base64,${imgString}`} />}
+          </Modal.Body>
       </Modal>
         
 
