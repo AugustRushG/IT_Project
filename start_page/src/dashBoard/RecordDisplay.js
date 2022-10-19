@@ -1,5 +1,6 @@
 import React from 'react'
 import Feed from './Feed'
+import Loading from '../Loading';
 
 /**
  * Module Name:RecordDisplay.js
@@ -9,7 +10,7 @@ import Feed from './Feed'
  * Variable Accessed: 
  */
 
-const RecordDisplay = ({records,setExpenditure,date,setIncome,searchResult,setRefresh}) => {
+const RecordDisplay = ({records,setExpenditure,date,setIncome,searchResult,setRefresh,loading}) => {
 
   
   return (
@@ -21,13 +22,9 @@ const RecordDisplay = ({records,setExpenditure,date,setIncome,searchResult,setRe
       <div id='NotesContainer'><span id='Notes'>Notes</span></div>
       
       
+      {loading? <Loading type="balls" color='#fff' /> : 
       
-     
-      
-      
-
-      {/* if records exist, pass in all necessary values, otherwise show no records been recorded */}
-      {records.length?(
+      records.length?(
        
         <Feed setExpenditure={setExpenditure} date={date} setIncome={setIncome} searchResult={searchResult} records={records} setRefresh={setRefresh}></Feed>
       ):
@@ -35,6 +32,12 @@ const RecordDisplay = ({records,setExpenditure,date,setIncome,searchResult,setRe
         No Records been recorded yet.
       </p>
       }
+     
+      
+      
+
+      {/* if records exist, pass in all necessary values, otherwise show no records been recorded */}
+      
     </main>
   )
 }

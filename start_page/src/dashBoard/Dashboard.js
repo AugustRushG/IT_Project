@@ -1,8 +1,7 @@
-import React, { useEffect } from 'react'
+import React, { useEffect,useState } from 'react'
 import Information from './Information'
 import RecordDisplay from './RecordDisplay'
 import useAuth from '../hooks/useAuth'
-import { useState } from 'react'
 import { Link } from 'react-router-dom'
 import PieChart from './PieChart'
 import IncomePieChart from './IncomePieChart'
@@ -15,7 +14,8 @@ import 'react-circular-progressbar/dist/styles.css';
 import { BsArrowLeftRight} from "react-icons/bs";
 import { useMediaQuery } from 'react-responsive'
 import Form from 'react-bootstrap/Form'
-import styled from "styled-components";
+
+
 
 const BUDGET_URL = 'api/records/setBudget'
 
@@ -64,19 +64,11 @@ const Dashboard = () => {
   const [incomePieChart, setIncomePieChart] = useState(false);
 
 
-  const [sigChanges, setSigChanges] = useState(false);
+  const [loading, setIsloading] = useState(false);
 
   const [refresh,setRefresh] = useState(false);
 
-  /*const Button = styled.button`
-  background-color: black;
-  color: white;
-  font-size: 20px;
-  padding: 10px 60px;
-  border-radius: 5px;
-  margin: 10px 0px;
-  cursor: pointer;
-`;*/
+
  
   //filter the records according to the searchResult
   useEffect(()=>{
@@ -165,6 +157,7 @@ const Dashboard = () => {
     if(refresh) {
         fetchRecords();
         setRefresh(false);
+        setIsloading(false);
 
     }
 
@@ -427,15 +420,21 @@ const Dashboard = () => {
       differenceMonth[i]=thisMonth[i]-lastMonth[i];
     }
 
-    /*console.log(lastMonth);
-    console.log(differenceMonth);*/
+    console.log(lastMonth);
+    console.log(differenceMonth);
 
     var maxValue= Math.max(...differenceMonth);
+    
 
     if (maxValue<=0) return [0,0];
 
   
     var index=differenceMonth.indexOf(maxValue);
+
+    console.log(maxValue);
+    console.log(lastMonth[index]);
+
+    if (lastMonth[index]===0) return [index,maxValue];
     
     
     return [index,maxValue/lastMonth[index]*100];
@@ -505,9 +504,9 @@ const Dashboard = () => {
 
   return (
     
-    <>
-      
-      <Information search={search} setSearch={setSearch} date={date} setDate={setDate} expenditure={expenditure} income={income} setRefresh={setRefresh}/> 
+    <> 
+
+      <Information search={search} setSearch={setSearch} date={date} setDate={setDate} expenditure={expenditure} income={income} setRefresh={setRefresh} setIsloading={setIsloading}/> 
       {
       <section id='budgetSection'>
         <Button variant="primary" onClick={()=>setBudgetShow(true)}> Set Budget</Button>
@@ -516,8 +515,8 @@ const Dashboard = () => {
 
         
 
-        <h>You've used {budget_percentage*100}% of your monthly budget</h>
-        <h><CircularProgressbar value={budget_percentage} maxValue={1} text={`${budget_percentage*100 }%`} /></h>
+        <h>You've used {Number(budget_percentage*100).toFixed(2)}% of your monthly budget</h>
+        <h><CircularProgressbar value={budget_percentage} maxValue={1} text={`${Number(budget_percentage*100).toFixed(2) }%`} /></h>
      
       </section>
 
@@ -525,7 +524,7 @@ const Dashboard = () => {
        
 
 
-      <RecordDisplay records={records} setExpenditure={setExpenditure} date={date} setIncome={setIncome} searchResult={searchResult}  setRefresh={setRefresh}></RecordDisplay>
+      <RecordDisplay records={records} setExpenditure={setExpenditure} date={date} setIncome={setIncome} searchResult={searchResult}  setRefresh={setRefresh} loading={loading}></RecordDisplay>
       <div className='PieChartBackGround'> 
         <BsArrowLeftRight size={30} id="arrowDownCircle" onClick={()=>changePieChart()}/> 
         <div className='PieChartContainer'>{!incomePieChart?(<PieChart pieDataSet={pieDataSet}></PieChart>):<IncomePieChart pieDataSet={incomePieDataSet}/>}</div>
@@ -536,7 +535,7 @@ const Dashboard = () => {
       </div>
       
       
-      {!isMobile&& <div className='SigChanges'><p> Comparing from last month, you expenditure on {covertType(calculateSignificantChange(records,date)[0])} has increase by <p id='percent'>{calculateSignificantChange(records,date)[1]} % </p></p>
+      {!isMobile&& <div className='SigChanges'><p> Comparing from last month, you expenditure on {covertType(calculateSignificantChange(records,date)[0])} has increase by <p id='percent'>{Number(calculateSignificantChange(records,date)[1]).toFixed(2)} % </p></p>
      </div>}
       
       <Modal show={budgetShow} onHide={()=>setBudgetShow(false)}>

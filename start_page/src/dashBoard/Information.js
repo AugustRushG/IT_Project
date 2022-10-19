@@ -10,6 +10,20 @@ import axios from '../api/axios';
 import useAuth from '../hooks/useAuth';
 import { useMediaQuery } from 'react-responsive'
 
+
+import chooseIcon from './Record';
+import rent from './categoryIcons/rent.png';
+import medical from './categoryIcons/first-aid-kit.png';
+import transport from './categoryIcons/transportation.png';
+import shopping from './categoryIcons/online-shopping.png';
+import pet from './categoryIcons/pet.png';
+import gift from './categoryIcons/giftbox.png';
+import income from './categoryIcons/money.png';
+import other from './categoryIcons/unknown-mail.png';
+import salary from './categoryIcons/salary.png';
+import partTime from './categoryIcons/part-time.png';
+import investment from './categoryIcons/investment.png';
+
 const ADD_URL = 'api/records/add'
 
 /**
@@ -20,7 +34,7 @@ const ADD_URL = 'api/records/add'
  * Variable Accessed: 
  */
 
-const Information = ({search,setSearch,date,setDate,expenditure,income,setRefresh}) => {
+const Information = ({search,setSearch,date,setDate,expenditure,income,setRefresh, setIsloading}) => {
   // to display month in string 
   const monthNames = ["January", "February", "March", "April", "May", "June",
   "July", "August", "September", "October", "November", "December"
@@ -131,6 +145,10 @@ const Information = ({search,setSearch,date,setDate,expenditure,income,setRefres
       }
 }
 
+const negativeMoney=(money)=>{
+  return `-${money}`;
+}
+
 
 
   // get current date
@@ -153,14 +171,13 @@ const Information = ({search,setSearch,date,setDate,expenditure,income,setRefres
         <h2 className='ExpenditureDisplay'>
           Expenditure: {!isMobile&&<br/>}{translateMoney(expenditure)}
         </h2>
-        <div className='ExpenseAdd'>expense</div>
+        <div className='ExpenseAdd'>Expense</div>
         <h2 id='addContainer'> 
           <GrAdd onClick={()=>setExpenseShow(true)} className='addButton'/>
         </h2> 
-        <div className='IncomeAdd'>income</div>
+        <div className='IncomeAdd'>Income</div>
         <h2 id='incomeContainer'> 
           <GrAdd onClick={()=>setIncomeShow(true)} className='addButton'/>
-        
         </h2>
          
         
@@ -264,7 +281,7 @@ const Information = ({search,setSearch,date,setDate,expenditure,income,setRefres
             defaultValue={category}
             onChange={(e)=>setCategory(e.target.value)}>
           <option category="default" hidden>select a category</option>
-          <option category="rent">rent</option>
+          <option category="rent"> rent</option>
           <option category="transport">transport</option>
           <option category="medical">medical</option>
           <option category="shopping">shopping</option>

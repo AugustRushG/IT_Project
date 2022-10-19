@@ -174,7 +174,8 @@
    
     position: relative;
     top: 5vh;
-    height: 4vh;   
+    height: 4vh;  
+   
 }
 
 
@@ -450,8 +451,8 @@
     position: absolute;
    
     left: 47vw;
-    top: 1.2vh;
-    height: 4vh;
+    top: 1vh;
+    height: 3vh;
     width: 2.5vw;
 }
 
@@ -459,8 +460,8 @@
     position: absolute;
    
     left: 47vw;
-    top: 6.5vh;
-    height: 4vh;
+    top: 6vh;
+    height: 3vh;
     width: 2.5vw;
 }
 
@@ -509,7 +510,7 @@
     top: 0vh;
     width: 2vw;
     height: 2.3vh;
-    left: 36vw;
+    left: 35.7vw;
 }
 
 #deleteImg{
@@ -532,6 +533,9 @@
     color: red;
 }
 #deleteImg:hover{
+    color: red;
+}
+#imageImg:hover{
     color: red;
 }
 
