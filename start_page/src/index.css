@@ -189,6 +189,10 @@ button:active {
   font-size: 100%;
 }
 
+#ResetButton{
+  margin-top: 5px;
+}
+
 
 
 

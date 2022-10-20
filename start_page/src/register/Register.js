@@ -53,7 +53,7 @@ const Register = () => {
   console.log(success);
 
   const [show, setShow] = useState(false);
-  const [show1, setShow1] = useState(false);
+
 
   useEffect(()=>{userRef.current.focus();},[])
 

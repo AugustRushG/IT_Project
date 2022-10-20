@@ -2,6 +2,7 @@ import { useRef, useState, useEffect } from 'react';
 import{ useNavigate} from 'react-router-dom'; 
 import axios from '../api/axios';
 import BottomSection from '../start_page/BottomSection';
+import Button from 'react-bootstrap/Button';
 
 const AUTH_URL='/api/users/authorizeUser'
 
@@ -108,7 +109,7 @@ const Authentication = () => {
 
           
 
-        <button disabled={!user || !questionAnswer ? true : false}>ResetPassword</button>
+        <Button disabled={!user || !questionAnswer ? true : false} type='submit' style={{margin:"2px"}}>ResetPassword</Button>
 
 
         </form>

@@ -1,8 +1,11 @@
 import { useRef, useState, useEffect } from 'react';
+import { Link } from 'react-router-dom';
 import { faCheck, faTimes, faInfoCircle } from '@fortawesome/free-solid-svg-icons';
 import { FontAwesomeIcon } from '@fortawesome/react-fontawesome';
 import axios from '../api/axios';
 import BottomSection from '../start_page/BottomSection';
+import Button from 'react-bootstrap/Button';
+import Modal from 'react-bootstrap/Modal';
 
 
 const USER_REGEX = /^[A-z][A-z0-9-_]{3,23}$/;
@@ -29,6 +32,8 @@ const ResetPassword = () => {
 
   const [errMsg, setErrMsg] = useState('');
   const [success, setSuccess] = useState(false);
+
+  const [show, setShow] = useState(false);
 
   useEffect(()=>{userRef.current.focus();},[])
 
@@ -64,7 +69,7 @@ const ResetPassword = () => {
       console.log(response.data);
       console.log(response.accessToken);
       console.log(JSON.stringify(response));
-      setSuccess(true);
+      setShow(true);
     }
 
     catch(err){
@@ -81,14 +86,7 @@ const ResetPassword = () => {
 
   return (
     <>
-      {success ? (
-          <section>
-              <h1>Success!</h1>
-              <p>
-                  <a href="#">Sign In</a>
-              </p>
-          </section>
-      ) : (
+     
       <section>
         <p ref={errRef} className={errMsg? "errmsg":"offscreen"} aria-live="assertive">{errMsg}</p>
         <h1>Reset Your Password</h1>
@@ -167,7 +165,7 @@ const ResetPassword = () => {
 
 
 
-          <button disabled={!validName || !validPwd || !validMatch ? true : false}>Reset</button>
+          <Button disabled={!validName || !validPwd || !validMatch ? true : false} type='submit' id='ResetButton' >Reset</Button>
 
 
         </form>
@@ -178,7 +176,25 @@ const ResetPassword = () => {
           </span>
         </p>
       </section>
-      )}
+      
+      <Modal show={show} onHide={()=>setShow(false)}>
+          <Modal.Header closeButton>
+            <Modal.Title>Password Reset Successful</Modal.Title>
+          </Modal.Header>
+          <Modal.Body>Start enjoying RecordIt Now!</Modal.Body>
+          <Modal.Footer>
+            <Link to='/LogIn'>
+              <Button variant="primary" onClick={()=>setShow(false)}>
+                LogIn
+              </Button>
+            </Link>
+            <Link to='/'>
+              <Button variant="secondary" onClick={()=>setShow(false)}>
+                Back to home
+              </Button>
+            </Link>
+          </Modal.Footer>
+        </Modal>
       
       <BottomSection>
       </BottomSection></>

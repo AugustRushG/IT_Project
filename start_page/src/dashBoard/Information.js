@@ -11,18 +11,6 @@ import useAuth from '../hooks/useAuth';
 import { useMediaQuery } from 'react-responsive'
 
 
-import chooseIcon from './Record';
-import rent from './categoryIcons/rent.png';
-import medical from './categoryIcons/first-aid-kit.png';
-import transport from './categoryIcons/transportation.png';
-import shopping from './categoryIcons/online-shopping.png';
-import pet from './categoryIcons/pet.png';
-import gift from './categoryIcons/giftbox.png';
-import income from './categoryIcons/money.png';
-import other from './categoryIcons/unknown-mail.png';
-import salary from './categoryIcons/salary.png';
-import partTime from './categoryIcons/part-time.png';
-import investment from './categoryIcons/investment.png';
 
 const ADD_URL = 'api/records/add'
 

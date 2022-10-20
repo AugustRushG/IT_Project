@@ -4,7 +4,7 @@ import axios from '../api/axios';
 import useAuth from '../hooks/useAuth';
 import BottomSection from '../start_page/BottomSection';
 import Button from 'react-bootstrap/Button';
-import Modal from 'react-bootstrap/Modal';
+
 
 
 /**
