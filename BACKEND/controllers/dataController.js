@@ -19,7 +19,7 @@ const addData = async (req, res, next) => {
         const file = req.file;
         if(file){
             //convert images into base 64 encoding
-            const img = fs.readFileSync("uploads/" + file.filename);
+            const img = fs.readFileSync("./uploads/" + file.filename);
             encode_image = img.toString('base64');
 
             //create object to store data in the collection
@@ -110,7 +110,7 @@ const editData = async (req, res, next) => {
         const file = req.file;
         if(file){
             //convert images into base 64 encoding
-            const img = fs.readFileSync("uploads/" + file.filename);
+            const img = fs.readFileSync("./uploads/" + file.filename);
             encode_image = img.toString('base64');
 
             //create object to store data in the collection
