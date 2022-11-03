@@ -159,19 +159,25 @@ const negativeMoney=(money)=>{
         <h2 className='ExpenditureDisplay'>
           Expenditure: {!isMobile&&<br/>}{translateMoney(expenditure)}
         </h2>
-        <div className='ExpenseAdd'>Expense</div>
-        <h2 id='addContainer'> 
-          <GrAdd onClick={()=>setExpenseShow(true)} className='addButton'/>
-        </h2> 
-        <div className='IncomeAdd'>Income</div>
-        <h2 id='incomeContainer'> 
-          <GrAdd onClick={()=>setIncomeShow(true)} className='addButton'/>
-        </h2>
+
+        
+        <div className='ExpenseAdd'>Expense
+          <h2 id='addContainer'> 
+            <GrAdd onClick={()=>setExpenseShow(true)} className='addButton'/>
+          </h2> 
+        </div>
+       
+        <div className='IncomeAdd'>Income
+          <h2 id='incomeContainer'> 
+            <GrAdd onClick={()=>setIncomeShow(true)} className='addButton'/>
+          </h2>
+        </div>
+        
          
         
       </div>
       <form className='SearchForm' onSubmit={(e)=>e.preventDefault}>
-        <label htmlFor='search'><FaSearch className='FaSearch' size={25}/></label>
+        {!isMobile&&<label htmlFor='search'><FaSearch className='FaSearch' size={25}/></label>}
         <input id='search' type='text' placeholder='Search Records' value={search} onChange={(e)=>setSearch(e.target.value)} ></input>
       </form>
 

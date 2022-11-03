@@ -508,12 +508,11 @@ const Dashboard = () => {
 
       <Information search={search} setSearch={setSearch} date={date} setDate={setDate} expenditure={expenditure} income={income} setRefresh={setRefresh} setIsloading={setIsloading}/> 
       {
+        !isMobile&& 
       <section id='budgetSection'>
         <Button variant="primary" onClick={()=>setBudgetShow(true)}> Set Budget</Button>
         <h>Your monthly budget</h>
         <h2 className='BudgetMoneyDisplay'>${budget}</h2>
-
-        
 
         <h>You've used {Number(budget_percentage*100).toFixed(2)}% of your monthly budget</h>
         <h><CircularProgressbar value={budget_percentage} maxValue={1} text={`${Number(budget_percentage*100).toFixed(2) }%`} /></h>
@@ -564,24 +563,7 @@ const Dashboard = () => {
         </Modal.Body>
       </Modal>
       
-      <Modal show={show} onHide={()=>setShow(false)}>
-        <Modal.Header closeButton>
-          <Modal.Title>Registerion Successful</Modal.Title>
-        </Modal.Header>
-        <Modal.Body>Start enjoying RecordIt Now!</Modal.Body>
-        <Modal.Footer>
-          <Link to='/LogIn'>
-            <Button variant="primary" onClick={()=>setShow(false)}>
-              LogIn
-            </Button>
-          </Link>
-          <Link to='/'>
-            <Button variant="secondary" onClick={()=>setShow(false)}>
-              Back to home
-            </Button>
-          </Link>
-        </Modal.Footer>
-      </Modal>
+     
      
     </>
   )
