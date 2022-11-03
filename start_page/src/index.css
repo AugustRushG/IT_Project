@@ -11,6 +11,7 @@
   margin: 0;
   padding: 0;
   box-sizing: border-box;
+  
  
   
 }
@@ -45,102 +46,57 @@ body {
   width: 100%;
   height: 10vh;
 
+ 
+
   background: #FFFFFF; 
 }
 
-.LogIn,.Account{
+#LogIn,#SignUp,#About{
+  
+  position: relative;
  
-  position: absolute;
-
+  top: 4vh;
+  height: 4vh;
   width: 6vw;
-  min-width: 65px;
-  right: 16.5vw;
-  top: 2.5vh;
+  left: 76vw;
   margin-right: 1vw;
-
-}
-
-#LogIn{
-  width: 100%;
-  height: 4.5vh;
-  font-family: 'Inter', sans-serif;
-  font-size: 100%;
-  color: #000000;
-
-  text-align: center;
-
-}
-
-.SignUp{
   
-  position: absolute;
-  width: 6vw;
-  min-width: 65px;
-  right: 9.8vw;
-  top: 2.5vh;
-  margin-right: 10px;
-  
-
-
-}
-
-#SignUp{
-
- 
-  width: 100%;
-  height: 4.5vh;
-  font-family: 'Inter', sans-serif;
-  font-size: 100%;
-  color: #000000;
-  text-align: center;
-
 }
 
 #LogOut{
-  position: absolute;
-  width: fit-content; 
-  height: 4.5vh;
-  right: 10vw;
-  top: 2.5vh;
-  margin: auto;
-
-  font-family: 'Inter', sans-serif;
-  font-size: 100%;
-  color: #000000;
-  text-align: center;
- 
+  position: relative;
+  top: 4vh;
+  left: 90vw;
+  height: 4vh;
+  width: 7vw;
 }
 
-.About{
-  position: absolute;
-  min-width: 65px;
-  width: 5vw;
-  right: 4vw;
-  top: 2.5vh;
-  margin-left: 1vw;
+#dashboard{
+  position: relative;
+  top: 4vh;
+  left: 90vw;
+  height: 4vh;
+  width: 7vw;
 }
 
-.About > Button{
-  width: 100%;
-  height: 4.5vh;
-  font-family: 'Inter', sans-serif;
-  font-size: 100%;
-  color: #000000;
-  text-align: center;
-  
-}
+
+
+
 
 .Header h1{
   position: absolute;
   left: 2vw;
-  top: 1vh;
+  top: 2vh;
   
   font-family: 'Allerta Stencil', sans-serif;
   font-weight: 400;
   font-size: 250%;
   line-height: 61px;
+
+  width: 10vw;
   
   color: #000000;
+ 
 
 }
 
@@ -171,30 +127,20 @@ button:active {
   transform: translateY(4px);
 }
 
-.dashboard{
-  
-  position: absolute;
-  
-  min-width: 65px;
-  right: 9.8vw;
-  top: 2.5vh;
-  margin-right: 10px;
-  
-
-}
-
-#dashboard{
-  height: 4.5vh;
-  font-family: 'Inter', sans-serif;
-  font-size: 100%;
-}
 
 #ResetButton{
   margin-top: 5px;
 }
 
 
+@media all and (min-width:1200px) {
 
+
+  #LogIn,#SignUp,#About{
+    font-size: 1vw;
+  }
+
+}
 
 @media all and (max-width:1050px){
   

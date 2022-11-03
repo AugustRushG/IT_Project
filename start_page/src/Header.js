@@ -42,6 +42,8 @@ const Header = () => {
        return location.pathname.includes('/dashboard/');
     }
 
+   
+
  
 
 
@@ -108,22 +110,22 @@ const Header = () => {
 
         {isLaptop && dashboardRego() && 
         <>
-          <Button variant="warning" id='LogOut' onClick={signOut}>LogOut</Button> 
-          <Link to ='/About' className='About'><Button variant="warning" >About</Button></Link>
+          <Button variant="warning" id='LogOut' onClick={signOut}>Logout</Button> 
+          <Button variant="warning" id='About' onClick={()=>navigate("About")}>About</Button>
         </>
         }
         {isLaptop &&!auth?.user && !dashboardRego() &&
           <>
-            <Link to = '/LogIn'  className='LogIn'> <Button variant="warning" id='LogIn'>LogIn</Button></Link>
-            <Link to = '/Register' className='SignUp'> <Button variant="warning" id='SignUp'>SignUp</Button></Link>
-            <Link to ='/About' className='About'><Button variant="warning" >About</Button></Link>
+          <Button variant="warning" id='LogIn' onClick={()=>navigate("LogIn")}>LogIn</Button>
+          <Button variant="warning" id='SignUp' onClick={()=>navigate("Register")}>SignUp</Button>
+          <Button variant="warning" id='About' onClick={()=>navigate("About")}>About</Button>
           </>
         }
 
         {isLaptop &&auth?.user && !dashboardRego() &&
           <>
-            <div className='dashboard'> <Button variant="warning" id='dashboard' onClick={()=>navigate(-1)}>Dashboard</Button></div>
-            <Link to ='/About' className='About'><Button variant="warning" >About</Button></Link>
+            <Button variant="warning" id='dashboard' onClick={()=>navigate(-1)}>Dashboard</Button>
+            <Button variant="warning" id='About' onClick={()=>navigate("About")}>About</Button>
           </>
         }
             
