@@ -776,10 +776,11 @@ and (max-device-width: 480px){
         
         position: absolute;
         
-        left: 18vw;
+        
        
         height: 2vh;
         top: -0.2vh;
+        margin-left: 17vw;
         
        
     }
