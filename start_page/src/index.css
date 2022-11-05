@@ -55,7 +55,7 @@ body {
   
   position: relative;
  
-  top: 4vh;
+  top: -3vh;
   height: 4vh;
   width: 6vw;
   left: 76vw;
@@ -65,7 +65,7 @@ body {
 
 #LogOut{
   position: relative;
-  top: 4vh;
+  top: -3vh;
   left: 90vw;
   height: 4vh;
   width: 7vw;
@@ -73,25 +73,22 @@ body {
 
 #dashboard{
   position: relative;
-  top: 4vh;
+  top: -3vh;
   left: 90vw;
   height: 4vh;
   width: 7vw;
 }
 
 
-
-
-
 .Header h1{
-  position: absolute;
+  position: relative;
   left: 2vw;
   top: 2vh;
   
   font-family: 'Allerta Stencil', sans-serif;
   font-weight: 400;
-  font-size: 250%;
-  line-height: 61px;
+  font-size: 3vw;
+ 
 
   width: 10vw;
   
@@ -132,72 +129,71 @@ button:active {
   margin-top: 5px;
 }
 
+.dropDownContainer{
+ 
+  position: absolute;
+  left: 85vw;
+  top: 1vh;
+  
 
-@media all and (min-width:1200px) {
+  width: 5vw;
+  height: 9vh;
+  
+}
+
+
+@media all and (min-width:1024px) {
 
 
   #LogIn,#SignUp,#About{
     font-size: 1vw;
   }
 
-}
-
-@media all and (max-width:1050px){
   
-.SignUp{
   
-  position: absolute;
-  width: 8vw;
-  right: 13.5vw;
-  top: 2.5vh;
-  margin-left: 1vw;
-
 
 }
 
-.LogIn,.Account{
+
+
+
+
+
+
+@media only screen 
+  and (min-device-width: 768px) 
+  and (max-device-width: 1024px) 
+  and (-webkit-min-device-pixel-ratio: 1) {
+
+      
+
+.dropDownContainer{
  
   position: absolute;
-
-  width: 8vw;
- 
-  right: 23.5vw;
+  left: 85vw;
   top: 2.5vh;
-  margin-left: 2vw;
+  
 
+  width: 5vw;
+  height: 9vh;
 }
 
-.About{
+.Header h1{
   position: absolute;
-  width: 8vw;
-  right: 4vw;
-  top: 2.5vh;
-  margin-left: 5vw;
-}
+  left: 2vw;
+  top: 1vh;
+  
+  font-family: 'Allerta Stencil', sans-serif;
+  font-weight: 400;
+  font-size: 5vw;
 
-#LogOut{
-  position: absolute;
-  width: fit-content; 
-  height: 4.5vh;
-  right: 14vw;
-  top: 2.5vh;
-  margin: auto;
-
-  font-family: 'Inter', sans-serif;
-  font-size: 100%;
+  width: 10vw;
+  
   color: #000000;
-  text-align: center;
  
+ 
+
 }
-
-#dropdown{
-  position: absolute;
-  right: 5vw;
-  top: 2.5vh;
-}
-
-
-
 
 }
 

@@ -25,8 +25,8 @@ const Header = () => {
     const navigate=useNavigate();
     const logOut=useLogOut();
 
-    const isMobileOrTablet = useMediaQuery({ query: '(max-width: 1000px)' })
-    const isLaptop = useMediaQuery({ query: '(min-width: 1000px)' })
+    const isMobileOrTablet = useMediaQuery({ query: '(max-width: 1024px)' })
+    const isLaptop = useMediaQuery({ query: '(min-width: 1024px)' })
 
   
 
@@ -56,20 +56,23 @@ const Header = () => {
         <Link to='/' style={{color:'black'}}><h1 className='RecordIt'>RecordIt</h1></Link>
 
         {isMobileOrTablet && !auth?.user && !dashboardRego() &&
-          <Dropdown id='dropdown' align="end">
-          <Dropdown.Toggle variant="warning" id="dropdown-basic">
-            Menu
-          </Dropdown.Toggle>
-          
-          <Dropdown.Menu>
-            <Dropdown.Item href="/LogIn">LogIn</Dropdown.Item>
-            <Dropdown.Item href="/Register">SignUp</Dropdown.Item>
-            <Dropdown.Item href="/About">About</Dropdown.Item>
-          </Dropdown.Menu>
-        </Dropdown>
+          <div className="dropDownContainer">
+            <Dropdown id='dropdown' align="end">
+            <Dropdown.Toggle variant="warning" id="dropdown-basic">
+              Menu
+            </Dropdown.Toggle>
+            
+            <Dropdown.Menu>
+              <Dropdown.Item href="/LogIn">LogIn</Dropdown.Item>
+              <Dropdown.Item href="/Register">SignUp</Dropdown.Item>
+              <Dropdown.Item href="/About">About</Dropdown.Item>
+            </Dropdown.Menu>
+            </Dropdown>
+          </div>
         }
 
         {isMobileOrTablet && !auth?.user && dashboardRego() &&
+        <div className="dropDownContainer">
           <Dropdown id='dropdown' align="end">
           <Dropdown.Toggle variant="warning" id="dropdown-basic">
             Menu
@@ -80,9 +83,11 @@ const Header = () => {
             <Dropdown.Item href="/About">About</Dropdown.Item>
           </Dropdown.Menu>
         </Dropdown>
+        </div>
         }
 
         {isMobileOrTablet && auth?.user && !dashboardRego() &&
+        <div className="dropDownContainer">
           <Dropdown id='dropdown' align="end">
           <Dropdown.Toggle variant="warning" id="dropdown-basic">
             Menu
@@ -93,9 +98,11 @@ const Header = () => {
             <Dropdown.Item href="/About">About</Dropdown.Item>
           </Dropdown.Menu>
         </Dropdown>
+        </div>
         }
 
         {isMobileOrTablet && auth?.user && dashboardRego() &&
+        <div className="dropDownContainer">
           <Dropdown id='dropdown' align="end">
           <Dropdown.Toggle variant="warning" id="dropdown-basic">
             Menu
@@ -106,6 +113,7 @@ const Header = () => {
             <Dropdown.Item href="/About">About</Dropdown.Item>
           </Dropdown.Menu>
         </Dropdown>
+        </div>
         }
 
         {isLaptop && dashboardRego() && 
