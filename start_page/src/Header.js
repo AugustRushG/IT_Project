@@ -55,7 +55,7 @@ const Header = () => {
       <header className='Header'>
         <Link to='/' style={{color:'black'}}><h1 className='RecordIt'>RecordIt</h1></Link>
 
-        {isMobileOrTablet && !auth?.user && !dashboardRego() &&
+        {isMobileOrTablet  && !auth?.user && !dashboardRego() &&
           <div className="dropDownContainer">
             <Dropdown id='dropdown' align="end">
             <Dropdown.Toggle variant="warning" id="dropdown-basic">
@@ -116,13 +116,13 @@ const Header = () => {
         </div>
         }
 
-        {isLaptop && dashboardRego() && 
+        {isLaptop && !isMobileOrTablet && dashboardRego() && 
         <>
           <Button variant="warning" id='LogOut' onClick={signOut}>Logout</Button> 
           <Button variant="warning" id='About' onClick={()=>navigate("About")}>About</Button>
         </>
         }
-        {isLaptop &&!auth?.user && !dashboardRego() &&
+        {isLaptop && !isMobileOrTablet &&!auth?.user && !dashboardRego() &&
           <>
           <Button variant="warning" id='LogIn' onClick={()=>navigate("LogIn")}>LogIn</Button>
           <Button variant="warning" id='SignUp' onClick={()=>navigate("Register")}>SignUp</Button>
@@ -130,7 +130,7 @@ const Header = () => {
           </>
         }
 
-        {isLaptop &&auth?.user && !dashboardRego() &&
+        {isLaptop  && !isMobileOrTablet &&auth?.user && !dashboardRego() &&
           <>
             <Button variant="warning" id='dashboard' onClick={()=>navigate(-1)}>Dashboard</Button>
             <Button variant="warning" id='About' onClick={()=>navigate("About")}>About</Button>

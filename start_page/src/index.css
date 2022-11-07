@@ -142,6 +142,63 @@ button:active {
 }
 
 
+@media screen 
+  and (min-device-width: 2560px) 
+  and (-webkit-min-device-pixel-ratio: 1) { 
+
+    .Header h1{
+      position: relative;
+      left: 2vw;
+      top: 1vh;
+     
+    }
+
+    #LogIn,#SignUp,#About{
+  
+      position: relative;
+     
+      top: -6vh;
+      height: 5vh;
+     
+      
+    }
+    
+    #LogOut{
+      position: relative;
+      top: -6vh;
+      left: 90vw;
+      height: 5vh;
+     
+    }
+    
+    
+
+
+}
+
+@media screen 
+and (min-device-width: 1200px) 
+and (max-device-width: 1600px) 
+and (-webkit-min-device-pixel-ratio: 1){
+
+  #LogIn,#SignUp,#About{
+    
+    width: 6vw;
+   
+    
+  }
+  
+  #LogOut{
+    
+    width: 6vw;
+   
+  }
+
+  
+  
+}
+
+
 @media all and (min-width:1024px) {
 
 
@@ -197,68 +254,86 @@ button:active {
 
 }
 
-@media all and (max-width:400px){
-  .Header h1{
-    
-    position: absolute;
-    left: 2vw;
-    top: 1vh;
-    
-    font-family: 'Allerta Stencil', sans-serif;
-    font-weight: 400;
-    font-size: 150%;
-    line-height: 61px;
-    
-    color: #000000;
-  
-  }
 
-  .SignUp{
-  
-    position: absolute;
-    width: 8vw;
-    right: 20.5vw;
-    top: 2.5vh;
-    margin-left: 1vw;
-  
-  
-  }
-  
-  .LogIn,.Account{
-   
-    position: absolute;
-  
-    width: 8vw;
-   
-    right: 30.5vw;
-    top: 2.5vh;
-    margin-left: 2vw;
-  
-  }
-  
-  .About{
-    position: absolute;
-    width: 8vw;
-    right: 4vw;
-    top: 2.5vh;
-    margin-left: 5vw;
-  }
-  
-  #LogOut{
-    position: absolute;
-    width: fit-content; 
-    height: 4.5vh;
-    right: 14vw;
-    top: 2.5vh;
-    margin: auto;
-  
-    font-family: 'Inter', sans-serif;
-    font-size: 100%;
-    color: #000000;
-    text-align: center;
-   
-  }
+@media only screen 
+  and (min-device-width: 320px) 
+  and (max-device-width: 480px)
+  and (-webkit-min-device-pixel-ratio: 2) {
 
+    .Header h1{
+    
+      position: absolute;
+      left: 2vw;
+      top: 1vh;
+      
+      font-family: 'Allerta Stencil', sans-serif;
+      font-weight: 400;
+      font-size: 8vw;
+      line-height: 61px;
+      
+      color: #000000;
+    
+    }
+  
+    .SignUp{
+    
+      position: absolute;
+      width: 8vw;
+      right: 20.5vw;
+      top: 2.5vh;
+      margin-left: 1vw;
+    
+    
+    }
+    
+    .LogIn,.Account{
+     
+      position: absolute;
+    
+      width: 8vw;
+     
+      right: 30.5vw;
+      top: 2.5vh;
+      margin-left: 2vw;
+    
+    }
+    
+    .About{
+      position: absolute;
+      width: 8vw;
+      right: 4vw;
+      top: 2.5vh;
+      margin-left: 5vw;
+    }
+    
+    #LogOut{
+      position: absolute;
+      width: fit-content; 
+      height: 4.5vh;
+      right: 14vw;
+      top: 2.5vh;
+      margin: auto;
+    
+      font-family: 'Inter', sans-serif;
+      font-size: 100%;
+      color: #000000;
+      text-align: center;
+     
+    }
+
+    .dropDownContainer{
+ 
+      position: absolute;
+      left: 75vw;
+      top: 2.5vh;
+      
+    
+      width: 5vw;
+      height: 9vh;
+      
+    }
+    
+  
 
 }
   
