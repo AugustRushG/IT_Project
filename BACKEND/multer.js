@@ -14,6 +14,7 @@ const storage = multer.diskStorage({
 
 const isImage = (req,file,callback) => {
     if(file.mimetype.split('/')[0] == 'image'){
+        
         callback(null,true);
     } else {
         callback(new Error('Only image is Allowed.'));
@@ -22,6 +23,7 @@ const isImage = (req,file,callback) => {
 
 const upload = multer({
     storage:storage,
+    limits: {fieldSize: 500 * 1024},
     fileFilter:isImage
 });
 
